@@ -23,6 +23,7 @@ public class IconsCache {
 	private AtomicInteger counter = new AtomicInteger();
 	
 	private static IconsCache instance = new IconsCache();
+	private IconsCache(){}
 	public static IconsCache getInstance(){
 		return instance;
 	}

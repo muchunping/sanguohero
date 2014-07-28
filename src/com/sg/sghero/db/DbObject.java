@@ -25,8 +25,22 @@ public abstract class DbObject {
 	/**
 	 * 从{@link ContentValues}中取出值赋予对象对应属性
 	 */
-	protected abstract void createFromContentValues(ContentValues cv);
-	
+	protected void createFromContentValues(ContentValues cv){
+		Integer i;
+		String s;
+		
+		i = cv.getAsInteger(FIELD_CODE);
+		if (i != null) code = i;
+
+		s = cv.getAsString(FIELD_NAME);
+		if (s != null) name = s;
+	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
+
 	public static final String FIELD_CODE = "code";
 	public static final String FIELD_NAME = "name";
 	

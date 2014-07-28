@@ -39,7 +39,7 @@ public class Actor extends DbObject{
 
 	@Override
 	protected void createFromContentValues(ContentValues cv) {
-		
+		super.createFromContentValues(cv);
 	}
 
 	public static final String FIELD_HP = "hp";

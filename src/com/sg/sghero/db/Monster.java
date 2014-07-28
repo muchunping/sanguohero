@@ -15,6 +15,7 @@ public class Monster extends Actor {
 
 	@Override
 	protected void createFromContentValues(ContentValues cv) {
+		super.createFromContentValues(cv);
 		Integer i;
 		Float f;
 		String s;

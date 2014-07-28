@@ -9,6 +9,32 @@
     <string name="session_create_player_04">好吧，你诞生在了一个%1$s中，不过你还小，你以后想做什么呢？</string>
     <string name="session_create_player_05">经过漫长的等待，你终于能开始去改写这个时代了，那么你要从哪儿开始呢？</string>
     <string name="next">下一步</string>
+    <string name="joinworld">进入游戏</string>
+    
+    <string name="action_settings">设置</string>
+    <string name="action_exit">出口</string>
+    <string name="action_battle">寻怪</string>
+    <string name="action_merchandise">交易</string>
+    <string name="action_rest">休息</string>
+    <string name="action_inquire">打听</string>
+    <string name="action_entrust">委托</string>
+    
+    <string-array name="planets_array">
+        <item>@string/role</item>
+        <item>@string/equipment</item>
+        <item>@string/luggage</item>
+        <item>@string/task</item>
+        <item>@string/skill</item>
+        <item>@string/pet</item>
+        <item>@string/system</item>
+    </string-array>
+    <string name="role">角色</string>
+    <string name="luggage">包裹</string>
+    <string name="equipment">装备</string>
+    <string name="task">任务</string>
+    <string name="skill">技能</string>
+    <string name="pet">宠物</string>
+    <string name="system">系统</string>
     
     <string-array name="way_life">
         <item >用武力征服全国</item>

@@ -42,22 +42,27 @@ public class DataProvider {
 	}
 
 	public void open() {
-		File file = context.getDatabasePath(DB_NAME);
-		if(!file.exists())
-			updateDatabase();
-		String path = file.getPath();
-		mDb = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READONLY);
-		int oldVersion = mDb.getVersion();
-		if(oldVersion < DB_VERSION){
-			mDb.close();
-			updateDatabase();
+		synchronized (this) {
+			File file = context.getDatabasePath(DB_NAME);
+			if(!file.exists())
+				updateDatabase();
+			String path = file.getPath();
 			mDb = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READONLY);
-//			mDb.setVersion(DB_VERSION);
+			int oldVersion = mDb.getVersion();
+			if(oldVersion < DB_VERSION){
+				mDb.close();
+				updateDatabase();
+				mDb = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READONLY);
+	//			mDb.setVersion(DB_VERSION);
+			}
 		}
 	}
 
 	public void close() {
-		mDb.close();
+		if (mDb != null && mDb.isOpen()) {
+			mDb.close();
+			mDb = null;
+        }
 	}
 	
 	public Scene queryScene(String where){
@@ -69,6 +74,37 @@ public class DataProvider {
 		s.createFromCursor(c);
 		c.close();
 		return s;
+	}
+	
+	public Scene[] queryAllScene(){
+		Cursor c = mDb.query(Scene.TABLE_NAME, null, null, null, null, null, null);
+		if(c == null) return null;
+		if(c.getCount() <= 0) return null;
+		
+		Scene[] ss = new Scene[c.getCount()];
+		for (int i = 0; i < ss.length; i++) {
+			if(!c.moveToNext()) break;
+			ss[i] = new Scene();
+			ss[i].createFromCursor(c);
+		}
+		c.close();
+		return ss;
+	}
+	
+	public Scene[] querySceneList(int[] codeList){
+		String where = SystemActor.FIELD_CODE + " in" + translateIntArray(codeList);
+		Cursor c = mDb.query(Scene.TABLE_NAME, null, where, null, null, null, null);
+		if(c == null) return null;
+		if(c.getCount() <= 0) return null;
+		
+		Scene[] ss = new Scene[c.getCount()];
+		for (int i = 0; i < ss.length; i++) {
+			if(!c.moveToNext()) break;
+			ss[i] = new Scene();
+			ss[i].createFromCursor(c);
+		}
+		c.close();
+		return ss;
 	}
 	
 	public Monster[] queryMonster(String where){
@@ -87,8 +123,10 @@ public class DataProvider {
 	}
 	
 	
-	public SystemActor[] querySysActor(){
-		Cursor c = mDb.query(SystemActor.TABLE_NAME, null, null, null, null, null, null);
+	public SystemActor[] querySysActor(int[] npclist){
+		if(npclist == null) return new SystemActor[0];
+		String where = SystemActor.FIELD_CODE + " in" + translateIntArray(npclist);
+		Cursor c = mDb.query(SystemActor.TABLE_NAME, null, where, null, null, null, null);
 		if(c == null) return null;
 		if(c.getCount() <= 0) return null;
 		
@@ -100,5 +138,17 @@ public class DataProvider {
 		}
 		c.close();
 		return sa;
+	}
+	
+	private String translateIntArray(int[] array){
+		StringBuilder builder = new StringBuilder();
+		builder.append("(");
+		for (int i = 0; i < array.length - 1; i++) {
+			builder.append(array[i]);
+			builder.append(",");
+		}
+		builder.append(array[array.length - 1]);
+		builder.append(")");
+		return builder.toString();
 	}
 }
