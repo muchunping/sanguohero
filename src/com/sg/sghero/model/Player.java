@@ -2,14 +2,14 @@ package com.sg.sghero.model;
 
 import com.sg.sghero.db.Actor;
 import com.sg.sghero.db.Equipment;
+import com.sg.sghero.db.Scene;
 import com.sg.sghero.model.WearSlot.OnWearChangedListener;
 import com.sg.sghero.model.WearSlot.SlotType;
 import com.sg.sghero.util.Range;
 
 public class Player extends Actor{
-	private int level;
 	private int experience;
-	private int location;
+	private Scene location;
 
 	private int strength;
 	private int wisdom;
@@ -23,8 +23,7 @@ public class Player extends Actor{
 		super();
 		super.name = name;
 		level = 1;
-		experience = 0;
-		location = 100;
+		experience = 1;
 
 		strength = 10;
 		wisdom = 10;
@@ -32,7 +31,7 @@ public class Player extends Actor{
 		physique = 10;
 
 		fightTraits.HP = new Range(100, 100);
-		fightTraits.MP = new Range(100, 100);
+		fightTraits.MP = new Range(50, 40);
 		fightTraits.PA = 40;
 		fightTraits.MA = 40;
 		fightTraits.BAT = 1.5f;
@@ -82,13 +81,9 @@ public class Player extends Actor{
 	public boolean canLevelup() {
 		return experience >= getRequiredExperienceForNextLevel(level);
 	}
-
-	public int getLevel() {
-		return level;
-	}
 	
 	/**
-	 * Éý¼¶£º¼¶±ð+1£¬¾­ÑéÖµ¼õÈ¥Éý¼¶ËùÐè¾­Ñé£¬ÆäËüÉè¶¨£¨ÀýÈçÑªÁ¿Ä§·¨È«Âú£¬»ñµÃÊôÐÔÌáÉýºÍ¿É·ÖÅäµãÊý£©
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½+1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½è¾­ï¿½é£¬ï¿½ï¿½ï¿½ï¿½ï¿½è¶¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñªï¿½ï¿½Ä§ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¿É·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public int levelUp() {
 		experience -= getRequiredExperienceForNextLevel(level);
@@ -107,11 +102,11 @@ public class Player extends Actor{
 	/**
 	 * @return Scene code
 	 */
-	public int getLocation() {
+	public Scene getLocation() {
 		return location;
 	}
 
-	public void setLocation(int location) {
+	public void setLocation(Scene location) {
 		this.location = location;
 	}
 

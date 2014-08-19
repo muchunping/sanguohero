@@ -6,6 +6,8 @@ package com.sg.sghero.resoure;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.sg.sghero.util.ILog;
+
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;
@@ -28,7 +30,7 @@ public class IconsCache {
 		return instance;
 	}
 	
-	/**Ïò»º´æÖÐ´æÍ¼Æ¬*/
+	/**ï¿½ò»º´ï¿½ï¿½Ð´ï¿½Í¼Æ¬*/
 	public void cacheIconsFromResourceFile(Resources r, IconResourceFile iconFile){
 		files.put(iconFile.getName(), iconFile);
 		
@@ -52,9 +54,14 @@ public class IconsCache {
 		source.recycle();
 	}
 	
-	/**´Ó»º´æÖÐÈ¡Í¼Æ¬*/
+	/**ï¿½Ó»ï¿½ï¿½ï¿½ï¿½ï¿½È¡Í¼Æ¬*/
 	public Bitmap getIconByFileAndLocalId(Resources r, String name, int localId){
-		int globalId = gidPerFiles.get(name).get(localId);
+		SparseIntArray file = gidPerFiles.get(name);
+		if(file == null) {
+			ILog.e("Cannot find the file named " + name);
+			return null;
+		}
+		int globalId = file.get(localId);
 		Bitmap result = cache.get(globalId);
 		if(result == null){
 			result = createSingleIcon(r, files.get(name), localId);

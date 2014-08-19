@@ -3,8 +3,10 @@ package com.sg.sghero.db;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public abstract class DbObject {
+public abstract class DbObject implements Parcelable{
 	protected int code;
 	protected String name;
 
@@ -16,14 +18,14 @@ public abstract class DbObject {
 		return name;
 	}
 
-	public void createFromCursor(Cursor c) {
+	public final void createFromCursor(Cursor c) {
 		ContentValues cv = new ContentValues(c.getColumnCount());
 		DatabaseUtils.cursorRowToContentValues(c, cv);
 		createFromContentValues(cv);
 	}
 
 	/**
-	 * ´Ó{@link ContentValues}ÖÐÈ¡³öÖµ¸³Óè¶ÔÏó¶ÔÓ¦ÊôÐÔ
+	 * ï¿½ï¿½{@link ContentValues}ï¿½ï¿½È¡ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
 	 */
 	protected void createFromContentValues(ContentValues cv){
 		Integer i;
@@ -39,6 +41,17 @@ public abstract class DbObject {
 	@Override
 	public String toString() {
 		return name;
+	}
+	
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeInt(code);
+		dest.writeString(name);
+	}
+	
+	@Override
+	public int describeContents() {
+		return 0;
 	}
 
 	public static final String FIELD_CODE = "code";

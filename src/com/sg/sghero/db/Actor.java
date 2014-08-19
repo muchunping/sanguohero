@@ -27,27 +27,60 @@ public class Actor extends DbObject{
 		}
 	}
 	
-	public Actor() {
-		fightTraits = new FightTraits();
-	}
-	
+	protected int level;
 	protected FightTraits fightTraits;
 	
-	public FightTraits getFightTraits(){
+	public Actor() {
+		fightTraits = new FightTraits();
+		level = 0;
+	}
+	
+	public final FightTraits getFightTraits(){
 		return fightTraits;
+	}
+	
+	public final int getLevel(){
+		return level;
 	}
 
 	@Override
 	protected void createFromContentValues(ContentValues cv) {
 		super.createFromContentValues(cv);
+		Integer i;
+		Float f;
+		
+		i = cv.getAsInteger(FIELD_HP);
+		if(i != null) fightTraits.HP = new Range(i, i);
+				
+		i = cv.getAsInteger(FIELD_MP);
+		if(i != null) fightTraits.MP = new Range(i, i);
+		
+		i = cv.getAsInteger(FIELD_PA);
+		if(i != null) fightTraits.PA = i;
+		
+		i = cv.getAsInteger(FIELD_DEF);
+		if(i != null) fightTraits.DEF = i;
+		
+		i = cv.getAsInteger(FIELD_ACC);
+		if(i != null) fightTraits.ACC = i;
+		
+		i = cv.getAsInteger(FIELD_DOD);
+		if(i != null) fightTraits.DOD = i;
+		
+		f = cv.getAsFloat(FIELD_BAT);
+		if(f != null) fightTraits.BAT = f;
+		
+		i = cv.getAsInteger(FIELD_LEVEL);
+		if(i != null) level = i;
 	}
 
 	public static final String FIELD_HP = "hp";
 	public static final String FIELD_MP = "mp";
-	public static final String FIELD_PA = "pa";
+	public static final String FIELD_PA = "attack";
 	public static final String FIELD_MA = "ma";
-	public static final String FIELD_BAT = "bat";
-	public static final String FIELD_DEF = "def";
-	public static final String FIELD_ACC = "acc";
-	public static final String FIELD_DOD = "dod";
+	public static final String FIELD_BAT = "speed";
+	public static final String FIELD_DEF = "defense";
+	public static final String FIELD_ACC = "accuracy";
+	public static final String FIELD_DOD = "dodge";
+	public static final String FIELD_LEVEL = "level";
 }

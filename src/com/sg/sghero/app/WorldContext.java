@@ -52,6 +52,9 @@ public class WorldContext {
 		IconResourceFile iconFile = new IconResourceFile(r, R.drawable.items_consumables, new Size(14, 5), iconSize);
 		iconsCache.cacheIconsFromResourceFile(r, iconFile);
 		
+		notifyLoadingListener(0, "Begin parse props");
+		
+		
 		notifyLoadingListener(100, "Load has done");
 		isLoading = false;
 		hasLoaded = true;
@@ -68,14 +71,14 @@ public class WorldContext {
 		public void sceneChanged(Scene newScene);
 	}
 	private Scene currentScene;
-	private Player player;
+	public Player player;
 	private OnSceneChangeListener sceneChangeListener;
 	public void initWorld(Context c, Scene scene, String name, String family, String idear, String style){
 		currentScene = scene;
 		currentScene.rebuild(new DataProvider(c));
 		
 		player = new Player(name);
-		player.setLocation(currentScene.getCode());
+		player.setLocation(currentScene);
 	}
 	
 	public Scene getCurrentScene(){
@@ -85,7 +88,7 @@ public class WorldContext {
 	public void enterNewScene(Context c, Scene newScene){
 		currentScene = newScene;
 		currentScene.rebuild(new DataProvider(c));
-		player.setLocation(currentScene.getCode());
+		player.setLocation(currentScene);
 		if(sceneChangeListener != null)
 			sceneChangeListener.sceneChanged(newScene);
 	}

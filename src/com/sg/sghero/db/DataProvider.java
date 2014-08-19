@@ -140,6 +140,21 @@ public class DataProvider {
 		return sa;
 	}
 	
+	public Consumables[] queryAllConsumables(){
+		Cursor c = mDb.query(Consumables.TABLE_NAME, null, null, null, null, null, null);
+		if(c == null) return null;
+		if(c.getCount() <= 0)return null;
+		
+		Consumables[] cs = new Consumables[c.getCount()];
+		for (int i = 0; i < cs.length; i++) {
+			if(!c.moveToNext()) break;
+			cs[i] = new Consumables();
+			cs[i].createFromCursor(c);
+		}
+		c.close();
+		return cs;
+	}
+	
 	private String translateIntArray(int[] array){
 		StringBuilder builder = new StringBuilder();
 		builder.append("(");

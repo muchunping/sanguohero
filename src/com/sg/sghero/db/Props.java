@@ -3,17 +3,32 @@ package com.sg.sghero.db;
 import android.content.ContentValues;
 
 /**
- * 道具类，子类有装备、任务物品、消耗品、收集品
+ * 
  */
 public abstract class Props extends DbObject {
+	public enum Type{
+		consumbables,
+		equipment
+	}
+	
 	protected boolean stackable = false;
-	private int amount = 1;
-	private boolean useable = false;
-	private String photo;
+	protected int amount = 1;
+	protected boolean useable = false;
+	private String photoString;
+	protected Type type;
+	private int price;
 
 	@Override
 	protected void createFromContentValues(ContentValues cv) {
-
+		super.createFromContentValues(cv);
+		Integer i;
+		String s;
+		
+		i = cv.getAsInteger(FIELD_PRICE);
+		if (i != null) price = i;
+		
+		s = cv.getAsString(FILED_PHOTO);
+		if(s != null) photoString = s;
 	}
 	
 
@@ -34,13 +49,17 @@ public abstract class Props extends DbObject {
 		return useable;
 	}
 	public String getPhotoString() {
-		return photo;
+		return photoString;
 	}
-
-
-	public static final String TABLE_NAME = "props";
+	public int getPrice() {
+		return price;
+	}
+	
 	public static final String FIELD_STACKABLE = "stackable";
 	public static final String FIELD_AMOUNT = "amount";
 	public static final String FILED_USEABLE = "useable";
 	public static final String FILED_PHOTO = "photo";
+	public static final String FIELD_PRICE = "price";
+	public static final String PHOTO_SYMBOL = "\\|";
+	public static final String PHOTO_PREFIX = "com.sg.sanguohero:drawable/items_";
 }

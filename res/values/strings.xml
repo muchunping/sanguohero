@@ -19,6 +19,17 @@
     <string name="action_inquire">打听</string>
     <string name="action_entrust">委托</string>
     
+    <string name="attack">攻击</string>
+    <string name="defense">防御</string>
+    <string name="accuracy">命中</string>
+    <string name="dodge">闪避</string>
+    <string name="speed">速度</string>
+    <string name="vs">VS</string>
+    <string name="hero">英雄</string>
+    <string name="millennium_snake">千年蛇妖</string>
+    
+    <string name="price_gold">价格: %1$s金币</string>
+    
     <string-array name="planets_array">
         <item>@string/role</item>
         <item>@string/equipment</item>

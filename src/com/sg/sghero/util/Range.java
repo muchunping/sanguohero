@@ -83,6 +83,9 @@ public final class Range {
 	public float averagef() {
 		return ((float) max + current) / 2f;
 	}
+	public float percentage(){
+		return (float)current / max;
+	}
 
 
 	// ====== PARCELABLE ===================================================================

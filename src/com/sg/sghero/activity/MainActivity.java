@@ -1,6 +1,12 @@
 package com.sg.sghero.activity;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -13,6 +19,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -23,8 +30,15 @@ import com.sg.sghero.app.Action;
 import com.sg.sghero.app.SgApplication;
 import com.sg.sghero.app.WorldContext;
 import com.sg.sghero.app.WorldContext.OnSceneChangeListener;
+import com.sg.sghero.db.Consumables;
+import com.sg.sghero.db.DataProvider;
+import com.sg.sghero.db.Monster;
+import com.sg.sghero.db.Props;
 import com.sg.sghero.db.Scene;
 import com.sg.sghero.db.SystemActor;
+import com.sg.sghero.resoure.IconsCache;
+import com.sg.sghero.util.ILog;
+import com.sg.sghero.view.PlayerInfoView;
 import com.sg.sghero.view.PropsView;
 
 public class MainActivity extends Activity implements OnSceneChangeListener, OnItemClickListener {
@@ -34,6 +48,7 @@ public class MainActivity extends Activity implements OnSceneChangeListener, OnI
 	private PopupWindow panel;
 	private ListView npcListView;
 	private FrameLayout popupLayout;
+	private DataProvider dataProvider;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +58,8 @@ public class MainActivity extends Activity implements OnSceneChangeListener, OnI
 		world.setSceneChangeListener(this);
 		scene = world.getCurrentScene();
 		setTitle(scene.getName());
+		
+		dataProvider = new DataProvider(this);
 		
 		setContentView(R.layout.activity_main);
 		
@@ -74,6 +91,18 @@ public class MainActivity extends Activity implements OnSceneChangeListener, OnI
 		panel.setFocusable(true);
 		panel.setWindowLayoutMode(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 		popupLayout = (FrameLayout) findViewById(R.id.popupLayout);
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		dataProvider.open();
+	}
+	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		dataProvider.close();
 	}
 	
 	@Override
@@ -109,6 +138,15 @@ public class MainActivity extends Activity implements OnSceneChangeListener, OnI
 			return true;
 		case 1:
 			Toast.makeText(this, "开始战斗", Toast.LENGTH_SHORT).show();
+			String where = Monster.FIELD_LOCATION + "=" + scene.getCode();
+			Monster[] monsters = dataProvider.queryMonster(where);
+			int random = (int)(Math.random() * monsters.length);
+			final Monster monster = monsters[random];
+			ILog.i("你寻到了一只"  + monster.getName() + "!");
+			Intent intent = new Intent(this, BattleActivity.class);
+			intent.putExtra("actor1", world.player);
+			intent.putExtra("actor2", monster);
+			startActivity(intent);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -120,6 +158,7 @@ public class MainActivity extends Activity implements OnSceneChangeListener, OnI
 		if(popupLayout.isShown()){
 			popupLayout.removeAllViews();
 			popupLayout.setVisibility(View.GONE);
+			return ;
 		}
 		super.onBackPressed();
 	}
@@ -155,7 +194,7 @@ public class MainActivity extends Activity implements OnSceneChangeListener, OnI
 				break;
 			}
 			if (b)
-				return;
+				panel.showAtLocation(findViewById(R.id.origin), Gravity.CENTER, 0, 0);
 		}
 }
 
@@ -164,7 +203,10 @@ public class MainActivity extends Activity implements OnSceneChangeListener, OnI
 	}
 
 	public boolean showPlayerPanel() {
-		return false;
+		PlayerInfoView view = new PlayerInfoView(this);
+		view.setPlayer(world.player);
+		panel.setContentView(view);
+		return true;
 	}
 
 	public boolean showEquipmentPanel() {
@@ -191,6 +233,7 @@ public class MainActivity extends Activity implements OnSceneChangeListener, OnI
 	public void sceneChanged(Scene newScene) {
 		scene = newScene;
 		setTitle(newScene.getName());
+		invalidateOptionsMenu();
 		npcListView.setAdapter(new ArrayAdapter<SystemActor>(this, 
 				android.R.layout.simple_list_item_1, scene.getNpcs()));
 	}
@@ -218,14 +261,32 @@ public class MainActivity extends Activity implements OnSceneChangeListener, OnI
 			PropsView view = new PropsView(this);
 			view.setTitle("商店");
 			view.setCloseButton(popupLayout);
-			view.setPropsGrid(null, new OnItemClickListener() {
+			List<Props> props = new ArrayList<Props>(Arrays.asList(dataProvider.queryAllConsumables()));
+			view.setPropsGrid(props, new OnItemClickListener() {
 				@Override
 				public void onItemClick(AdapterView<?> parent, View view,
 						int position, long id) {
-					
+					Consumables props = (Consumables) parent.getItemAtPosition(position);
+					showPropsInfo(props);
 				}
 			});
 			popupLayout.addView(view);
 		}
+	}
+
+	protected void showPropsInfo(Consumables props) {
+		View view = getLayoutInflater().inflate(R.layout.layout_props_info, null);
+		((TextView)view.findViewById(R.id.textView1)).setText(props.getName());
+		String[] photo = props.getPhotoString().split(Props.PHOTO_SYMBOL);
+		Bitmap icon = IconsCache.getInstance().getIconByFileAndLocalId(getResources(), 
+				Props.PHOTO_PREFIX + photo[0], 
+				Integer.parseInt(photo[1]));
+		if(icon != null)
+			((ImageView)view.findViewById(R.id.imageView1)).setImageBitmap(icon);
+		((TextView)view.findViewById(R.id.textView2)).setText(props.getEffectsString());
+		String priceString = getString(R.string.price_gold, props.getPrice());
+		((TextView)view.findViewById(R.id.textView3)).setText(priceString);
+		panel.setContentView(view);
+		panel.showAtLocation(findViewById(R.id.origin), Gravity.CENTER, 0, 0);
 	}
 }

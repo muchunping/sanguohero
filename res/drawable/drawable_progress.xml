@@ -5,9 +5,6 @@
         android:id="@android:id/background"
         android:drawable="@drawable/progress_bg">
     </item>
-    <item android:id="@android:id/secondaryProgress">
-        <clip android:drawable="@drawable/progress_bg" />
-    </item>
     <item android:id="@android:id/progress">
         <clip android:drawable="@drawable/progress_blue" />
     </item>

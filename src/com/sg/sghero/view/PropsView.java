@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -18,9 +17,8 @@ import android.widget.TextView;
 
 import com.sg.sanguohero.R;
 import com.sg.sghero.db.Props;
-import com.sg.sghero.resoure.IconResourceFile;
 import com.sg.sghero.resoure.IconsCache;
-import com.sg.sghero.util.Size;
+import com.sg.sghero.util.CBaseAdapter;
 
 public class PropsView extends LinearLayout {
 	private TextView titleView;
@@ -64,35 +62,23 @@ public class PropsView extends LinearLayout {
 		closeButton.setOnClickListener(l);
 	}
 	
-	public void setPropsGrid(List<Props> props, OnItemClickListener l){
-		propsView.setAdapter(new BaseAdapter() {
-			IconResourceFile iconFile = new IconResourceFile(getResources(), 
-					R.drawable.items_consumables, new Size(14, 5), new Size(32, 32));
+	public void setPropsGrid(final List<Props> props, OnItemClickListener l){
+		propsView.setOnItemClickListener(l);
+		propsView.setAdapter(new CBaseAdapter<Props>(props) {
+
 			@Override
-			public View getView(int position, View convertView, ViewGroup parent) {
-				if (convertView == null)
-					convertView = getLayoutInflater().inflate(R.layout.layout_grid_props, null);
-				((TextView) convertView.findViewById(R.id.textView1)).setText("" + position);
-				convertView.findViewById(R.id.textView1).setVisibility(View.GONE);
-				Bitmap bm = IconsCache.getInstance().getIconByFileAndLocalId(getResources(), 
-						iconFile.getName(), position);
-				((ImageView)convertView.findViewById(R.id.imageView1)).setImageBitmap(bm);
-				return convertView;
+			protected View newView() {
+				return getLayoutInflater().inflate(R.layout.layout_grid_props_shop, null);
 			}
-			
+
 			@Override
-			public long getItemId(int position) {
-				return 0;
-			}
-			
-			@Override
-			public Object getItem(int position) {
-				return null;
-			}
-			
-			@Override
-			public int getCount() {
-				return iconFile.getNumSize().quadrature();
+			protected void bindView(int position, View convertView, Props t) {
+				String[] photo = t.getPhotoString().split(Props.PHOTO_SYMBOL);
+				Bitmap icon = IconsCache.getInstance().getIconByFileAndLocalId(getResources(), 
+						Props.PHOTO_PREFIX + photo[0], 
+						Integer.parseInt(photo[1]));
+				if(icon != null)
+					((ImageView)convertView.findViewById(R.id.imageView1)).setImageBitmap(icon);
 			}
 		});
 	}
