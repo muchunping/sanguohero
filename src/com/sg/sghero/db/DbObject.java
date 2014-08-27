@@ -6,9 +6,11 @@ import android.database.DatabaseUtils;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public abstract class DbObject implements Parcelable{
+public class DbObject implements Parcelable{
 	protected int code;
 	protected String name;
+	protected int level;
+	protected String photo;
 
 	public int getCode() {
 		return code;
@@ -16,6 +18,14 @@ public abstract class DbObject implements Parcelable{
 
 	public String getName() {
 		return name;
+	}
+	
+	public int getLevel(){
+		return level;
+	}
+	
+	public String getPhoto(){
+		return photo;
 	}
 
 	public final void createFromCursor(Cursor c) {
@@ -25,7 +35,7 @@ public abstract class DbObject implements Parcelable{
 	}
 
 	/**
-	 * ��{@link ContentValues}��ȡ��ֵ��������Ӧ����
+	 * 
 	 */
 	protected void createFromContentValues(ContentValues cv){
 		Integer i;
@@ -36,6 +46,12 @@ public abstract class DbObject implements Parcelable{
 
 		s = cv.getAsString(FIELD_NAME);
 		if (s != null) name = s;
+		
+		i = cv.getAsInteger(FIELD_LEVEL);
+		if (i != null) level = i;
+
+		s = cv.getAsString(FIELD_PHOTO);
+		if (s != null) photo = s;
 	}
 
 	@Override
@@ -49,13 +65,31 @@ public abstract class DbObject implements Parcelable{
 		dest.writeString(name);
 	}
 	
+	protected DbObject(Parcel in){
+		
+	}
+	
 	@Override
 	public int describeContents() {
 		return 0;
 	}
+	
+	public static final Parcelable.Creator<DbObject> CREATOR = new Parcelable.Creator<DbObject>() {
+		public DbObject createFromParcel(Parcel in) {
+			return new DbObject(in);
+		}
+
+		public DbObject[] newArray(int size) {
+			return new DbObject[size];
+		}
+	};
+
 
 	public static final String FIELD_CODE = "code";
 	public static final String FIELD_NAME = "name";
+	public static final String FIELD_LEVEL = "level";
+	public static final String FIELD_PHOTO = "photo";
 	
 	public static final String SPLIT_SYMBOL = "-";
+	public static final String PHOTO_SYMBOL = "\\|";
 }

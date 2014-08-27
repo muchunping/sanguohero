@@ -1,121 +1,65 @@
 package com.sg.sghero.activity;
 
 import android.app.Activity;
-import android.graphics.Rect;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
-import android.view.animation.AnimationSet;
-import android.view.animation.AnimationUtils;
-import android.view.animation.ScaleAnimation;
-import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 
 import com.sg.sanguohero.R;
+import com.sg.sghero.app.SgApplication;
+import com.sg.sghero.app.WorldContext;
+import com.sg.sghero.db.Actor;
 
 public class BattleActivity extends Activity{
-//	private Actor actorA, actorB;
-	private ImageView imageA, imageB;
-	private ImageView animView;
-	private Animation largerAnim, smallerAnim;
-	private Handler handler = new Handler();
+	private WorldContext world;
+	private Actor[] attackers;
+	private Actor[] defenders;
+	private ImageView attacker1;
+	private ImageView attacker2;
+	private ImageView attacker3;
+	private ImageView attacker4;
+	private ImageView attacker5;
+	private ImageView attacker6;
+	private ImageView attacker7;
+	private ImageView attacker8;
+	private ImageView attacker9;
+	private ImageView defender1;
+	private ImageView defender2;
+	private ImageView defender3;
+	private ImageView defender4;
+	private ImageView defender5;
+	private ImageView defender6;
+	private ImageView defender7;
+	private ImageView defender8;
+	private ImageView defender9;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-//		actorA = getIntent().getParcelableExtra("actor1");
-//		actorB = getIntent().getParcelableExtra("actor2");
-		largerAnim = AnimationUtils.loadAnimation(this, R.anim.zoom_big);
-		smallerAnim = AnimationUtils.loadAnimation(this, R.anim.zoom_small);
-		largerAnim.setAnimationListener(new AnimationListener() {
-			@Override
-			public void onAnimationStart(Animation arg0) {
-				
-			}
-			@Override
-			public void onAnimationRepeat(Animation arg0) {
-				
-			}
-			@Override
-			public void onAnimationEnd(Animation arg0) {
-//				animView.startAnimation(smallerAnim);
-			}
-		});
-		smallerAnim.setAnimationListener(new AnimationListener() {
-			@Override
-			public void onAnimationStart(Animation arg0) {
-				
-			}
-			@Override
-			public void onAnimationRepeat(Animation arg0) {
-				
-			}
-			@Override
-			public void onAnimationEnd(Animation arg0) {
-//				animView.setVisibility(View.GONE);
-			}
-		});
+		SgApplication app = SgApplication.getApplication(this);
+		world = app.world;
+		attackers = world.getAttackers();
+		defenders = world.getDefenders();
+		assert(attackers != null && attackers.length > 0);
+		assert(defenders != null && defenders.length > 0);
 		
 		setContentView(R.layout.activity_battle);
-		imageA = (ImageView) findViewById(R.id.imageView1);
-		imageB = (ImageView) findViewById(R.id.imageView2);
-		animView = (ImageView) findViewById(R.id.floatImageView);
-	}
-	
-	public void attackAnimation(final View v){
-		Rect startRect = new Rect();
-		v.getGlobalVisibleRect(startRect);
-		Log.i("startRect.toString()", startRect.toString());
-		Rect finalRect = new Rect();
-		finalRect.left = startRect.left - (int)(startRect.width() * 0.1);
-		finalRect.right = startRect.right + (int)(startRect.width() * 0.1);
-		finalRect.top = startRect.top - (int)(startRect.width() * 0.2);
-		finalRect.bottom = startRect.bottom;
-		Log.i("finalRect.toString()", finalRect.toString());
-		View parentView = (View) animView.getParent();
-		Rect parentRect = new Rect();
-		parentView.getGlobalVisibleRect(parentRect);
-
-		animView.setX(startRect.left);
-		animView.setY(startRect.top - parentRect.top);
-		animView.setVisibility(View.VISIBLE);
-//		TranslateAnimation moveAnim = new TranslateAnimation(
-//				Animation.ABSOLUTE, startRect.left,
-//				Animation.ABSOLUTE, startRect.left,
-//				Animation.ABSOLUTE, startRect.top - parentRect.top,
-//				Animation.ABSOLUTE, startRect.top - parentRect.top);
-		ScaleAnimation scaleAnim = new ScaleAnimation(1.0f, 1.2f, 1.0f, 1.2f, 0.5f, 1.2f);
-		AnimationSet set = new AnimationSet(false);
-//		set.setFillEnabled(true);
-//		set.setFillAfter(true);
-		scaleAnim.setRepeatCount(1);
-		scaleAnim.setRepeatMode(Animation.REVERSE);
-//		moveAnim.setRepeatCount(1);
-//		moveAnim.setRepeatMode(Animation.REVERSE);
-		set.setDuration(300);
-//		set.addAnimation(moveAnim);
-		set.setAnimationListener(new AnimationListener() {
-			@Override
-			public void onAnimationStart(Animation animation) {
-				v.setVisibility(View.GONE);
-			}
-			@Override
-			public void onAnimationRepeat(Animation animation) {
-				
-			}
-			@Override
-			public void onAnimationEnd(Animation animation) {
-				v.setVisibility(View.VISIBLE);
-				animView.setVisibility(View.GONE);
-			}
-		});
-		set.addAnimation(scaleAnim);
-		animView.setVisibility(View.VISIBLE);
-		animView.setImageDrawable(((ImageView)v).getDrawable());
-		animView.startAnimation(set);
+		attacker1 = (ImageView) findViewById(R.id.imageView10);
+		attacker2 = (ImageView) findViewById(R.id.imageView11);
+		attacker3 = (ImageView) findViewById(R.id.imageView12);
+		attacker4 = (ImageView) findViewById(R.id.imageView13);
+		attacker5 = (ImageView) findViewById(R.id.imageView14);
+		attacker6 = (ImageView) findViewById(R.id.imageView15);
+		attacker7 = (ImageView) findViewById(R.id.imageView16);
+		attacker8 = (ImageView) findViewById(R.id.imageView17);
+		attacker9 = (ImageView) findViewById(R.id.imageView18);
+		defender1 = (ImageView) findViewById(R.id.imageView7);
+		defender2 = (ImageView) findViewById(R.id.imageView8);
+		defender3 = (ImageView) findViewById(R.id.imageView9);
+		defender4 = (ImageView) findViewById(R.id.imageView4);
+		defender5 = (ImageView) findViewById(R.id.imageView5);
+		defender6 = (ImageView) findViewById(R.id.imageView6);
+		defender7 = (ImageView) findViewById(R.id.imageView1);
+		defender8 = (ImageView) findViewById(R.id.imageView2);
+		defender9 = (ImageView) findViewById(R.id.imageView3);
 	}
 }

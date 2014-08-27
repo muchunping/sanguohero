@@ -3,16 +3,16 @@ package com.sg.sghero.db;
 import android.content.ContentValues;
 
 public class Equipment extends Props {
-	private int wearSlot = 0;
+	protected int wearSlot = 0;
 	
-	private int HP = 0;
-	private int MP = 0;
-	private int PA = 0;
-	private int MA = 0;
-	private int DEF = 0;
-	private int IAS = 0;
-	private int ACC = 0;
-	private int DOD = 0;
+	protected int HP = 0;
+	protected int MP = 0;
+	protected int PA = 0;
+	protected int MA = 0;
+	protected int DEF = 0;
+	protected int IAS = 0;
+	protected int ACC = 0;
+	protected int DOD = 0;
 	
 	public Equipment() {
 		super();
@@ -89,6 +89,7 @@ public class Equipment extends Props {
 		return DOD;
 	}
 
+	public static final String TABLE_NAME= "equipment";
 	public static final String FIELD_WEARSLOT = "wearslot";
 	public static final String FIELD_HP = "hp";
 	public static final String FIELD_MP = "mp";

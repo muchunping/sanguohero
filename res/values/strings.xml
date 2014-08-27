@@ -18,6 +18,7 @@
     <string name="action_rest">休息</string>
     <string name="action_inquire">打听</string>
     <string name="action_entrust">委托</string>
+    <string name="action_make">制造</string>
     
     <string name="attack">攻击</string>
     <string name="defense">防御</string>

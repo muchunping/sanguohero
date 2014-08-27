@@ -155,6 +155,21 @@ public class DataProvider {
 		return cs;
 	}
 	
+	public Equipment[] queryAllEquipment(){
+		Cursor c = mDb.query(Equipment.TABLE_NAME, null, null, null, null, null, null);
+		if(c == null) return null;
+		if(c.getCount() <= 0)return null;
+		
+		Equipment[] cs = new Equipment[c.getCount()];
+		for (int i = 0; i < cs.length; i++) {
+			if(!c.moveToNext()) break;
+			cs[i] = new Equipment();
+			cs[i].createFromCursor(c);
+		}
+		c.close();
+		return cs;
+	}
+	
 	private String translateIntArray(int[] array){
 		StringBuilder builder = new StringBuilder();
 		builder.append("(");

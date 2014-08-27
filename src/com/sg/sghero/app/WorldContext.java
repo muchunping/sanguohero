@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.res.Resources;
 
 import com.sg.sanguohero.R;
+import com.sg.sghero.db.Actor;
 import com.sg.sghero.db.DataProvider;
 import com.sg.sghero.db.Scene;
 import com.sg.sghero.model.Player;
@@ -95,4 +96,39 @@ public class WorldContext {
 	public void setSceneChangeListener(OnSceneChangeListener sceneChangeListener) {
 		this.sceneChangeListener = sceneChangeListener;
 	}
+	
+	private State state = State.Normal;
+	public enum State{
+		Normal, Battle,xn8wn4,ovown4
+	}
+	
+	public void setState(State newState){
+		if(newState == state) return;
+		
+		this.state = newState;
+		if(newState != State.Battle){
+			attackers = null;
+			defenders = null;
+		}
+	}
+	public State getState(){
+		return state;
+	}
+	
+	public Actor[] getAttackers() {
+		return attackers;
+	}
+	public void setAttackers(Actor[] attackers) {
+		this.attackers = attackers;
+	}
+
+	public Actor[] getDefenders() {
+		return defenders;
+	}
+	public void setDefenders(Actor[] defenders) {
+		this.defenders = defenders;
+	}
+
+	private Actor[] attackers;
+	private Actor[] defenders;
 }

@@ -3,7 +3,15 @@ package com.sg.sghero.db;
 import android.content.ContentValues;
 
 public final class SystemActor extends DbObject {
-	private String action;
+	public static final int CODE_WEAPON = 10;
+	public static final int CODE_ARMOR = 11;
+	public static final int CODE_JEWELRY = 12;
+	public static final int CODE_DRUG = 13;
+	public static final int CODE_HOTEL = 14;
+	public static final int CODE_HOTEL_DEPUTY = 15;
+	public static final int CODE_TAVERN = 16;
+	
+	private String[] action;
 
 	@Override
 	protected void createFromContentValues(ContentValues cv) {
@@ -11,10 +19,12 @@ public final class SystemActor extends DbObject {
 		String s;
 		
 		s = cv.getAsString(FIELD_ACTION);
-		if(s != null) action = s;
+		if(s != null) {
+			action = s.split(SPLIT_SYMBOL);
+		}
 	}
 
-	public String getAction() {
+	public String[] getAction() {
 		return action;
 	}
 	

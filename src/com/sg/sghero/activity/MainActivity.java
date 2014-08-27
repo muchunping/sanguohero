@@ -20,16 +20,19 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sg.sanguohero.R;
-import com.sg.sghero.app.Action;
+import com.sg.sghero.app.ActionUtil;
 import com.sg.sghero.app.SgApplication;
 import com.sg.sghero.app.WorldContext;
 import com.sg.sghero.app.WorldContext.OnSceneChangeListener;
+import com.sg.sghero.app.WorldContext.State;
+import com.sg.sghero.db.Actor;
 import com.sg.sghero.db.Consumables;
 import com.sg.sghero.db.DataProvider;
 import com.sg.sghero.db.Monster;
@@ -143,10 +146,11 @@ public class MainActivity extends Activity implements OnSceneChangeListener, OnI
 			int random = (int)(Math.random() * monsters.length);
 			final Monster monster = monsters[random];
 			ILog.i("你寻到了一只"  + monster.getName() + "!");
+			world.setAttackers(new Actor[]{world.player});
+			world.setDefenders(new Actor[]{monster});
 			Intent intent = new Intent(this, BattleActivity.class);
-			intent.putExtra("actor1", world.player);
-			intent.putExtra("actor2", monster);
 			startActivity(intent);
+			world.setState(State.Battle);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -240,28 +244,57 @@ public class MainActivity extends Activity implements OnSceneChangeListener, OnI
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-		SystemActor actor = (SystemActor) parent.getItemAtPosition(position);
-		final String action = actor.getAction();
-		View view = getLayoutInflater().inflate(R.layout.layout_action, null);
-		((Button)view.findViewById(R.id.button1)).setText(Action.show(this, action));
-		view.findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				panel.dismiss();
-				handleAction(action, 1);
-			}
-		});
-		panel.setContentView(view);
+		final SystemActor actor = (SystemActor) parent.getItemAtPosition(position);
+		final String[] actions = actor.getAction();
+		
+		LinearLayout layout = new LinearLayout(this);
+		layout.setOrientation(LinearLayout.VERTICAL);
+		for (int i = 0; i < actions.length; i++) {
+			Button b = new Button(this);
+			final String action = actions[i];
+			String actionString = ActionUtil.show(this, action);
+			b.setText(actionString);
+			b.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					panel.dismiss();
+					handleAction(actor, action);
+				}
+			});
+			layout.addView(b);
+		}
+		panel.setContentView(layout);
 		panel.showAtLocation(findViewById(R.id.origin), Gravity.CENTER, 0, 0);
 	}
 
-	protected void handleAction(String action, int type) {
+	protected void handleAction(SystemActor actor, String action) {
+		popupLayout.setVisibility(View.VISIBLE);
 		if(action.equalsIgnoreCase("merchandise")){
-			popupLayout.setVisibility(View.VISIBLE);
 			PropsView view = new PropsView(this);
 			view.setTitle("商店");
 			view.setCloseButton(popupLayout);
-			List<Props> props = new ArrayList<Props>(Arrays.asList(dataProvider.queryAllConsumables()));
+			List<Props> props = new ArrayList<Props>();
+			switch (actor.getCode()) {
+			case SystemActor.CODE_WEAPON:
+				props.addAll(Arrays.asList(dataProvider.queryAllConsumables()));
+				break;
+			case SystemActor.CODE_ARMOR:
+				break;
+			case SystemActor.CODE_JEWELRY:
+				break;
+			case SystemActor.CODE_DRUG:
+				props.addAll(Arrays.asList(dataProvider.queryAllConsumables()));
+				break;
+			case SystemActor.CODE_HOTEL:
+				break;
+			case SystemActor.CODE_HOTEL_DEPUTY:
+				break;
+			case SystemActor.CODE_TAVERN:
+				break;
+
+			default:
+				break;
+			}
 			view.setPropsGrid(props, new OnItemClickListener() {
 				@Override
 				public void onItemClick(AdapterView<?> parent, View view,

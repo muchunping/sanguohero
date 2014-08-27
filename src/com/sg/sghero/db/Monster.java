@@ -51,4 +51,6 @@ public class Monster extends Actor {
 	public static final String FIELD_EXPERIENCE = "experience";
 	public static final String FIELD_LOCATION = "scene";
 	public static final String FIELD_LOOT = "loot";
+
+	public static final String PHOTO_PREFIX = "com.sg.sanguohero:drawable/monsters_";
 }

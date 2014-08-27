@@ -60,6 +60,5 @@ public abstract class Props extends DbObject {
 	public static final String FILED_USEABLE = "useable";
 	public static final String FILED_PHOTO = "photo";
 	public static final String FIELD_PRICE = "price";
-	public static final String PHOTO_SYMBOL = "\\|";
 	public static final String PHOTO_PREFIX = "com.sg.sanguohero:drawable/items_";
 }
