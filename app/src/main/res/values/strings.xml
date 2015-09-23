@@ -1,0 +1,75 @@
+<resources>
+
+    <string name="app_name">三国英雄传</string>
+
+    <string name="new_game">新游戏</string>
+    <string name="session_create_player_01">欢迎来到三国，作为一个改写历史的人，请先为自己取一个名字吧！</string>
+    <string name="session_create_player_02">你想以什么方式来改写历史呢？</string>
+    <string name="session_create_player_03">请为自己选择一个出生家庭：</string>
+    <string name="session_create_player_04">好吧，你诞生在了一个%1$s中，不过你还小，你以后想做什么呢？</string>
+    <string name="session_create_player_05">经过漫长的等待，你终于能开始去改写这个时代了，那么你要从哪儿开始呢？</string>
+    <string name="next">下一步</string>
+    <string name="joinworld">进入游戏</string>
+    
+    <string name="action_settings">设置</string>
+    <string name="action_exit">出口</string>
+    <string name="action_battle">寻怪</string>
+    <string name="action_merchandise">交易</string>
+    <string name="action_rest">休息</string>
+    <string name="action_inquire">打听</string>
+    <string name="action_entrust">委托</string>
+    <string name="action_make">制造</string>
+    
+    <string name="attack">攻击</string>
+    <string name="defense">防御</string>
+    <string name="accuracy">命中</string>
+    <string name="dodge">闪避</string>
+    <string name="speed">速度</string>
+    <string name="vs">VS</string>
+    <string name="hero">英雄</string>
+    <string name="millennium_snake">千年蛇妖</string>
+    
+    <string name="price_gold">价格: %1$s金币</string>
+    
+    <string-array name="planets_array">
+        <item>@string/role</item>
+        <item>@string/equipment</item>
+        <item>@string/luggage</item>
+        <item>@string/task</item>
+        <item>@string/skill</item>
+        <item>@string/pet</item>
+        <item>@string/system</item>
+    </string-array>
+    <string name="role">角色</string>
+    <string name="luggage">包裹</string>
+    <string name="equipment">装备</string>
+    <string name="task">任务</string>
+    <string name="skill">技能</string>
+    <string name="pet">宠物</string>
+    <string name="system">系统</string>
+    
+    <string-array name="way_life">
+        <item >用武力征服全国</item>
+        <item >用智慧翻云覆雨</item>
+        <item >用佛法普渡众人</item>
+        <item >用医术起死回生</item>
+        <item >算了，走一步看一步吧</item>
+    </string-array>
+    
+    <string-array name="born_family">
+        <item >将相世家</item>
+        <item >书香门第</item>
+        <item >江湖门派</item>
+        <item >百姓之家</item>
+        <item >商贾之家</item>
+    </string-array>
+    
+    <string-array name="idear_future">
+        <item >征战沙场，马革裹尸</item>
+        <item >造福万民</item>
+        <item >练就绝世武功</item>
+        <item >赚到花不完的钱</item>
+        <item >游历大山名川，博闻强识</item>
+        <item >钻研术数，算尽天机</item>
+    </string-array>
+</resources>
