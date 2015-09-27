@@ -28,8 +28,8 @@ public class LoadingActivity extends Activity {
 		loadingView = (TextView) findViewById(R.id.textView2);
 		
 		SgApplication app = SgApplication.getApplication(this);
-		app.world.addOnLoadingLinstener(new WorldContext.OnLoadingListener() {
-			
+		app.world.addOnLoadingListener(new WorldContext.OnLoadingListener() {
+
 			@Override
 			public void load(int progress, String doing) {
 				progressBar.setProgress(progress);

@@ -21,17 +21,17 @@ public class WorldContext {
 		 * @param progress The progress value, between 0 and 100
 		 * @param doing the thing doing.
 		 */
-		public void load(int progress, String doing);
+		void load(int progress, String doing);
 	}
 
 	
-	private List<OnLoadingListener> loadingListeners = new ArrayList<OnLoadingListener>();
+	private List<OnLoadingListener> loadingListeners = new ArrayList<>();
 	private boolean isLoading = false;
 	private boolean hasLoaded = false;
 	/**
 	 * @return true if has loaded, otherwise false.
 	 */
-	public boolean addOnLoadingLinstener(OnLoadingListener l){
+	public boolean addOnLoadingListener(OnLoadingListener l){
 		if(hasLoaded) {
 //			l.load(100, "Load has done");
 			return true;
