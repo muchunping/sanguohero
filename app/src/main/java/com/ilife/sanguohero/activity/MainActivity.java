@@ -33,12 +33,14 @@ import com.ilife.sanguohero.app.WorldContext;
 import com.ilife.sanguohero.db.Actor;
 import com.ilife.sanguohero.db.Consumables;
 import com.ilife.sanguohero.db.DataProvider;
+import com.ilife.sanguohero.db.Equipment;
 import com.ilife.sanguohero.db.Monster;
 import com.ilife.sanguohero.db.Props;
 import com.ilife.sanguohero.db.Scene;
 import com.ilife.sanguohero.db.SystemActor;
 import com.ilife.sanguohero.resoure.IconsCache;
 import com.ilife.sanguohero.util.ILog;
+import com.ilife.sanguohero.view.EquipmentView;
 import com.ilife.sanguohero.view.PlayerInfoView;
 import com.ilife.sanguohero.view.PropsView;
 
@@ -79,12 +81,12 @@ public class MainActivity extends Activity implements WorldContext.OnSceneChange
 		};
 		mDrawerLayout.setDrawerListener(listener);
 		ListView mDrawerList = (ListView) findViewById(R.id.left_drawer);
-		mDrawerList.setAdapter(new ArrayAdapter<String>(this,
+		mDrawerList.setAdapter(new ArrayAdapter<>(this,
 				android.R.layout.simple_list_item_1, mPlanetTitles));
 		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 		
 		npcListView = (ListView) findViewById(R.id.listView1);
-		npcListView.setAdapter(new ArrayAdapter<SystemActor>(this,
+		npcListView.setAdapter(new ArrayAdapter<>(this,
 				android.R.layout.simple_list_item_1, scene.getNpcs()));
 		npcListView.setOnItemClickListener(this);
 		
@@ -212,7 +214,10 @@ public class MainActivity extends Activity implements WorldContext.OnSceneChange
 	}
 
 	public boolean showEquipmentPanel() {
-		return false;
+		EquipmentView view = new EquipmentView(this);
+		view.setPlayer(world.player);
+		panel.setContentView(view);
+		return true;
 	}
 
 	public boolean showLuggagePanel() {

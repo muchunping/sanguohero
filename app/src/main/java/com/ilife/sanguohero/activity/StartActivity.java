@@ -38,7 +38,7 @@ public class StartActivity extends Activity {
 	private String name = "";
 	private String lifeStyle = "";
 	private String family = "";
-	private String idear = "";
+	private String ideal = "";
 	private Scene scene = null;
 	private int step = 0;
 	
@@ -98,7 +98,7 @@ public class StartActivity extends Activity {
 				@Override
 				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 					if(isChecked)
-						idear = buttonView.getText().toString();
+						ideal = buttonView.getText().toString();
 				}
 			});
 			child.setText(string);
@@ -136,7 +136,7 @@ public class StartActivity extends Activity {
 		switch (step) {
 		case 0:
 			name = ((EditText)view.findViewById(R.id.editText1)).getText().toString();
-			canNext = name != null && !name.isEmpty();
+			canNext = !name.isEmpty();
 			break;
 		case 1:
 			canNext = lifeStyle != null && !lifeStyle.isEmpty();
@@ -150,7 +150,7 @@ public class StartActivity extends Activity {
 			}
 			break;
 		case 3:
-			canNext = idear != null && !idear.isEmpty();
+			canNext = ideal != null && !ideal.isEmpty();
 			break;
 		case 4:
 			canNext = scene != null;
@@ -163,8 +163,8 @@ public class StartActivity extends Activity {
 	}
 	
 	public void joinWorld(View v){
-		SgApplication.getApplication(this).world.initWorld(this, scene, name, family, idear, lifeStyle);
-		if(SgApplication.getApplication(this).world.addOnLoadingLinstener(null)){
+		SgApplication.getApplication(this).world.initWorld(this, scene, name, family, ideal, lifeStyle);
+		if(SgApplication.getApplication(this).world.addOnLoadingListener(null)){
 			toOtherActivity(MainActivity.class);
 		}else{
 			toOtherActivity(LoadingActivity.class);
