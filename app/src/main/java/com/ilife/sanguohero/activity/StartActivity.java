@@ -116,7 +116,7 @@ public class StartActivity extends Activity {
                 scene = (Scene) parent.getItemAtPosition(position);
                 int count = parent.getChildCount();
                 for (int i = 0; i < count; i++) {
-                    ((TextView) parent.getChildAt(i)).setSelected(/*false*/v == parent.getChildAt(i));
+                    parent.getChildAt(i).setSelected(/*false*/v == parent.getChildAt(i));
                 }
             }
         });
@@ -136,7 +136,7 @@ public class StartActivity extends Activity {
         switch (step) {
             case 0:
                 name = ((EditText) view.findViewById(R.id.editText1)).getText().toString();
-                canNext = name != null && !name.isEmpty();
+                canNext = !name.isEmpty();
                 break;
             case 1:
                 canNext = lifeStyle != null && !lifeStyle.isEmpty();
@@ -164,7 +164,7 @@ public class StartActivity extends Activity {
 
     public void joinWorld(View v) {
         SgApplication.getApplication(this).world.initWorld(this, scene, name, family, idear, lifeStyle);
-        if (SgApplication.getApplication(this).world.addOnLoadingLinstener(null)) {
+        if (SgApplication.getApplication(this).world.addOnLoadingListener(null)) {
             toOtherActivity(MainActivity.class);
         } else {
             toOtherActivity(LoadingActivity.class);
@@ -186,7 +186,7 @@ public class StartActivity extends Activity {
     }
 
     private class GridViewAdapter extends BaseAdapter {
-        private List<Scene> datas = new ArrayList<Scene>();
+        private List<Scene> datas = new ArrayList<>();
 
         public GridViewAdapter(Context c) {
             DataProvider dataProvider = new DataProvider(c);
