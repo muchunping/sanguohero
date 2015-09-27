@@ -4,23 +4,24 @@
     package="com.ilife.sanguohero">
 
     <application
-        android:fullBackupContent="false"
         android:name=".app.SgApplication"
         android:allowBackup="true"
+        android:fullBackupContent="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
         tools:ignore="UnusedAttribute">
-        <activity android:name="com.ilife.sanguohero.activity.StartActivity">
+        <activity android:name=".activity.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.ilife.sanguohero.activity.LoadingActivity"/>
-        <activity android:name="com.ilife.sanguohero.activity.MainActivity"/>
-        <activity android:name="com.ilife.sanguohero.activity.BattleActivity"/>
+        <activity android:name=".activity.LoadingActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.BattleActivity" />
+        <activity android:name=".activity.BrowserActivity" />
     </application>
 
 </manifest>
