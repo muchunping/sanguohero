@@ -33,7 +33,6 @@ import com.ilife.sanguohero.app.WorldContext;
 import com.ilife.sanguohero.db.Actor;
 import com.ilife.sanguohero.db.Consumables;
 import com.ilife.sanguohero.db.DataProvider;
-import com.ilife.sanguohero.db.Equipment;
 import com.ilife.sanguohero.db.Monster;
 import com.ilife.sanguohero.db.Props;
 import com.ilife.sanguohero.db.Scene;
@@ -54,7 +53,7 @@ public class MainActivity extends Activity implements WorldContext.OnSceneChange
 	private DataProvider dataProvider;
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+		protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		SgApplication app = SgApplication.getApplication(this);
 		world = app.world;
@@ -276,7 +275,7 @@ public class MainActivity extends Activity implements WorldContext.OnSceneChange
 			PropsView view = new PropsView(this);
 			view.setTitle("商店");
 			view.setCloseButton(popupLayout);
-			List<Props> props = new ArrayList<Props>();
+			final List<Props> props = new ArrayList<Props>();
 			switch (actor.getCode()) {
 			case SystemActor.CODE_WEAPON:
 				props.addAll(Arrays.asList(dataProvider.queryAllConsumables()));
@@ -298,12 +297,11 @@ public class MainActivity extends Activity implements WorldContext.OnSceneChange
 			default:
 				break;
 			}
-			view.setPropsGrid(props, new OnItemClickListener() {
+			view.setPropsGrid(props, new View.OnClickListener() {
 				@Override
-				public void onItemClick(AdapterView<?> parent, View view,
-						int position, long id) {
-					Consumables props = (Consumables) parent.getItemAtPosition(position);
-					showPropsInfo(props);
+				public void onClick(View v) {
+					Consumables consumables = (Consumables) props.get((Integer) v.getTag());
+					showPropsInfo(consumables);
 				}
 			});
 			popupLayout.addView(view);
@@ -315,7 +313,7 @@ public class MainActivity extends Activity implements WorldContext.OnSceneChange
 		((TextView)view.findViewById(R.id.textView1)).setText(props.getName());
 		String[] photo = props.getPhotoString().split(Props.PHOTO_SYMBOL);
 		Bitmap icon = IconsCache.getInstance().getIconByFileAndLocalId(getResources(),
-				Props.PHOTO_PREFIX + photo[0], 
+				Props.PHOTO_ITEM_PREFIX + photo[0],
 				Integer.parseInt(photo[1]));
 		if(icon != null)
 			((ImageView)view.findViewById(R.id.imageView1)).setImageBitmap(icon);

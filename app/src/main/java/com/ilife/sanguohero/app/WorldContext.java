@@ -52,6 +52,8 @@ public class WorldContext {
 		notifyLoadingListener(0, "Begin loading resource");
 		IconResourceFile iconFile = new IconResourceFile(r, R.drawable.items_consumables, new Size(14, 5), iconSize);
 		iconsCache.cacheIconsFromResourceFile(r, iconFile);
+		iconFile = new IconResourceFile(r, R.drawable.monsters_tometik6, new Size(7, 6), iconSize);
+		iconsCache.cacheIconsFromResourceFile(r, iconFile);
 		
 		notifyLoadingListener(0, "Begin parse props");
 		
