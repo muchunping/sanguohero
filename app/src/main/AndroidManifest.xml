@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.ilife.sanguohero">
+    package="cn.igame.sanguoheros" >
 
     <application
+        android:fullBackupContent="false"
         android:name=".app.SgApplication"
         android:allowBackup="true"
-        android:fullBackupContent="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        tools:ignore="UnusedAttribute">
-        <activity android:name=".activity.StartActivity">
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name=".StartActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.LoadingActivity" />
-        <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.BattleActivity" />
-        <activity android:name=".activity.BrowserActivity" />
     </application>
 
 </manifest>

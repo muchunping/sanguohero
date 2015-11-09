@@ -1,8 +1,11 @@
 package cn.igame.sanguoheros;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -12,8 +15,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
+import cn.igame.sanguoheros.app.SgApplication;
+import cn.igame.sanguoheros.model.Player;
+import cn.igame.sanguoheros.ui.MainActivity;
 import cn.igame.sanguoheros.util.Logger;
 import cn.igame.sanguoheros.util.ToastUtil;
 
@@ -36,7 +41,23 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        handler.postDelayed(runnable, 500);
+        SgApplication.getWorldContext().init();
+
+        SharedPreferences spf = PreferenceManager.getDefaultSharedPreferences(this);
+        String playerInfoString = spf.getString("player_info", null);
+        if(playerInfoString == null) {
+            handler.postDelayed(runnable, 500);
+        }else {
+            Player player = Player.readPlayerInfoFromString(playerInfoString);
+            if(player == null){
+                handler.postDelayed(runnable, 500);
+            }else {
+                SgApplication.getWorldContext().joinWorld(player);
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        }
     }
 
     private void startCreatePlayer() {
@@ -47,6 +68,8 @@ public class StartActivity extends AppCompatActivity {
             popupWindow.setFocusable(true);
             popupWindow.setOutsideTouchable(false);
             popupWindow.setAnimationStyle(R.style.top_to_bottom);
+            //noinspection deprecation
+            popupWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_inventory));
         }
 
         //设置角色名和性别
@@ -84,6 +107,12 @@ public class StartActivity extends AppCompatActivity {
 
     private void cratePlayer(String name) {
         Logger.dL("创建角色{" + name + "," + (sex == 0 ? "男" : "女") + "}");
+        Player player = new Player(name, sex);
+        SgApplication.getWorldContext().initPlayer(player);
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
