@@ -19,5 +19,12 @@
     <dimen name="px_48">27dp</dimen>
     <dimen name="px_64">36dp</dimen>
 
+    <!---->
     <dimen name="px_496">279dp</dimen>
+    <dimen name="px_272">153dp</dimen>
+    <dimen name="px_240">135dp</dimen>
+    <dimen name="px_200">112.5dp</dimen>
+    <dimen name="px_132">74.2dp</dimen>
+    <dimen name="px_120">67.5dp</dimen>
+    <dimen name="px_108">60.8dp</dimen>
 </resources>

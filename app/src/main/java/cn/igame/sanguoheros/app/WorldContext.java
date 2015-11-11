@@ -20,9 +20,8 @@ public class WorldContext {
 
     }
 
-
     public void joinWorld(@NonNull Player player) {
-
+        this.player = player;
     }
 
     public Player getPlayer() {

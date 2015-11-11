@@ -21,4 +21,10 @@
     <dimen name="px_64">32dp</dimen>
 
     <dimen name="px_496">248dp</dimen>
+    <dimen name="px_272">136dp</dimen>
+    <dimen name="px_240">120dp</dimen>
+    <dimen name="px_200">100dp</dimen>
+    <dimen name="px_132">66dp</dimen>
+    <dimen name="px_120">60dp</dimen>
+    <dimen name="px_108">54dp</dimen>
 </resources>
