@@ -13,6 +13,8 @@
             android:layout_width="@dimen/px_132"
             android:layout_height="@dimen/px_132"
             android:layout_gravity="end"
+            android:clickable="true"
+            android:onClick="showWorldMap"
             android:contentDescription="@string/app_name"
             android:src="@drawable/icon_small_map" />
 

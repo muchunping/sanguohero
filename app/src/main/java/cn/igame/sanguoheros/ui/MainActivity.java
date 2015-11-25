@@ -1,5 +1,6 @@
 package cn.igame.sanguoheros.ui;
 
+import android.content.Intent;
 import android.content.res.XmlResourceParser;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -110,6 +111,11 @@ public class MainActivity extends AppCompatActivity {
         } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void showWorldMap(View view) {
+        Intent intent = new Intent(this, WorldMapActivity.class);
+        startActivity(intent);
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
