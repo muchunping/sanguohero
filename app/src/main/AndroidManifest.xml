@@ -24,7 +24,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.WorldMapActivity"
-            android:screenOrientation="user" />
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

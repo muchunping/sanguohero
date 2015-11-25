@@ -14,4 +14,24 @@ public abstract class Scene {
     protected String description;
     protected int type;
     protected Scene[] neighbors;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public Scene[] getNeighbors() {
+        return neighbors;
+    }
 }
