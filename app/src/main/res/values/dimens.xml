@@ -1,2 +1,12 @@
 <resources>
+    <!--字体大小-->
+    <dimen name="font_size_40px">@dimen/px_40</dimen>
+    <dimen name="font_size_36px">@dimen/px_36</dimen>
+    <dimen name="font_size_32px">@dimen/px_32</dimen>
+    <dimen name="font_size_30px">@dimen/px_30</dimen>
+    <dimen name="font_size_26px">@dimen/px_26</dimen>
+    <dimen name="font_size_24px">@dimen/px_24</dimen>
+    <dimen name="font_size_22px">@dimen/px_22</dimen>
+    <dimen name="font_size_20px">@dimen/px_20</dimen>
+    <dimen name="font_size_18px">@dimen/px_18</dimen>
 </resources>

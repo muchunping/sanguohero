@@ -6,4 +6,7 @@ package cn.igame.sanguoheros.model;
  */
 public class City extends Scene{
 
+    public City() {
+        type = TYPE_CITY;
+    }
 }

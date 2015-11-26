@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SystemActorList>
+    <item name="@string/weapon_shop_owner" action="@string/merchandise"/>
+    <item name="@string/weapon_shop_assistant" action="@string/produce"/>
+    <item name="@string/jewelry_shop_owner" action="@string/merchandise"/>
+    <item name="@string/jewelry_shop_assistant" action="@string/produce"/>
+    <item name="@string/armor_shop_owner" action="@string/merchandise"/>
+    <item name="@string/armor_shop_assistant" action="@string/produce"/>
+    <item name="@string/pharmacy_owner" action="@string/merchandise"/>
+    <item name="@string/grocery_store_owner" action="@string/merchandise"/>
+    <item name="@string/book_store_owner" action="@string/merchandise"/>
+    <item name="@string/warehouse_owner" action="@string/deposit"/>
+    <item name="@string/wine_shop_owner" action="@string/entrust"/>
+    <item name="@string/wine_shop_assistant" action="@string/inquire"/>
+</SystemActorList>
