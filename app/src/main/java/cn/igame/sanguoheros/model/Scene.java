@@ -31,7 +31,7 @@ public abstract class Scene {
         XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
             @Override
             public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
-                if (tagName.equals("sceneId")) {
+                if (tagName.equals(Scene.XML_TAG)) {
                     neighborList.add(xrp.getAttributeIntValue(null, "id", 0));
                 }
             }

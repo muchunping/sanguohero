@@ -9,7 +9,7 @@
             <system-actor id="1105"/>
         </npc-list>
         <neighbor-list>
-            <sceneId>1002</sceneId>
+            <scene id="1002"/>
         </neighbor-list>
     </scene>
 
@@ -27,8 +27,8 @@
             <system-actor id="1110"/>
         </npc-list>
         <neighbor-list>
-            <sceneId>1001</sceneId>
-            <sceneId>1003</sceneId>
+            <scene id="1001"/>
+            <scene id="1003"/>
         </neighbor-list>
     </scene>
     <scene name="@string/luo_yang" id="1003" type="0" coordinate="60,35">
@@ -47,7 +47,7 @@
             <system-actor id="1112"/>
         </npc-list>
         <neighbor-list>
-            <sceneId>1002</sceneId>
+            <scene id="1002"/>
         </neighbor-list>
     </scene>
     <scene name="@string/xiang_ping" id="1004" type="0" coordinate="92,4">
