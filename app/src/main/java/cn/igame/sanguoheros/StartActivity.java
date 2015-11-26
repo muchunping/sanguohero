@@ -41,7 +41,7 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        SgApplication.getWorldContext().init();
+        SgApplication.getWorldContext().init(this);
 
         SharedPreferences spf = PreferenceManager.getDefaultSharedPreferences(this);
         String playerInfoString = spf.getString("player_info", null);
