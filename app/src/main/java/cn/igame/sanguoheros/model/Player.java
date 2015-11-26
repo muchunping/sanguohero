@@ -38,6 +38,8 @@ public class Player {
         Player player = new Player();
         player.name = object.optString("name");
         player.sex = object.optInt("sex");
+        player.level = object.optInt("level");
+        player.sceneId = object.optInt("sceneId");
         JSONObject fightObject = object.optJSONObject("fight_property");
         if (fightObject != null) {
             player.fightProperty = FightProperty.readFightPropertyFromJson(fightObject);
