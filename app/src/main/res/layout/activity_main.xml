@@ -39,6 +39,40 @@
                 android:textColor="@android:color/white"
                 android:textSize="6sp"
                 tools:ignore="SmallSp" />
+
+            <Button
+                style="?android:buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/bg_text_none"
+                android:gravity="center"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:onClick="onClickSearch"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/search"
+                android:textColor="@android:color/white"
+                android:textSize="6sp"
+                tools:ignore="SmallSp" />
+
+            <Button
+                style="?android:buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:background="@drawable/bg_text_none"
+                android:gravity="center"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:onClick="onClickOutlet"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/outlet"
+                android:textColor="@android:color/white"
+                android:textSize="6sp"
+                tools:ignore="SmallSp" />
         </FrameLayout>
 
 
@@ -46,8 +80,9 @@
             android:id="@+id/playerNameView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-24dp"
-            android:layout_marginStart="-24dp"
+            android:layout_marginLeft="-20dp"
+            android:layout_marginStart="-20dp"
+            android:layout_marginTop="2dp"
             android:layout_toEndOf="@+id/playerPhotoView"
             android:layout_toRightOf="@+id/playerPhotoView"
             android:background="@drawable/bg_scene_name"
@@ -59,8 +94,8 @@
 
         <ImageView
             android:id="@+id/playerPhotoView"
-            android:layout_width="@dimen/px_108"
-            android:layout_height="@dimen/px_108"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="2dp"
@@ -71,7 +106,18 @@
             android:id="@+id/playerLevelView"
             android:layout_width="@dimen/px_24"
             android:layout_height="@dimen/px_24"
-            android:background="@drawable/bg_player_level" />
+            android:layout_alignBottom="@id/playerPhotoView"
+            android:layout_alignLeft="@id/playerPhotoView"
+            android:layout_alignStart="@id/playerPhotoView"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/bg_player_level"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
+
     </RelativeLayout>
 
     <FrameLayout
@@ -96,5 +142,8 @@
         android:id="@+id/logView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/px_132"
-        android:background="#E0E0E0" />
+        android:background="@drawable/bg_quest"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="10sp"
+        tools:ignore="SmallSp" />
 </LinearLayout>

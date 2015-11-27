@@ -13,7 +13,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.text.MessageFormat;
 import java.util.List;
 
 import cn.igame.sanguoheros.R;
@@ -31,7 +30,7 @@ import cn.igame.sanguoheros.util.Logger;
 public class MainActivity extends AppCompatActivity {
     private FrameLayout floatLayout;
     private TextView logView;
-    private TextView playerNameView, playerSexView, playerLevelView;
+    private TextView playerNameView, playerLevelView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         playerNameView = (TextView) findViewById(R.id.playerNameView);
-        playerSexView = (TextView) findViewById(R.id.playerSexView);
         playerLevelView = (TextView) findViewById(R.id.playerLevelView);
         fillPlayerInfoLayout();
 
@@ -92,8 +90,7 @@ public class MainActivity extends AppCompatActivity {
     private void fillPlayerInfoLayout() {
         Player player = SgApplication.getWorldContext().getPlayer();
         playerNameView.setText(player.getName());
-        playerSexView.setText(String.format("等级  %d", player.getLevel()));
-        playerLevelView.setText(MessageFormat.format("性别  {0}", player.getSexString()));
+        playerLevelView.setText(String.valueOf(player.getLevel()));
     }
 
     public void showWorldMap(View view) {
@@ -102,6 +99,12 @@ public class MainActivity extends AppCompatActivity {
         Logger.dL(scene.toString());
         Intent intent = new Intent(this, WorldMapActivity.class);
         startActivity(intent);
+    }
+
+    public void onClickSearch(View view) {
+    }
+
+    public void onClickOutlet(View view) {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

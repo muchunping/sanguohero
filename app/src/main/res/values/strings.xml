@@ -5,4 +5,6 @@
     <string name="sex_male">男</string>
     <string name="sex_female">女</string>
     <string name="ok">确定</string>
+    <string name="search">探索</string>
+    <string name="outlet">出口</string>
 </resources>
