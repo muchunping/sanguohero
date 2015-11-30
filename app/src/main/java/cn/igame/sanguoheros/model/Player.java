@@ -34,14 +34,16 @@ public class Player {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        if(object == null) return null;
+        if (object == null) return null;
         Player player = new Player();
         player.name = object.optString("name");
         player.sex = object.optInt("sex");
+        player.level = object.optInt("level");
+        player.sceneId = object.optInt("sceneId");
         JSONObject fightObject = object.optJSONObject("fight_property");
-        if(fightObject != null){
+        if (fightObject != null) {
             player.fightProperty = FightProperty.readFightPropertyFromJson(fightObject);
-        }else {
+        } else {
             player.fightProperty = FightProperty.createWithDefaultValue();
         }
         return player;
@@ -65,6 +67,10 @@ public class Player {
 
     public int getSex() {
         return sex;
+    }
+
+    public String getSexString() {
+        return sex == 0 ? "男" : "女";
     }
 
     public int getSceneId() {

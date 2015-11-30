@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SceneList>
+    <scene name="@string/wu_wei" id="1001" type="0" coordinate="31,19">
+        <npc-list>
+            <system-actor id="1101"/>
+            <system-actor id="1102"/>
+            <system-actor id="1103"/>
+            <system-actor id="1104"/>
+            <system-actor id="1105"/>
+        </npc-list>
+        <neighbor-list>
+            <scene id="1002"/>
+        </neighbor-list>
+    </scene>
+
+    <scene name="@string/chang_an" id="1002" type="0" coordinate="50,34">
+        <npc-list>
+            <system-actor id="1101"/>
+            <system-actor id="1102"/>
+            <system-actor id="1103"/>
+            <system-actor id="1104"/>
+            <system-actor id="1105"/>
+            <system-actor id="1106"/>
+            <system-actor id="1107"/>
+            <system-actor id="1108"/>
+            <system-actor id="1109"/>
+            <system-actor id="1110"/>
+        </npc-list>
+        <neighbor-list>
+            <scene id="1001"/>
+            <scene id="1003"/>
+        </neighbor-list>
+    </scene>
+    <scene name="@string/luo_yang" id="1003" type="0" coordinate="60,35">
+        <npc-list>
+            <system-actor id="1101"/>
+            <system-actor id="1102"/>
+            <system-actor id="1103"/>
+            <system-actor id="1104"/>
+            <system-actor id="1105"/>
+            <system-actor id="1106"/>
+            <system-actor id="1107"/>
+            <system-actor id="1108"/>
+            <system-actor id="1109"/>
+            <system-actor id="1110"/>
+            <system-actor id="1111"/>
+            <system-actor id="1112"/>
+        </npc-list>
+        <neighbor-list>
+            <scene id="1002"/>
+        </neighbor-list>
+    </scene>
+    <scene name="@string/xiang_ping" id="1004" type="0" coordinate="92,4">
+        <npc-list>
+            <system-actor id="1101"/>
+            <system-actor id="1102"/>
+            <system-actor id="1103"/>
+            <system-actor id="1104"/>
+            <system-actor id="1105"/>
+            <system-actor id="1106"/>
+        </npc-list>
+        <neighbor-list>
+        </neighbor-list>
+    </scene>
+</SceneList>

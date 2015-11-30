@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<system-actor-list>
+    <system-actor name="@string/weapon_shop_owner" id="1101">
+        <action-list>
+            <action name = "@string/merchandise"/>
+        </action-list>
+    </system-actor>
+    <system-actor name="@string/weapon_shop_assistant" id="1102">
+        <action-list>
+            <action name = "@string/produce"/>
+        </action-list>
+    </system-actor>
+    <system-actor name="@string/jewelry_shop_owner" id="1103">
+        <action-list>
+            <action name = "@string/merchandise"/>
+        </action-list>
+    </system-actor>
+    <system-actor name="@string/jewelry_shop_assistant" id="1104">
+        <action-list>
+            <action name = "@string/produce"/>
+        </action-list>
+    </system-actor>
+    <system-actor name="@string/armor_shop_owner" id="1105">
+        <action-list>
+            <action name = "@string/merchandise"/>
+        </action-list>
+    </system-actor>
+    <system-actor name="@string/armor_shop_assistant" id="1106">
+        <action-list>
+            <action name = "@string/produce"/>
+        </action-list>
+    </system-actor>
+    <system-actor name="@string/pharmacy_owner" id="1107">
+        <action-list>
+            <action name = "@string/merchandise"/>
+        </action-list>
+    </system-actor>
+    <system-actor name="@string/grocery_store_owner" id="1108">
+        <action-list>
+            <action name = "@string/merchandise"/>
+        </action-list>
+    </system-actor>
+    <system-actor name="@string/book_store_owner" id="1109">
+        <action-list>
+            <action name = "@string/merchandise"/>
+        </action-list>
+    </system-actor>
+    <system-actor name="@string/warehouse_owner" id="1110">
+        <action-list>
+            <action name = "@string/deposit"/>
+        </action-list>
+    </system-actor>
+    <system-actor name="@string/wine_shop_owner" id="1111">
+        <action-list>
+            <action name = "@string/entrust"/>
+        </action-list>
+    </system-actor>
+    <system-actor name="@string/wine_shop_assistant" id="1112">
+        <action-list>
+            <action name = "@string/inquire"/>
+        </action-list>
+    </system-actor>
+</system-actor-list>

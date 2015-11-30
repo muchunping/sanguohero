@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E0E0E0">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:id="@+id/smallMapView"
+                android:layout_width="@dimen/px_108"
+                android:layout_height="@dimen/px_108"
+                android:layout_margin="2dp"
+                android:clickable="true"
+                android:contentDescription="@string/app_name"
+                android:onClick="showWorldMap"
+                android:src="@drawable/icon_small_map" />
+
+            <TextView
+                android:id="@+id/sceneNameView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/bg_text_none"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/chang_an"
+                android:textColor="@android:color/white"
+                android:textSize="6sp"
+                tools:ignore="SmallSp" />
+        </FrameLayout>
+
+
+        <TextView
+            android:id="@+id/playerNameView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-24dp"
+            android:layout_marginStart="-24dp"
+            android:layout_toEndOf="@+id/playerPhotoView"
+            android:layout_toRightOf="@+id/playerPhotoView"
+            android:background="@drawable/bg_scene_name"
+            android:gravity="center"
+            android:text="@string/chang_an"
+            android:textColor="@android:color/white"
+            android:textSize="6sp"
+            tools:ignore="SmallSp" />
+
+        <ImageView
+            android:id="@+id/playerPhotoView"
+            android:layout_width="@dimen/px_108"
+            android:layout_height="@dimen/px_108"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/bg_player_photo"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/playerLevelView"
+            android:layout_width="@dimen/px_24"
+            android:layout_height="@dimen/px_24"
+            android:background="@drawable/bg_player_level" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal" />
+
+        <FrameLayout
+            android:id="@+id/floatLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/logView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_132"
+        android:background="#E0E0E0" />
+</LinearLayout>
