@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         playerNameView = (TextView) findViewById(R.id.playerNameView);
-        playerSexView = (TextView) findViewById(R.id.playerSexView);
+        //playerSexView = (TextView) findViewById(R.id.playerSexView);
         playerLevelView = (TextView) findViewById(R.id.playerLevelView);
         fillPlayerInfoLayout();
 
