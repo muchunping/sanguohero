@@ -64,22 +64,19 @@ public class StartActivity extends AppCompatActivity {
     private void startCreatePlayer() {
         if (popupWindow == null) {
             popupWindow = new PopupWindow(this);
-            popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-            popupWindow.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+            popupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+            popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
             popupWindow.setFocusable(true);
             popupWindow.setOutsideTouchable(false);
             popupWindow.setAnimationStyle(R.style.top_to_bottom);
             //noinspection deprecation
-            popupWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.zy));
+            popupWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_inventory));
         }
 
         //设置角色名和性别
         @SuppressLint("InflateParams")
         View view = LayoutInflater.from(this).inflate(R.layout.window_create_player_one, null, false);
         popupWindow.setContentView(view);
-
-        LinearLayout linearLayout = (LinearLayout)view.findViewById(R.id.linear_register);
-        linearLayout.getBackground().setAlpha(160);
 
         final EditText editText = (EditText) view.findViewById(R.id.editText);
         RadioGroup group = (RadioGroup) view.findViewById(R.id.radioGroup);
