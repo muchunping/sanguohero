@@ -65,8 +65,15 @@ public abstract class Scene {
         return type;
     }
 
-    public List<Integer> getNeighborList() {
-        return neighborList;
+    public List<Scene> getNeighborList(List<Scene> sceneList) {
+        List<Scene> result = new ArrayList<>(neighborList.size());
+        for (int i : neighborList) {
+            for (Scene scene : sceneList) {
+                if (scene.getId() == i)
+                    result.add(scene);
+            }
+        }
+        return result;
     }
 
     public List<Integer> getSystemActorList() {

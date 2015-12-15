@@ -18,6 +18,7 @@ import android.widget.PopupWindow;
 import android.widget.RadioGroup;
 
 import cn.igame.sanguoheros.app.SgApplication;
+import cn.igame.sanguoheros.app.WorldContext;
 import cn.igame.sanguoheros.model.Player;
 import cn.igame.sanguoheros.ui.MainActivity;
 import cn.igame.sanguoheros.util.Logger;
@@ -42,7 +43,8 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        SgApplication.getWorldContext().init(this);
+        WorldContext world = ((SgApplication) getApplication()).getWorldContext();
+        world.init(this);
 
         SharedPreferences spf = PreferenceManager.getDefaultSharedPreferences(this);
         String playerInfoString = spf.getString("player_info", null);
@@ -53,7 +55,7 @@ public class StartActivity extends AppCompatActivity {
             if(player == null){
                 handler.postDelayed(runnable, 500);
             }else {
-                SgApplication.getWorldContext().joinWorld(player);
+                world.joinWorld(player);
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 finish();
@@ -109,7 +111,7 @@ public class StartActivity extends AppCompatActivity {
     private void cratePlayer(String name) {
         Logger.dL("创建角色{" + name + "," + (sex == 0 ? "男" : "女") + "}");
         Player player = new Player(name, sex);
-        SgApplication.getWorldContext().initPlayer(player);
+        ((SgApplication)getApplication()).getWorldContext().initPlayer(player);
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

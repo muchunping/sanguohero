@@ -5,7 +5,7 @@ import android.content.Context;
 
 public class SgApplication extends Application {
     private static Context appContext;
-    private static WorldContext worldContext;
+    private WorldContext worldContext;
 
     @Override
     public void onCreate() {
@@ -18,7 +18,7 @@ public class SgApplication extends Application {
         return appContext;
     }
 
-    public static WorldContext getWorldContext() {
+    public WorldContext getWorldContext() {
         return worldContext;
     }
 }

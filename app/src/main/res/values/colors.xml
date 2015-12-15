@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorWindowBackground">#F2F2F2</color>
+
+    <color name="item_disable">#969696</color>
+    <color name="yellow_green">#CCFF00</color>
+    <color name="yellow_green_pressed">#AAEE00</color>
 </resources>

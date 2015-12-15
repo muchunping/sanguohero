@@ -37,6 +37,7 @@ public class WorldContext {
 
     //解析场景列表
     private void parseSceneXml(Resources resources) {
+        sceneList.clear();
         XmlResourceParser xrp = resources.getXml(R.xml.scene);
         try {
             int eventType;
@@ -55,6 +56,7 @@ public class WorldContext {
     }
 
     private void parseSystemActorXml(Resources resources) {
+        systemActorList.clear();
         //解析NPC列表
         XmlResourceParser xrp = resources.getXml(R.xml.system_actor);
         try {
@@ -82,6 +84,11 @@ public class WorldContext {
                 break;
             }
         }
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+        this.player.setSceneId(scene.getId());
     }
 
     public Player getPlayer() {
