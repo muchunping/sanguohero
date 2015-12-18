@@ -13,13 +13,13 @@
     </item>
     <item android:state_selected="true">
         <shape>
-            <solid android:color="@color/yellow_green_pressed"/>
+            <solid android:color="@color/yellow_green"/>
         </shape>
     </item>
     <item>
         <shape>
-            <solid android:color="@color/yellow_green"/>
-            <stroke android:color="#F0F0F0" android:width="0.5dp"/>
+            <solid android:color="#F0F0F0"/>
+            <stroke android:color="@color/yellow_green" android:width="0.5dp"/>
         </shape>
     </item>
 </selector>

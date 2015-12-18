@@ -10,10 +10,13 @@ import org.json.JSONObject;
  * Created by Administrator on 2015/11/9.
  */
 public class Player {
+    private final int DEFAULT_VIGOR = 50;
+
     private String name;
     private int level;
     private int sex;
     private int sceneId;
+    private int vigor; //体力
 
     private FightProperty fightProperty;
 
@@ -24,6 +27,7 @@ public class Player {
         this.name = name;
         this.sex = sex;
         fightProperty = FightProperty.createWithDefaultValue();
+        this.vigor = DEFAULT_VIGOR;
     }
 
     @Nullable
@@ -39,6 +43,7 @@ public class Player {
         player.name = object.optString("name");
         player.sex = object.optInt("sex");
         player.level = object.optInt("level");
+        player.vigor = object.optInt("vigor");
         player.sceneId = object.optInt("sceneId");
         JSONObject fightObject = object.optJSONObject("fight_property");
         if (fightObject != null) {
@@ -69,6 +74,10 @@ public class Player {
         return sex;
     }
 
+    public int getVigor() {
+        return vigor;
+    }
+
     public String getSexString() {
         return sex == 0 ? "男" : "女";
     }
@@ -87,6 +96,8 @@ public class Player {
         builder.append("sex:'").append(getSex()).append("'");
         builder.append(",");
         builder.append("level:'").append(getLevel()).append("'");
+        builder.append(",");
+        builder.append("vigor:'").append(getVigor()).append("'");
         builder.append(",");
         builder.append("sceneId:'").append(getSceneId()).append("'");
         builder.append(",");

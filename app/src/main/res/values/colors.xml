@@ -8,4 +8,17 @@
     <color name="item_disable">#969696</color>
     <color name="yellow_green">#CCFF00</color>
     <color name="yellow_green_pressed">#AAEE00</color>
+
+    <color name="gray">#B6B6B6</color>
+
+    <color name="equipment_quality_0">#7F7F80</color>
+    <color name="equipment_quality_1">#FFFFFF</color>
+    <color name="equipment_quality_2">#007FFF</color>
+    <color name="equipment_quality_3">#0000FF</color>
+    <color name="equipment_quality_4">#FFFF00</color>
+    <color name="equipment_quality_5">#45FF00</color>
+    <color name="equipment_quality_6">#7F00FF</color>
+    <color name="equipment_quality_7">#FF7F00</color>
+    <color name="equipment_quality_8">#FF4500</color>
+    <color name="equipment_quality_9">#FF0000</color>
 </resources>

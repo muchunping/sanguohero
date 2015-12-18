@@ -19,6 +19,7 @@ import cn.igame.sanguoheros.util.XmlResourceParserUtils;
  * Created by Administrator on 2015/11/9.
  */
 public class SystemActor {
+    public static final int SHOP_ID_WEAPON = 1101;
     public static final String XML_TAG = "system-actor";
 
     private String name;
