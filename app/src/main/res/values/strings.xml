@@ -12,6 +12,6 @@
     <string name="extra_properties">附加属性</string>
 
     <string name="base_properties_examples">+80 物理攻击力</string>
-    <string name="extra_properties_examples">+5% 物理攻击力\n+10% 暴击几率\n无视防御\n+11% 几率击晕对手\n+20 力量\n+10 敏捷</string>
+    <string name="extra_properties_examples">00</string>
     <string name="weapon_qlyyd_description_examples">又名“冷艳锯”，重八十二斤，据说为“武圣”关公所用兵器</string>
 </resources>

@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,9 +30,12 @@ public class EquipmentFragment extends DialogFragment {
     private TextView basePropertyView;
     private TextView extraPropertyView;
 
+    private Equipment equipment;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setStyle(STYLE_NO_TITLE, R.style.custom_dialog_style);
     }
 
     @Nullable
@@ -47,6 +51,7 @@ public class EquipmentFragment extends DialogFragment {
         this.descriptionView = (TextView) view.findViewById(R.id.equipmentDescriptionView);
         this.basePropertyView = (TextView) view.findViewById(R.id.equipmentBasePropertyView);
         this.extraPropertyView = (TextView) view.findViewById(R.id.equipmentExtraPropertyView);
+        fillData();
         return view;
     }
 
@@ -55,7 +60,24 @@ public class EquipmentFragment extends DialogFragment {
         return super.onCreateDialog(savedInstanceState);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        Dialog dialog = getDialog();
+        if (dialog != null) {
+            WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
+            params.width = getResources().getDimensionPixelSize(R.dimen.px_496);
+            dialog.getWindow().setAttributes(params);
+        }
+    }
+
     public void setEquipment(Equipment equipment) {
+        this.equipment = equipment;
+
+    }
+
+    private void fillData() {
+        if (equipment == null) return;
         this.nameView.setText(equipment.getName());
         this.imageView.setImageResource(equipment.getImageDescriptor());
         this.descriptionView.setText(equipment.getDescription());
@@ -74,7 +96,7 @@ public class EquipmentFragment extends DialogFragment {
                     .append("攻击点数");
         }
         if (fightProperty.defensePoint != 0) {
-            if(builder.length() > 0)
+            if (builder.length() > 0)
                 builder.append("\n");
 
             builder.append(fightProperty.defensePoint > 0 ? "+ " : "- ")
@@ -82,7 +104,7 @@ public class EquipmentFragment extends DialogFragment {
                     .append("防御点数");
         }
         if (fightProperty.healthPoint != 0) {
-            if(builder.length() > 0)
+            if (builder.length() > 0)
                 builder.append("\n");
 
             builder.append(fightProperty.healthPoint > 0 ? "+ " : "- ")
@@ -90,7 +112,7 @@ public class EquipmentFragment extends DialogFragment {
                     .append("生命点数");
         }
         if (fightProperty.manaPoint != 0) {
-            if(builder.length() > 0)
+            if (builder.length() > 0)
                 builder.append("\n");
 
             builder.append(fightProperty.manaPoint > 0 ? "+ " : "- ")
@@ -98,7 +120,7 @@ public class EquipmentFragment extends DialogFragment {
                     .append("魔法点数");
         }
         if (fightProperty.speedPoint != 0) {
-            if(builder.length() > 0)
+            if (builder.length() > 0)
                 builder.append("\n");
 
             builder.append(fightProperty.speedPoint > 0 ? "+ " : "- ")

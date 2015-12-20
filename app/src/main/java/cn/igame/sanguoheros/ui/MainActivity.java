@@ -177,6 +177,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         if(fragment != null) {
+            lastFragment = fragment;
             floatLayout.setVisibility(View.VISIBLE);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.add(R.id.contentPanel, fragment);
