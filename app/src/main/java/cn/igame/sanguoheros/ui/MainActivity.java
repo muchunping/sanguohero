@@ -32,6 +32,7 @@ import cn.igame.sanguoheros.model.Scene;
 import cn.igame.sanguoheros.model.SystemActor;
 import cn.igame.sanguoheros.ui.fragment.EquipmentFragment;
 import cn.igame.sanguoheros.ui.fragment.InventoryFragment;
+import cn.igame.sanguoheros.ui.fragment.MonsterFragment;
 import cn.igame.sanguoheros.util.Logger;
 import cn.igame.sanguoheros.util.ToastUtil;
 import cn.igame.sanguoheros.widget.RadioGroupPlus;
@@ -194,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickSearch(View view) {
+        new MonsterFragment().show(getFragmentManager(), "monster");
     }
 
     public void onClickOutlet(View view) {
