@@ -14,6 +14,13 @@ import cn.igame.sanguoheros.R;
  * Created by MOUCHUNPING018 on 2016/1/23.
  */
 public class MonsterFragment extends DialogFragment {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setStyle(STYLE_NO_TITLE, 0);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
