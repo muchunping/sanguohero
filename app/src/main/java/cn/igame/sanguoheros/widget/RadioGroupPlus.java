@@ -142,6 +142,10 @@ public class RadioGroupPlus extends ViewGroup {
                 child.setTag(o);
                 child.setOnClickListener(new OnViewClicked(position));
                 addView(child);
+                if(position == currentChecked){
+                    child.setSelected(true);
+                }
+                child.setBackgroundResource(o.getType() == Scene.TYPE_WILD ? R.drawable.bg_outlet_danger : R.drawable.bg_outlet);
             }
             position ++;
         }
