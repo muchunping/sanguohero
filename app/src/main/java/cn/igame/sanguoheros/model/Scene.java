@@ -89,7 +89,9 @@ public abstract class Scene {
                 city.createFromXml(xrp);
                 return city;
             case TYPE_WILD:
-                return null;
+                Wild wild = new Wild();
+                wild.createFromXml(xrp);
+                return wild;
             case TYPE_ISOLATION:
                 return null;
         }

@@ -34,4 +34,7 @@
     <string name="jiang_ling">江陵</string>
     <string name="chang_sha">长沙</string>
     <string name="xiang_yang">襄阳</string>
+
+    <!--wild-->
+    <string name="da_xue_shan">大雪山</string>
 </resources>

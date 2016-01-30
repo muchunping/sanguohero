@@ -16,16 +16,16 @@ import cn.igame.sanguoheros.util.XmlResourceParserUtils;
  * 城市
  * Created by Administrator on 2015/11/9.
  */
-public class City extends Scene {
+public class Wild extends Scene {
 
     private Point location;
 
-    protected City() {
-        type = TYPE_CITY;
+    protected Wild() {
+        type = TYPE_WILD;
     }
 
-    public City(String name, int x, int y) {
-        type = TYPE_CITY;
+    public Wild(String name, int x, int y) {
+        type = TYPE_WILD;
         super.name = name;
         location = new Point(x, y);
     }

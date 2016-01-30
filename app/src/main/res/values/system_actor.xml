@@ -12,6 +12,7 @@
     <string name="warehouse_owner">仓库保管员</string>
     <string name="wine_shop_owner">客栈老板</string>
     <string name="wine_shop_assistant">客栈小二</string>
+    <string name="hunter">猎人</string>
 
     <string name="merchandise">交易</string>
     <string name="produce">制造</string>
@@ -19,4 +20,5 @@
     <string name="entrust">委托</string>
     <string name="inquire">打听</string>
     <string name="cure">治疗</string>
+    <string name="talk">对话</string>
 </resources>

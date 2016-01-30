@@ -1,5 +1,6 @@
 package cn.igame.sanguoheros.ui;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -50,11 +52,13 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter<ViewHolder> adapter;
     private WorldContext world;
 
+    private LinearLayout findEnemyView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        world = ((SgApplication)getApplication()).getWorldContext();
+        world = ((SgApplication) getApplication()).getWorldContext();
         Scene scene = world.getScene();
 
         floatLayout = (FrameLayout) findViewById(R.id.floatLayout);
@@ -66,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         floatLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(lastFragment != null){
+                if (lastFragment != null) {
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     ft.detach(lastFragment);
                     ft.commit();
@@ -75,6 +79,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        findEnemyView = (LinearLayout) findViewById(R.id.findEnemyView);
+        findEnemyView.setVisibility(scene.getType() == Scene.TYPE_WILD ? View.VISIBLE : View.GONE);
+        findEnemyView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO find enemy.
+            }
+        });
         RecyclerView systemActorLayout = (RecyclerView) findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -123,9 +135,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if(floatLayout.isShown()){
+        if (floatLayout.isShown()) {
             floatLayout.setVisibility(View.GONE);
-            if(lastFragment != null){
+            if (lastFragment != null) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.detach(lastFragment);
                 ft.commit();
@@ -154,17 +166,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void changeScene(Scene newScene){
+    private void changeScene(Scene newScene) {
         world.setScene(newScene);
         sceneNameView.setText(newScene.getName());
+        findEnemyView.setVisibility(newScene.getType() == Scene.TYPE_WILD ? View.VISIBLE : View.GONE);
         adapter.notifyDataSetChanged();
     }
 
-    private void doAction(SystemActor actor, String action){
+    private void doAction(SystemActor actor, String action) {
         Fragment fragment = null;
-        switch (action){
+        switch (action) {
             case "交易":
-                if(actor.getId() == SystemActor.SHOP_ID_WEAPON){
+                if (actor.getId() == SystemActor.SHOP_ID_WEAPON) {
                     InventoryFragment inventoryFragment = new InventoryFragment();
                     ArrayList<Goods> goodsList = new ArrayList<>();
                     for (int i = 0; i < 42; i++) {
@@ -177,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
         }
-        if(fragment != null) {
+        if (fragment != null) {
             lastFragment = fragment;
             floatLayout.setVisibility(View.VISIBLE);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -186,10 +199,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void showGoodsDetail(Goods goods){
-        if(goods instanceof Equipment){
+    public void showGoodsDetail(Goods goods) {
+        if (goods instanceof Equipment) {
             EquipmentFragment fragment = new EquipmentFragment();
-            fragment.setEquipment((Equipment)goods);
+            fragment.setEquipment((Equipment) goods);
             fragment.show(getFragmentManager(), "equipment");
         }
     }
@@ -200,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickOutlet(View view) {
         List<Scene> neighborList = world.getScene().getNeighborList(world.getSceneList());
-        final RadioGroupPlus radioGroup = (RadioGroupPlus) LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_select_outlet, null);
+        @SuppressLint("InflateParams") final RadioGroupPlus radioGroup = (RadioGroupPlus) LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_select_outlet, null);
         radioGroup.setItemList(neighborList);
         Dialog dialog = new AlertDialog.Builder(view.getContext())
                 .setTitle("出口")
@@ -210,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Object checkedTarget = radioGroup.getCheckedTarget();
-                        if(checkedTarget == null){
+                        if (checkedTarget == null) {
                             ToastUtil.showToast("请选择一个场景");
                             return;
                         }

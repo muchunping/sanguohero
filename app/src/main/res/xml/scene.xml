@@ -2,11 +2,11 @@
 <SceneList>
     <scene name="@string/wu_wei" id="1001" type="0" coordinate="31,19">
         <npc-list>
-            <system-actor id="1101"/>
-            <system-actor id="1102"/>
-            <system-actor id="1103"/>
-            <system-actor id="1104"/>
-            <system-actor id="1105"/>
+            <system-actor id="2001"/>
+            <system-actor id="2002"/>
+            <system-actor id="2003"/>
+            <system-actor id="2004"/>
+            <system-actor id="2005"/>
         </npc-list>
         <neighbor-list>
             <scene id="1002"/>
@@ -15,51 +15,63 @@
 
     <scene name="@string/chang_an" id="1002" type="0" coordinate="50,34">
         <npc-list>
-            <system-actor id="1101"/>
-            <system-actor id="1102"/>
-            <system-actor id="1103"/>
-            <system-actor id="1104"/>
-            <system-actor id="1105"/>
-            <system-actor id="1106"/>
-            <system-actor id="1107"/>
-            <system-actor id="1108"/>
-            <system-actor id="1109"/>
-            <system-actor id="1110"/>
+            <system-actor id="2001"/>
+            <system-actor id="2002"/>
+            <system-actor id="2003"/>
+            <system-actor id="2004"/>
+            <system-actor id="2005"/>
+            <system-actor id="2006"/>
+            <system-actor id="2007"/>
+            <system-actor id="2008"/>
+            <system-actor id="2009"/>
+            <system-actor id="2010"/>
         </npc-list>
         <neighbor-list>
             <scene id="1001"/>
+            <scene id="1101"/>
             <scene id="1003"/>
         </neighbor-list>
     </scene>
     <scene name="@string/luo_yang" id="1003" type="0" coordinate="60,35">
         <npc-list>
-            <system-actor id="1101"/>
-            <system-actor id="1102"/>
-            <system-actor id="1103"/>
-            <system-actor id="1104"/>
-            <system-actor id="1105"/>
-            <system-actor id="1106"/>
-            <system-actor id="1107"/>
-            <system-actor id="1108"/>
-            <system-actor id="1109"/>
-            <system-actor id="1110"/>
-            <system-actor id="1111"/>
-            <system-actor id="1112"/>
+            <system-actor id="2001"/>
+            <system-actor id="2002"/>
+            <system-actor id="2003"/>
+            <system-actor id="2004"/>
+            <system-actor id="2005"/>
+            <system-actor id="2006"/>
+            <system-actor id="2007"/>
+            <system-actor id="2008"/>
+            <system-actor id="2009"/>
+            <system-actor id="2010"/>
+            <system-actor id="2020"/>
+            <system-actor id="2012"/>
         </npc-list>
         <neighbor-list>
             <scene id="1002"/>
+            <scene id="1101"/>
         </neighbor-list>
     </scene>
     <scene name="@string/xiang_ping" id="1004" type="0" coordinate="92,4">
         <npc-list>
-            <system-actor id="1101"/>
-            <system-actor id="1102"/>
-            <system-actor id="1103"/>
-            <system-actor id="1104"/>
-            <system-actor id="1105"/>
-            <system-actor id="1106"/>
+            <system-actor id="2001"/>
+            <system-actor id="2002"/>
+            <system-actor id="2003"/>
+            <system-actor id="2004"/>
+            <system-actor id="2005"/>
+            <system-actor id="2006"/>
         </npc-list>
         <neighbor-list>
+        </neighbor-list>
+    </scene>
+
+    <scene name="@string/da_xue_shan" id="1101" type="1" coordinate="55,30">
+        <npc-list>
+            <system-actor id="2101"/>
+        </npc-list>
+        <neighbor-list>
+            <scene id="1002"/>
+            <scene id="1003"/>
         </neighbor-list>
     </scene>
 </SceneList>
