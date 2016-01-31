@@ -18,8 +18,6 @@ import cn.igame.sanguoheros.util.XmlResourceParserUtils;
  */
 public class City extends Scene {
 
-    private Point location;
-
     protected City() {
         type = TYPE_CITY;
     }
@@ -49,10 +47,6 @@ public class City extends Scene {
                 }
             }
         });
-    }
-
-    public Point getLocation() {
-        return location;
     }
 
     @Override

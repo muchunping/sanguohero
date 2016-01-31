@@ -1,6 +1,7 @@
 package cn.igame.sanguoheros.model;
 
 import android.content.res.XmlResourceParser;
+import android.graphics.Point;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -24,6 +25,7 @@ public abstract class Scene {
     protected String name;
     protected String description;
     protected int type;
+    protected Point location;
     protected List<Integer> neighborList = new ArrayList<>();
     protected List<Integer> systemActorList = new ArrayList<>();
 
@@ -63,6 +65,10 @@ public abstract class Scene {
 
     public int getType() {
         return type;
+    }
+
+    public Point getLocation() {
+        return location;
     }
 
     public List<Scene> getNeighborList(List<Scene> sceneList) {

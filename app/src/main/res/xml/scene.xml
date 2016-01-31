@@ -65,7 +65,7 @@
         </neighbor-list>
     </scene>
 
-    <scene name="@string/da_xue_shan" id="1101" type="1" coordinate="55,30">
+    <scene name="@string/di_wang_gu" id="1101" type="1" coordinate="55,30">
         <npc-list>
             <system-actor id="2101"/>
         </npc-list>

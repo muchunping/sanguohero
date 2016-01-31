@@ -1,5 +1,6 @@
 package cn.igame.sanguoheros.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Canvas;
@@ -14,7 +15,8 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.igame.sanguoheros.model.City;
+import cn.igame.sanguoheros.app.SgApplication;
+import cn.igame.sanguoheros.model.Scene;
 import cn.igame.sanguoheros.util.Logger;
 
 /**
@@ -26,7 +28,10 @@ public class WorldMapView extends View {
     PathEffect effects = new DashPathEffect(new float[]{1, 2, 4, 8}, 1);
 
     private List<Path> regionList = new ArrayList<>();
-    private List<City> cityList = new ArrayList<>();
+    private List<Scene> cityList = new ArrayList<>();
+
+    float ratioH;
+    float ratioV;
 
     public WorldMapView(Context context) {
         super(context);
@@ -56,6 +61,9 @@ public class WorldMapView extends View {
         }
 
         setMeasuredDimension(width, height);
+
+        ratioH = getMeasuredWidth() / 100f;
+        ratioV = getMeasuredHeight() / 100f;
     }
 
     @Override
@@ -70,12 +78,17 @@ public class WorldMapView extends View {
 
         paint.setPathEffect(null);
         paint.setTextSize(16);
-        for (City city : cityList) {
-            paint.setARGB(0xFF, 0xFF, 0xFF, 0x00);
-            canvas.drawCircle(city.getLocation().x, city.getLocation().y, 4, paint);
-            float textWidth = paint.measureText(city.getName());
-            paint.setARGB(0xFF, 0xFF, 0x00, 0xFF);
-            canvas.drawText(city.getName(), city.getLocation().x - textWidth / 2, city.getLocation().y - (4 + 5), paint);
+        for (Scene scene : cityList) {
+            if(scene.getType() == Scene.TYPE_WILD) {
+                paint.setARGB(0xFF, 0xFF, 0x55, 0x00);
+            }else {
+                paint.setARGB(0xFF, 0xFF, 0x00, 0xFF);
+            }
+            canvas.drawCircle(scene.getLocation().x * ratioH, scene.getLocation().y * ratioV, 4, paint);
+            float textWidth = paint.measureText(scene.getName());
+            canvas.drawText(scene.getName(),
+                    scene.getLocation().x * ratioH - textWidth / 2,
+                    scene.getLocation().y * ratioV - (4 + 5), paint);
         }
     }
 
@@ -179,14 +192,8 @@ public class WorldMapView extends View {
         path.close();
         regionList.add(path);
 
-        City city = new City("武威", (int) (31 * ratioH), (int) (19 * ratioV));
-        cityList.add(city);
-        city = new City("长安", (int) (50 * ratioH), (int) (34 * ratioV));
-        cityList.add(city);
-        city = new City("洛阳", (int) (60 * ratioH), (int) (35 * ratioV));
-        cityList.add(city);
-        city = new City("襄平", (int) (92 * ratioH), (int) (4 * ratioV));
-        cityList.add(city);
+        SgApplication application = (SgApplication) ((Activity) getContext()).getApplication();
+        cityList.addAll(application.getWorldContext().getSceneList());
 
         invalidate();
     }
