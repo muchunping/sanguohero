@@ -17,14 +17,14 @@ public class WorldMapActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_world_map);
-        worldMapView = (WorldMapView) findViewById(R.id.worldMapView);
+        setContentView(R.layout.activity_battle);
+//        worldMapView = (WorldMapView) findViewById(R.id.worldMapView);
     }
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         Logger.dL(String.valueOf(hasFocus));
-        worldMapView.setRegionList();
+//        worldMapView.setRegionList();
     }
 }
