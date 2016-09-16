@@ -7,7 +7,6 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import cn.igame.sanguoheros.R;
@@ -18,13 +17,16 @@ import cn.igame.sanguoheros.util.XmlResourceParserUtils;
  * NPC
  * Created by Administrator on 2015/11/9.
  */
-public class SystemActor {
+public class SystemActor extends Actor{
     public static final int SHOP_ID_WEAPON = 2001;
     public static final String XML_TAG = "system-actor";
 
-    private String name;
     private List<String> actionList = new ArrayList<>();
     private int id;
+
+    public SystemActor() {
+        super("");
+    }
 
     public void createFromXml(XmlResourceParser xrp) throws IOException, XmlPullParserException {
         final Resources resources = SgApplication.getAppContext().getResources();

@@ -11,6 +11,7 @@ import android.util.TypedValue;
 import android.view.View;
 
 import cn.igame.sanguoheros.R;
+import cn.igame.sanguoheros.model.Actor;
 import cn.igame.sanguoheros.util.Logger;
 
 /**
@@ -23,8 +24,12 @@ public class BattleView extends View {
 
     private Paint mPaint = new Paint();
     private Paint mPaint2 = new Paint();
+    private Paint mPaint3= new Paint();
     private int roundSize;
     private Bitmap bitmap;
+
+    private Actor[] attacker;
+    private Actor[] defender;
 
     private RectF[] allActorPosition = new RectF[COLUMN_NUMBER * ROW_NUMBER * 2];
 
@@ -45,6 +50,9 @@ public class BattleView extends View {
 
     private void init() {
         mPaint2.setColor(0xFF00FFCC);
+        mPaint.setColor(0xFFB6B6B6);
+        mPaint3.setColor(0xFFFFFFFF);
+        mPaint3.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 10, getResources().getDisplayMetrics()));
         roundSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 60, getResources().getDisplayMetrics());
         bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
     }
@@ -55,7 +63,7 @@ public class BattleView extends View {
         int validWidth = getMeasuredWidth() - getPaddingLeft() - getPaddingRight();
         int validHeight = getMeasuredHeight() - getPaddingTop() - getPaddingBottom();
         int gapWidth = (validWidth - roundSize * COLUMN_NUMBER) / (COLUMN_NUMBER + 1);
-        int gapHeight = (int) ((validHeight * 0.4 - roundSize * ROW_NUMBER) / (COLUMN_NUMBER + 1));
+        int gapHeight = (int) ((validHeight * 0.48 - roundSize * ROW_NUMBER) / (COLUMN_NUMBER + 1));
         measureActorPosition(getPaddingLeft(), getPaddingTop(), getPaddingLeft() + validWidth, getPaddingTop() + validHeight, gapWidth, gapHeight);
     }
 
@@ -94,8 +102,26 @@ public class BattleView extends View {
                 continue;
             RectF rectCopy = new RectF(rect.left, rect.top + rect.height() * 0.7f, rect.right, rect.bottom);
             canvas.drawOval(rectCopy, mPaint);
-            canvas.drawBitmap(bitmap, null, rect, mPaint);
-            canvas.drawText(String.valueOf(i), rect.centerX(), rect.centerY(), mPaint);
+            if(!isInEditMode()) {
+                if (defender.length > i || (attacker.length + (COLUMN_NUMBER * ROW_NUMBER) > i && i >= (COLUMN_NUMBER * ROW_NUMBER))) {
+                    canvas.drawBitmap(bitmap, null, rect, mPaint);
+                    Actor actor = i >= (COLUMN_NUMBER * ROW_NUMBER) ? attacker[i - COLUMN_NUMBER * ROW_NUMBER] : defender[i];
+                    float width = mPaint3.measureText(actor.getName());
+                    canvas.drawText(actor.getName(), rect.centerX() - width / 2, rect.top, mPaint3);
+                }
+            }
         }
+    }
+
+    public void setAttacker(Actor... actors){
+        this.attacker = actors;
+    }
+
+    public void setDefender(Actor... actors){
+        this.defender = actors;
+    }
+
+    public void attack(){
+
     }
 }

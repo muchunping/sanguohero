@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -22,19 +21,21 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import cn.igame.sanguoheros.R;
 import cn.igame.sanguoheros.app.SgApplication;
 import cn.igame.sanguoheros.app.WorldContext;
 import cn.igame.sanguoheros.model.Equipment;
 import cn.igame.sanguoheros.model.Goods;
+import cn.igame.sanguoheros.model.Ogre;
 import cn.igame.sanguoheros.model.Player;
 import cn.igame.sanguoheros.model.Scene;
 import cn.igame.sanguoheros.model.SystemActor;
+import cn.igame.sanguoheros.ui.fragment.BattleFragment;
 import cn.igame.sanguoheros.ui.fragment.EquipmentFragment;
 import cn.igame.sanguoheros.ui.fragment.InventoryFragment;
 import cn.igame.sanguoheros.ui.fragment.MonsterFragment;
+import cn.igame.sanguoheros.ui.fragment.WorldMapFragment;
 import cn.igame.sanguoheros.util.Logger;
 import cn.igame.sanguoheros.util.ToastUtil;
 import cn.igame.sanguoheros.widget.RadioGroupPlus;
@@ -79,12 +80,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        findEnemyView = (LinearLayout) findViewById(R.id.findEnemyView);
+        findEnemyView = (LinearLayout) findViewById(R.id.findEnemyLayout);
         findEnemyView.setVisibility(scene.getType() == Scene.TYPE_WILD ? View.VISIBLE : View.GONE);
         findEnemyView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO find enemy.
+                Ogre ogre = new Ogre("青蛇", 10, Ogre.TYPE_NORMAL);
+                BattleFragment fragment = new BattleFragment();
+                fragment.setAttacker(world.getPlayer());
+                fragment.setDefender(ogre);
+                fragment.show(getFragmentManager(), "battle");
             }
         });
         RecyclerView systemActorLayout = (RecyclerView) findViewById(R.id.recyclerView);
@@ -162,8 +167,8 @@ public class MainActivity extends AppCompatActivity {
     public void showWorldMap(View view) {
         Scene scene = world.getScene();
         Logger.dL(scene.toString());
-        Intent intent = new Intent(this, WorldMapActivity.class);
-        startActivity(intent);
+        WorldMapFragment fragment = new WorldMapFragment();
+        fragment.show(getFragmentManager(), "worldMap");
     }
 
     private void changeScene(Scene newScene) {

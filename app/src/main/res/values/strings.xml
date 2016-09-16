@@ -16,4 +16,5 @@
     <string name="weapon_qlyyd_description_examples">又名“冷艳锯”，重八十二斤，据说为“武圣”关公所用兵器</string>
     <string name="find_enemy">寻找敌人</string>
     <string name="tip_wild_find_enemy">达成100场战斗胜利将遭遇boss</string>
+    <string name="exit_battle">退出战斗</string>
 </resources>

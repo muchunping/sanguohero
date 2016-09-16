@@ -9,7 +9,7 @@ import org.json.JSONObject;
  * 玩家
  * Created by Administrator on 2015/11/9.
  */
-public class Player {
+public class Player extends Actor{
     private final int DEFAULT_VIGOR = 50;
 
     private String name;
@@ -20,10 +20,8 @@ public class Player {
 
     private FightProperty fightProperty;
 
-    Player() {
-    }
-
     public Player(String name, int sex) {
+        super(name);
         this.name = name;
         this.sex = sex;
         fightProperty = FightProperty.createWithDefaultValue();
@@ -39,10 +37,8 @@ public class Player {
             e.printStackTrace();
         }
         if (object == null) return null;
-        Player player = new Player();
-        player.name = object.optString("name");
+        Player player = new Player(object.optString("name"), object.optInt("level"));
         player.sex = object.optInt("sex");
-        player.level = object.optInt("level");
         player.vigor = object.optInt("vigor");
         player.sceneId = object.optInt("sceneId");
         JSONObject fightObject = object.optJSONObject("fight_property");
