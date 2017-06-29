@@ -6,7 +6,4 @@
 /build
 /captures
 .idea
-SanguoHero.iml
-/gradle
-gradlew
-gradlew.bat
+*.iml
