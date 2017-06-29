@@ -77,14 +77,16 @@ public class InventoryFragment extends Fragment {
                 int width;
                 int height;
 
-                View itemView = recycler.getViewForPosition(0);
                 int childWith = 0;
                 int childHeight = 0;
-                if (itemView != null) {
-                    int spec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
-                    itemView.measure(spec, spec);
-                    childWith = itemView.getMeasuredWidth();
-                    childHeight = itemView.getMeasuredHeight();
+                if(recycler.getScrapList().size() > 0) {
+                    View itemView = recycler.getViewForPosition(0);
+                    if (itemView != null) {
+                        int spec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+                        itemView.measure(spec, spec);
+                        childWith = itemView.getMeasuredWidth();
+                        childHeight = itemView.getMeasuredHeight();
+                    }
                 }
 
                 switch (widthMode) {
