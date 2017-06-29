@@ -1,16 +1,18 @@
-package com.mu.isanguo.model;
+package com.mu.isanguo.model.player;
 
 /**
  * !Created by muchunping on 2017/6/29.
  */
 
 public class Player {
+    private final int id;
     private final String name;
     private final boolean male;
     private int level;
 
 
-    public Player(String name, boolean male) {
+    public Player(int id, String name, boolean male) {
+        this.id = id;
         this.name = name;
         this.male = male;
     }
@@ -29,5 +31,9 @@ public class Player {
 
     public boolean isMale() {
         return male;
+    }
+
+    public int getId() {
+        return id;
     }
 }
