@@ -1,0 +1,10 @@
+<item-list>
+    <item id="2000" name="@string/jin_chuang_yao" descripe="@string/desc_jin_chuang_yao" type="1">
+        <health-regain>100</health-regain>
+        <mana-regain>0</mana-regain>
+    </item>
+    <item id="2001" name="@string/tai_yang_shui" descripe="@string/desc_tai_yang_shui" type="1">
+        <health-regain>100</health-regain>
+        <mana-regain>100</mana-regain>
+    </item>
+</item-list>

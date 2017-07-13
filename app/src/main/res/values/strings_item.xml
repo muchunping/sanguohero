@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="jin_chuang_yao">金疮药</string>
+    <string name="desc_jin_chuang_yao">金疮药历来是武林人士医治伤痛的常用药物，可快速治疗100点生命值</string>
+    <string name="tai_yang_shui">太阳水</string>
+    <string name="desc_tai_yang_shui">能同时恢复生命和魔法的神奇药水，重要的是它没有冷却时间</string>
+</resources>

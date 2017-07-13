@@ -1,0 +1,9 @@
+<ogre-list>
+    <ogre id="3000" name="@string/dao_cao_ren" description="@string/description_dao_cao_ren">
+        <fighting health="100" mana="0" pa="5" ma="0" speed="50" pd="10" md="0"/>
+        <loot-list>
+            <item id="2000" ratio="100"/>
+            <item id="2001" ratio="50"/>
+        </loot-list>
+    </ogre>
+</ogre-list>
