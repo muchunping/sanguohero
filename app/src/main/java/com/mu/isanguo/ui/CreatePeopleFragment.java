@@ -13,6 +13,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.mu.isanguo.R;
+import com.mu.isanguo.SgApplication;
+import com.mu.isanguo.core.SgWorld;
+import com.mu.isanguo.model.player.PeoplePlayer;
 
 /**
  * !Created by muchunping on 2017/7/10.
@@ -23,6 +26,7 @@ public class CreatePeopleFragment extends Fragment {
     private ImageView zhanshiView, fashiView, daoshiView;
 
     private int type = 0;
+    private boolean male = false;
 
     @Nullable
     @Override
@@ -33,7 +37,10 @@ public class CreatePeopleFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String name = nameView.getText().toString();
-                Log.d("CreatePeople", name + ":" + type);
+                PeoplePlayer people = new PeoplePlayer(name, male, type);
+                SgWorld world = ((SgApplication)getActivity().getApplication()).getWorld();
+                people.save();
+                people.joinWorld(world);
             }
         });
         zhanshiView = (ImageView) view.findViewById(R.id.imageView0);
@@ -46,10 +53,12 @@ public class CreatePeopleFragment extends Fragment {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
                 if (i == R.id.radioButton0) {
+                    male = true;
                     zhanshiView.setImageResource(R.mipmap.nan_zhan_shi);
                     fashiView.setImageResource(R.mipmap.nan_fa_shi);
                     daoshiView.setImageResource(R.mipmap.nan_dao_shi);
                 } else {
+                    male = false;
                     zhanshiView.setImageResource(R.mipmap.nv_zhan_shi);
                     fashiView.setImageResource(R.mipmap.nv_fa_shi);
                     daoshiView.setImageResource(R.mipmap.nv_dao_shi);
