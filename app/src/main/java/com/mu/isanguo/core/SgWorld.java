@@ -23,6 +23,7 @@ public class SgWorld {
     private List<Scene> sceneList = new ArrayList<>();
     private List<SystemPlayer> systemActorList = new ArrayList<>();
     private List<Props> propsList = new ArrayList<>();
+    private int currentScene;
 
     public void init(Context context) {
         //加载资源
@@ -88,5 +89,9 @@ public class SgWorld {
         } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setCurrentScene(int currentScene) {
+        this.currentScene = currentScene;
     }
 }

@@ -7,8 +7,8 @@ package com.mu.isanguo.model.player;
 public class Player {
     private final int id;
     protected final String name;
-    private final boolean male;
-    private int level;
+    protected final boolean male;
+    protected int level;
 
 
     public Player(int id, String name, boolean male) {

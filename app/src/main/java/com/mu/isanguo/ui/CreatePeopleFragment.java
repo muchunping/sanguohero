@@ -41,11 +41,13 @@ public class CreatePeopleFragment extends Fragment {
                 SgWorld world = ((SgApplication)getActivity().getApplication()).getWorld();
                 people.save();
                 people.joinWorld(world);
+                getFragmentManager().beginTransaction().detach(CreatePeopleFragment.this).commit();
             }
         });
         zhanshiView = (ImageView) view.findViewById(R.id.imageView0);
         fashiView = (ImageView) view.findViewById(R.id.imageView1);
         daoshiView = (ImageView) view.findViewById(R.id.imageView2);
+        zhanshiView.setSelected(true);
         zhanshiView.setOnClickListener(clickListener);
         fashiView.setOnClickListener(clickListener);
         daoshiView.setOnClickListener(clickListener);
