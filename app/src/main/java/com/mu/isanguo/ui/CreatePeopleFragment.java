@@ -39,7 +39,7 @@ public class CreatePeopleFragment extends Fragment {
                 String name = nameView.getText().toString();
                 PeoplePlayer people = new PeoplePlayer(name, male, type);
                 SgWorld world = ((SgApplication)getActivity().getApplication()).getWorld();
-                people.save();
+                people.save(getActivity());
                 people.joinWorld(world);
                 getFragmentManager().beginTransaction().detach(CreatePeopleFragment.this).commit();
             }
