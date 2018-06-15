@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fresh_peaches">新鲜的桃子</string>
+
+    <string name="use">使用</string>
+    <string name="gain_health">恢复生命值</string>
+</resources>

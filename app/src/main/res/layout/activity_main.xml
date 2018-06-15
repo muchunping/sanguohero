@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/red_green_pressed"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tab1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/px_64"
+        android:layout_marginBottom="@dimen/px_16"
+        android:layout_marginStart="@dimen/px_16"
+        android:layout_marginTop="@dimen/px_16"
+        android:background="@drawable/button_background"
+        android:gravity="center"
+        android:text="@string/player_info"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toStartOf="@+id/tab2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tab2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/px_64"
+        android:layout_marginTop="@dimen/px_16"
+        android:background="@drawable/button_background"
+        android:gravity="center"
+        android:text="@string/quest"
+        app:layout_constraintBottom_toBottomOf="@+id/tab1"
+        app:layout_constraintEnd_toStartOf="@+id/tab3"
+        app:layout_constraintStart_toEndOf="@+id/tab1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tab3"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/px_64"
+        android:layout_marginTop="@dimen/px_16"
+        android:background="@drawable/button_background"
+        android:gravity="center"
+        android:text="@string/skill"
+        app:layout_constraintBottom_toBottomOf="@+id/tab2"
+        app:layout_constraintEnd_toStartOf="@+id/tab4"
+        app:layout_constraintStart_toEndOf="@+id/tab2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tab4"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/px_64"
+        android:layout_marginEnd="@dimen/px_16"
+        android:layout_marginTop="@dimen/px_16"
+        android:background="@drawable/button_background"
+        android:gravity="center"
+        android:text="@string/inventory"
+        app:layout_constraintBottom_toBottomOf="@+id/tab3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tab3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab1" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView">
+
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

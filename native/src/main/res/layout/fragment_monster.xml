@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2"
+    android:divider="@drawable/line_horizontal"
+    android:orientation="vertical"
+    android:showDividers="middle|beginning|end">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/px_10"
+        android:paddingLeft="@dimen/px_10"
+        android:paddingRight="@dimen/px_10"
+        android:paddingTop="@dimen/px_16"
+        android:text="基本信息"
+        android:textColor="@android:color/widget_edittext_dark" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#96454A"
+        android:divider="@drawable/line_vertical"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:showDividers="middle|end">
+
+        <ImageView
+            android:layout_width="@dimen/px_108"
+            android:layout_height="@dimen/px_120"
+            android:layout_marginBottom="@dimen/px_8"
+            android:layout_marginLeft="@dimen/px_8"
+            android:layout_marginRight="@dimen/px_8"
+            android:layout_marginTop="@dimen/px_8"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/monster01" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#76252A"
+            android:divider="@drawable/line_horizontal"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/px_8"
+                android:layout_marginRight="@dimen/px_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:text="名称"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_18px" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/px_8"
+                android:layout_marginRight="@dimen/px_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:text="类型"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_18px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:divider="@drawable/line_horizontal"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:showDividers="middle"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/px_8"
+                android:layout_marginRight="@dimen/px_8"
+                android:layout_weight="1"
+                android:ems="4"
+                android:gravity="center_vertical|start"
+                android:text="拉胡尔蒂法"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_18px" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/px_8"
+                android:layout_marginRight="@dimen/px_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical|start"
+                android:text="体力"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_18px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#76252A"
+            android:divider="@drawable/line_horizontal"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            android:weightSum="3">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/px_8"
+                android:layout_marginRight="@dimen/px_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:text="属性"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_18px" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/px_8"
+                android:layout_marginRight="@dimen/px_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:text="星级"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_18px" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/px_8"
+                android:layout_marginRight="@dimen/px_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:text="体力"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_18px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:divider="@drawable/line_horizontal"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            android:weightSum="3">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/px_8"
+                android:layout_marginRight="@dimen/px_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical|start"
+                android:text="暗"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_18px" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/px_8"
+                android:layout_marginRight="@dimen/px_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical|start"
+                android:text="6"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_18px" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/px_8"
+                android:layout_marginRight="@dimen/px_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical|start"
+                android:ems="3"
+                android:text="714000"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_18px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#76252A"
+            android:divider="@drawable/line_horizontal"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            android:weightSum="3">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/px_8"
+                android:layout_marginRight="@dimen/px_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:text="攻击"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_18px" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/px_8"
+                android:layout_marginRight="@dimen/px_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:text="防御"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_18px" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/px_8"
+                android:layout_marginRight="@dimen/px_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:text="速度"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_18px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:divider="@drawable/line_horizontal"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            android:weightSum="3">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/px_8"
+                android:layout_marginRight="@dimen/px_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical|start"
+                android:text="714"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_18px" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/px_8"
+                android:layout_marginRight="@dimen/px_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical|start"
+                android:text="615"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_18px" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/px_8"
+                android:layout_marginRight="@dimen/px_8"
+                android:layout_weight="1"
+                android:gravity="center_vertical|start"
+                android:text="115"
+                android:ems="3"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_18px" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/px_10"
+        android:paddingLeft="@dimen/px_10"
+        android:paddingRight="@dimen/px_10"
+        android:paddingTop="@dimen/px_16"
+        android:text="觉醒信息"
+        android:visibility="gone" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/px_10"
+        android:paddingLeft="@dimen/px_10"
+        android:paddingRight="@dimen/px_10"
+        android:paddingTop="@dimen/px_16"
+        android:text="技能信息"
+        android:textColor="@android:color/widget_edittext_dark" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#76252A"
+        android:divider="@drawable/line_vertical"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:showDividers="middle|end">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_8"
+            android:layout_marginRight="@dimen/px_8"
+            android:ems="2"
+            android:text="名称"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_8"
+            android:layout_marginRight="@dimen/px_8"
+            android:layout_weight="1"
+            android:text="效果描述"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_8"
+            android:layout_marginRight="@dimen/px_8"
+            android:ems="2"
+            android:text="冷却时间"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#96454A"
+        android:divider="@drawable/line_vertical"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:showDividers="middle|end">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_8"
+            android:layout_marginRight="@dimen/px_8"
+            android:ems="2"
+            android:gravity="center"
+            android:paddingBottom="@dimen/px_8"
+            android:paddingTop="@dimen/px_8"
+            android:text="粉碎一击"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_8"
+            android:layout_marginRight="@dimen/px_8"
+            android:layout_weight="1"
+            android:paddingBottom="@dimen/px_8"
+            android:paddingTop="@dimen/px_8"
+            android:text="攻击敌人，恢復其造成伤害50%的体力，并在触发暴击时在2回合内增加自身攻击速度。"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_8"
+            android:layout_marginRight="@dimen/px_8"
+            android:ems="2"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#96454A"
+        android:divider="@drawable/line_vertical"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:showDividers="middle|end">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_8"
+            android:layout_marginRight="@dimen/px_8"
+            android:ems="2"
+            android:gravity="center"
+            android:paddingBottom="@dimen/px_8"
+            android:paddingTop="@dimen/px_8"
+            android:text="护卫"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_8"
+            android:layout_marginRight="@dimen/px_8"
+            android:layout_weight="1"
+            android:paddingBottom="@dimen/px_8"
+            android:paddingTop="@dimen/px_8"
+            android:text="3回合内我军目标受到攻击时伤害变为0，并给自身造成其塬伤害50%的伤害。"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_8"
+            android:layout_marginRight="@dimen/px_8"
+            android:ems="2"
+            android:gravity="center"
+            android:text="5\n回合"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#96454A"
+        android:divider="@drawable/line_vertical"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:showDividers="middle|end">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_8"
+            android:layout_marginRight="@dimen/px_8"
+            android:ems="2"
+            android:gravity="center"
+            android:paddingBottom="@dimen/px_8"
+            android:paddingTop="@dimen/px_8"
+            android:text="暗术"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_8"
+            android:layout_marginRight="@dimen/px_8"
+            android:layout_weight="1"
+            android:paddingBottom="@dimen/px_8"
+            android:paddingTop="@dimen/px_8"
+            android:text="用召唤光之力量的咒术攻击所有敌人，并以75%的概率在2回合内使敌人无法获得强化效果。自身体力上限越高，威力越强。"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_8"
+            android:layout_marginRight="@dimen/px_8"
+            android:ems="2"
+            android:gravity="center"
+            android:text="6\n回合"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#96454A"
+        android:divider="@drawable/line_vertical"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:showDividers="middle|end">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_8"
+            android:layout_marginRight="@dimen/px_8"
+            android:ems="2"
+            android:gravity="center"
+            android:paddingBottom="@dimen/px_8"
+            android:paddingTop="@dimen/px_8"
+            android:text="领袖技能"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_8"
+            android:layout_marginRight="@dimen/px_8"
+            android:layout_weight="1"
+            android:paddingBottom="@dimen/px_8"
+            android:paddingTop="@dimen/px_8"
+            android:text="在地下城时，我军魔灵攻击力增加44%。"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_8"
+            android:layout_marginRight="@dimen/px_8"
+            android:ems="2"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</LinearLayout>

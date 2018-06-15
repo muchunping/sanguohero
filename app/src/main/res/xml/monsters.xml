@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<monster-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <monster name="@string/jie_fei" id="3001">
+        <loot-list>
+            <item id="4001" change="100"/>
+        </loot-list>
+    </monster>
+</monster-list>

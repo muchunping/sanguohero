@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<equipment-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <equipment id="5001" name="@string/yi_tian_jian" type="1">
+        <fight-properties>
+            <attach>125</attach>
+            <speed>50</speed>
+        </fight-properties>
+    </equipment>
+</equipment-list>

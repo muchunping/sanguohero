@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:background="@drawable/bg_inventory_item"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:padding="3dp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/font_size_18px" />
+</FrameLayout>

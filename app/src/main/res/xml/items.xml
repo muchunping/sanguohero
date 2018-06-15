@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<item-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item id="4001" name="@string/fresh_peaches">
+        <action>@string/use</action>
+        <effect type="101" descript="@string/gain_health">100</effect>
+    </item>
+</item-list>

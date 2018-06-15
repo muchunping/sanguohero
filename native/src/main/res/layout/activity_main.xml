@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E0E0E0">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                tools:ignore="RelativeOverlap">
+
+                <ImageView
+                    android:id="@+id/smallMapView"
+                    android:layout_width="@dimen/px_144"
+                    android:layout_height="@dimen/px_144"
+                    android:layout_margin="2dp"
+                    android:clickable="true"
+                    android:contentDescription="@string/app_name"
+                    android:onClick="showWorldMap"
+                    android:src="@drawable/icon_small_map" />
+
+                <TextView
+                    android:id="@+id/sceneNameView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_text_none"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="@string/chang_an"
+                    android:textColor="@android:color/white"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+                <Button
+                    style="?android:buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/bg_text_none"
+                    android:gravity="center"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:onClick="onClickSearch"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="@string/search"
+                    android:textColor="@android:color/white"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+                <Button
+                    style="?android:buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/bg_text_none"
+                    android:gravity="center"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:onClick="onClickOutlet"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="@string/outlet"
+                    android:textColor="@android:color/white"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+            </FrameLayout>
+
+
+            <TextView
+                android:id="@+id/playerNameView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-25dp"
+                android:layout_marginStart="-25dp"
+                android:layout_marginTop="2dp"
+                android:layout_toEndOf="@+id/playerPhotoView"
+                android:layout_toRightOf="@+id/playerPhotoView"
+                android:background="@drawable/bg_scene_name"
+                android:gravity="center"
+                android:text="@string/chang_an"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+
+            <ImageView
+                android:id="@+id/playerPhotoView"
+                android:layout_width="@dimen/px_108"
+                android:layout_height="@dimen/px_108"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/bg_player_photo"
+                android:contentDescription="@string/app_name" />
+
+            <TextView
+                android:id="@+id/playerLevelView"
+                android:layout_width="@dimen/px_24"
+                android:layout_height="@dimen/px_24"
+                android:layout_alignBottom="@id/playerPhotoView"
+                android:layout_alignLeft="@id/playerPhotoView"
+                android:layout_alignStart="@id/playerPhotoView"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/bg_player_level"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="8sp"
+                tools:ignore="SmallSp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/findEnemyLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/px_10"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/findEnemyView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@android:drawable/ic_menu_search"
+                    android:text="@string/find_enemy"
+                    android:textSize="@dimen/font_size_36px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px_10"
+                    android:text="@string/tip_wild_find_enemy" />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/px_132" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/logView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_132"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_quest"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="10sp"
+        tools:ignore="SmallSp" />
+
+    <FrameLayout
+        android:id="@+id/floatLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#65000000"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:id="@+id/contentPanel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+</FrameLayout>

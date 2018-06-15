@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">app</string>
+    <string name="player_info">Player Info</string>
+    <string name="quest">Quest</string>
+    <string name="skill">Skill</string>
+    <string name="inventory">Inventory</string>
+</resources>

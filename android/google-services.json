@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "328543651112",
+    "firebase_url": "https://sanguohero-164412.firebaseio.com",
+    "project_id": "sanguohero-164412",
+    "storage_bucket": "sanguohero-164412.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328543651112:android:7cbd378d8a58c20d",
+        "android_client_info": {
+          "package_name": "com.isanguo.heroes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "328543651112-rf0vrqpaum2qronvpcavksbugl09e7dh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.isanguo.heroes",
+            "certificate_hash": "1b5b4d5ee68ff38ec94627f77007bf8bbc00d2dc"
+          }
+        },
+        {
+          "client_id": "328543651112-ca56ko4blubcb1bp0c6ksna7k45bfesq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJyUQKGufmP-DXe467dQz-AZOfB2FdMzA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "328543651112-ca56ko4blubcb1bp0c6ksna7k45bfesq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

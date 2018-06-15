@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">三国英雄</string>
+    <string name="tip_create_player_one">请设置角色名和性别</string>
+    <string name="create_player">创建角色</string>
+    <string name="sex_male">男</string>
+    <string name="sex_female">女</string>
+    <string name="ok">确定</string>
+    <string name="search">探索</string>
+    <string name="outlet">出口</string>
+    <string name="weapon_qlyyd">青龙偃月刀</string>
+    <string name="base_properties">基本属性</string>
+    <string name="extra_properties">附加属性</string>
+
+    <string name="base_properties_examples">+80 物理攻击力</string>
+    <string name="extra_properties_examples">00</string>
+    <string name="weapon_qlyyd_description_examples">又名“冷艳锯”，重八十二斤，据说为“武圣”关公所用兵器</string>
+    <string name="find_enemy">寻找敌人</string>
+    <string name="tip_wild_find_enemy">达成100场战斗胜利将遭遇boss</string>
+    <string name="exit_battle">退出战斗</string>
+</resources>

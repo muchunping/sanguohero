@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_panel">
+
+    <ImageView
+        android:id="@+id/headwear"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:layout_marginTop="@dimen/px_48"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/slot_background" />
+
+    <ImageView
+        android:id="@+id/necklace"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:layout_marginStart="@dimen/px_120"
+        android:layout_marginTop="@dimen/px_48"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headwear"
+        app:srcCompat="@drawable/slot_background" />
+
+    <ImageView
+        android:id="@+id/bracelet_right"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toStartOf="@+id/clothes"
+        app:layout_constraintTop_toTopOf="@+id/bracelet_left"
+        app:srcCompat="@drawable/slot_background" />
+
+    <ImageView
+        android:id="@+id/bracelet_left"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:layout_marginTop="@dimen/px_48"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toStartOf="@+id/necklace"
+        app:layout_constraintTop_toBottomOf="@+id/necklace"
+        app:srcCompat="@drawable/slot_background" />
+
+    <ImageView
+        android:id="@+id/clothes"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:layout_marginEnd="@dimen/px_120"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/necklace"
+        app:srcCompat="@drawable/slot_background" />
+
+    <ImageView
+        android:id="@+id/ring_right"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toStartOf="@+id/bracelet_right"
+        app:layout_constraintTop_toTopOf="@+id/ring_left"
+        app:srcCompat="@drawable/slot_background" />
+
+    <ImageView
+        android:id="@+id/amulet"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toStartOf="@+id/ring_right"
+        app:layout_constraintTop_toTopOf="@+id/shoes"
+        app:srcCompat="@drawable/slot_background" />
+
+    <ImageView
+        android:id="@+id/medal"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:layout_marginBottom="@dimen/px_48"
+        android:layout_marginTop="@dimen/px_48"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintBottom_toTopOf="@+id/blankArea"
+        app:layout_constraintStart_toStartOf="@+id/ring_left"
+        app:layout_constraintTop_toBottomOf="@+id/ring_left"
+        app:srcCompat="@drawable/slot_background" />
+
+    <ImageView
+        android:id="@+id/shoes"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toStartOf="@+id/headwear"
+        app:layout_constraintTop_toTopOf="@+id/medal"
+        app:srcCompat="@drawable/slot_background" />
+
+    <ImageView
+        android:id="@+id/ring_left"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:layout_marginTop="@dimen/px_48"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toStartOf="@+id/bracelet_left"
+        app:layout_constraintTop_toBottomOf="@+id/bracelet_left"
+        app:srcCompat="@drawable/slot_background" />
+
+    <View
+        android:id="@+id/blankArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorWindowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/medal" />
+</android.support.constraint.ConstraintLayout>

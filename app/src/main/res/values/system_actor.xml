@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weapon_shop_owner">武器店老板</string>
+    <string name="weapon_shop_assistant">武器店伙计</string>
+    <string name="jewelry_shop_owner">首饰店老板</string>
+    <string name="jewelry_shop_assistant">首饰店伙计</string>
+    <string name="armor_shop_owner">防具店老板</string>
+    <string name="armor_shop_assistant">防具店伙计</string>
+    <string name="pharmacy_owner">药店老板</string>
+    <string name="grocery_store_owner">杂货店老板</string>
+    <string name="book_store_owner">书店老板</string>
+    <string name="warehouse_owner">仓库保管员</string>
+    <string name="wine_shop_owner">客栈老板</string>
+    <string name="wine_shop_assistant">客栈小二</string>
+    <string name="hunter">猎人</string>
+
+    <string name="merchandise">交易</string>
+    <string name="produce">制造</string>
+    <string name="deposit">寄存</string>
+    <string name="entrust">委托</string>
+    <string name="inquire">打听</string>
+    <string name="cure">治疗</string>
+    <string name="talk">对话</string>
+
+</resources>

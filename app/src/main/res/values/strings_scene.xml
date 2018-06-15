@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="xi_liang">西凉</string>
+    <string name="wu_wei">武威</string>
+    <string name="tian_shui">天水</string>
+    <string name="chang_an">长安</string>
+    <string name="han_zhong">汉中</string>
+    <string name="cheng_du">成都</string>
+    <string name="yun_nan">云南</string>
+    <string name="jian_ning">建宁</string>
+    <string name="jiang_zhou">江州</string>
+    <string name="ye_cheng">邺城</string>
+    <string name="pu_yang">濮阳</string>
+    <string name="ping_yuan">平原</string>
+    <string name="nan_pi">南皮</string>
+    <string name="xiang_ping">襄平</string>
+    <string name="bei_ping">北平</string>
+    <string name="ji_zhou">蓟州</string>
+    <string name="bei_hai">北海</string>
+    <string name="xia_pi">下邳</string>
+    <string name="shou_chun">寿春</string>
+    <string name="luo_yang">洛阳</string>
+    <string name="wan_cheng">宛城</string>
+    <string name="ru_nan">汝南</string>
+    <string name="chen_liu">陈留</string>
+    <string name="jian_ye">建业</string>
+    <string name="wu_jun">吴郡</string>
+    <string name="kuai_ji">会稽</string>
+    <string name="lu_jiang">庐江</string>
+    <string name="nan_hai">南海</string>
+    <string name="gui_yang">桂阳</string>
+    <string name="ling_ling">零陵</string>
+    <string name="wu_ling">武陵</string>
+    <string name="jiang_ling">江陵</string>
+    <string name="chang_sha">长沙</string>
+    <string name="xiang_yang">襄阳</string>
+
+    <!--wild-->
+    <string name="di_wang_gu">帝王谷</string>
+</resources>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_inventory"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/px_20"
+    android:paddingTop="@dimen/px_20">
+
+    <TextView
+        android:id="@+id/equipmentNameView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/px_10"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:text="@string/weapon_qlyyd"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/font_size_30px" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#E8BF6A" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/px_10"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/equipmentImageView"
+            android:layout_width="@dimen/px_120"
+            android:layout_height="@dimen/px_120"
+            android:contentDescription="@string/weapon_qlyyd"
+            android:src="@drawable/pic_2300050_l" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_24"
+            android:layout_marginStart="@dimen/px_24"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/equipmentLevelView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#2b2b2b"
+                android:text="等级：70"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_24px" />
+
+            <TextView
+                android:id="@+id/equipmentTypeView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#323232"
+                android:text="类型：武器"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_24px" />
+
+            <TextView
+                android:id="@+id/equipmentRareView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#2b2b2b"
+                android:text="珍品：★★★★★"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_24px" />
+
+            <TextView
+                android:id="@+id/equipmentQualityView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#323232"
+                android:text="品质：强化"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_size_24px" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/equipmentDescriptionView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/px_10"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/px_10"
+        android:text="@string/weapon_qlyyd_description_examples"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/font_size_24px" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#E8BF6A" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/px_10"
+        android:text="@string/base_properties"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/font_size_26px" />
+
+    <TextView
+        android:id="@+id/equipmentBasePropertyView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:text="@string/base_properties_examples"
+        android:textColor="#E8BF6A"
+        android:textSize="@dimen/font_size_24px" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/px_10"
+        android:text="@string/extra_properties"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/font_size_26px" />
+
+    <TextView
+        android:id="@+id/equipmentExtraPropertyView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:text="@string/extra_properties_examples"
+        android:textColor="#E8BF6A"
+        android:textSize="@dimen/font_size_24px" />
+</LinearLayout>

@@ -1,0 +1,32 @@
+<resources>
+    <dimen name="activity_horizontal_margin">12dp</dimen>
+    <dimen name="activity_vertical_margin">12dp</dimen>
+
+    <!--常用尺寸-->
+    <dimen name="px_8">3dp</dimen>
+    <dimen name="px_10">3.8dp</dimen>
+    <dimen name="px_12">4.5dp</dimen>
+    <dimen name="px_16">6dp</dimen>
+    <dimen name="px_18">6.8dp</dimen>
+    <dimen name="px_20">7.5dp</dimen>
+    <dimen name="px_22">8.2dp</dimen>
+    <dimen name="px_24">9dp</dimen>
+    <dimen name="px_26">9.8dp</dimen>
+    <dimen name="px_28">1.5dp</dimen>
+    <dimen name="px_30">10dp</dimen>
+    <dimen name="px_32">12dp</dimen>
+    <dimen name="px_36">13.5dp</dimen>
+    <dimen name="px_40">15dp</dimen>
+    <dimen name="px_48">18dp</dimen>
+    <dimen name="px_64">24dp</dimen>
+
+    <dimen name="px_496">186dp</dimen>
+    <dimen name="px_272">102dp</dimen>
+    <dimen name="px_240">90dp</dimen>
+    <dimen name="px_200">75dp</dimen>
+    <dimen name="px_160">60dp</dimen>
+    <dimen name="px_144">54dp</dimen>
+    <dimen name="px_132">49.5dp</dimen>
+    <dimen name="px_120">45dp</dimen>
+    <dimen name="px_108">40.5dp</dimen>
+</resources>
