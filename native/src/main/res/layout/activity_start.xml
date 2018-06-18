@@ -1,10 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/contentView"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/contentView"
     android:layout_height="match_parent"
     android:background="@drawable/bg_start"
     tools:context="com.mu.sanguo.heroes.StartActivity">
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/button_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新的开始"
+        app:layout_constraintBottom_toTopOf="@+id/button_old"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/button_old"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:enabled="false"
+        android:text="再续前缘"
+        app:layout_constraintBottom_toTopOf="@+id/button_set"
+        app:layout_constraintEnd_toEndOf="@+id/button_new"
+        app:layout_constraintStart_toStartOf="@+id/button_new"
+        app:layout_constraintTop_toBottomOf="@+id/button_new" />
+
+    <Button
+        android:id="@+id/button_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="游戏设置"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/button_old"
+        app:layout_constraintStart_toStartOf="@+id/button_old"
+        app:layout_constraintTop_toBottomOf="@+id/button_old" />
+</android.support.constraint.ConstraintLayout>

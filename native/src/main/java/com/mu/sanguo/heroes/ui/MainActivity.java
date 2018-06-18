@@ -14,15 +14,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import cn.igame.sanguoheros.R;
 import com.mu.sanguo.heroes.app.SgApplication;
 import com.mu.sanguo.heroes.app.WorldContext;
 import com.mu.sanguo.heroes.model.Equipment;
@@ -41,20 +35,24 @@ import com.mu.sanguo.heroes.util.Logger;
 import com.mu.sanguo.heroes.util.ToastUtil;
 import com.mu.sanguo.heroes.widget.RadioGroupPlus;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.igame.sanguoheros.R;
+
 /**
  * 主界面
  * Created by Administrator on 2015/11/9.
  */
 public class MainActivity extends AppCompatActivity {
-    private FrameLayout floatLayout;
     private Fragment lastFragment;
     private TextView logView;
     private TextView playerNameView, playerLevelView;
     private TextView sceneNameView;
+    private View findEnemyView;
+
     private RecyclerView.Adapter<ViewHolder> adapter;
     private WorldContext world;
-
-    private LinearLayout findEnemyView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +61,13 @@ public class MainActivity extends AppCompatActivity {
         world = ((SgApplication) getApplication()).getWorldContext();
         Scene scene = world.getScene();
 
-        floatLayout = (FrameLayout) findViewById(R.id.floatLayout);
-        playerNameView = (TextView) findViewById(R.id.playerNameView);
-        playerLevelView = (TextView) findViewById(R.id.playerLevelView);
+        playerNameView = findViewById(R.id.playerNameView);
+        playerLevelView = findViewById(R.id.playerLevelView);
         fillPlayerInfoLayout();
-        sceneNameView = (TextView) findViewById(R.id.sceneNameView);
+        sceneNameView = findViewById(R.id.sceneNameView);
         sceneNameView.setText(scene.getName());
-        floatLayout.setOnClickListener(new View.OnClickListener() {
+        logView = findViewById(R.id.tv_log);
+        logView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (lastFragment != null) {
@@ -81,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        findEnemyView = findViewById(R.id.findEnemyLayout);
+        findEnemyView = findViewById(R.id.tv_find_enemy);
         findEnemyView.setVisibility(scene.getType() == SgScene.TYPE_WILD ? View.VISIBLE : View.GONE);
         findEnemyView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 fragment.show(getFragmentManager(), "battle");
             }
         });
-        RecyclerView systemActorLayout = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView systemActorLayout = findViewById(R.id.cv_npc);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         systemActorLayout.setLayoutManager(layoutManager);
@@ -141,8 +139,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (floatLayout.isShown()) {
-            floatLayout.setVisibility(View.GONE);
+        if (logView.isShown()) {
+            logView.setVisibility(View.GONE);
             if (lastFragment != null) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.detach(lastFragment);
@@ -198,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if (fragment != null) {
             lastFragment = fragment;
-            floatLayout.setVisibility(View.VISIBLE);
+            logView.setVisibility(View.VISIBLE);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.add(R.id.contentPanel, fragment);
             ft.commit();
@@ -247,11 +245,11 @@ public class MainActivity extends AppCompatActivity {
         public TextView nameView;
         public TextView actionView;
 
-        public ViewHolder(View view) {
+        ViewHolder(View view) {
             super(view);
-            imageView = (ImageView) view.findViewById(R.id.imageView);
-            nameView = (TextView) view.findViewById(R.id.nameView);
-            actionView = (TextView) view.findViewById(R.id.actionView);
+            imageView = view.findViewById(R.id.imageView);
+            nameView = view.findViewById(R.id.playerNameView);
+            actionView = view.findViewById(R.id.actionView);
         }
     }
 }

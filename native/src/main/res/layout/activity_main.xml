@@ -1,195 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <android.support.constraint.Guideline
+        android:id="@+id/line1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#E0E0E0">
+    <android.support.constraint.Guideline
+        android:id="@+id/line2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
 
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                tools:ignore="RelativeOverlap">
+    <android.support.constraint.Guideline
+        android:id="@+id/line3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
 
-                <ImageView
-                    android:id="@+id/smallMapView"
-                    android:layout_width="@dimen/px_144"
-                    android:layout_height="@dimen/px_144"
-                    android:layout_margin="2dp"
-                    android:clickable="true"
-                    android:contentDescription="@string/app_name"
-                    android:onClick="showWorldMap"
-                    android:src="@drawable/icon_small_map" />
-
-                <TextView
-                    android:id="@+id/sceneNameView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/bg_text_none"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="@string/chang_an"
-                    android:textColor="@android:color/white"
-                    android:textSize="10sp"
-                    tools:ignore="SmallSp" />
-
-                <Button
-                    style="?android:buttonBarButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:background="@drawable/bg_text_none"
-                    android:gravity="center"
-                    android:minHeight="0dp"
-                    android:minWidth="0dp"
-                    android:onClick="onClickSearch"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="@string/search"
-                    android:textColor="@android:color/white"
-                    android:textSize="10sp"
-                    tools:ignore="SmallSp" />
-
-                <Button
-                    style="?android:buttonBarButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|end"
-                    android:background="@drawable/bg_text_none"
-                    android:gravity="center"
-                    android:minHeight="0dp"
-                    android:minWidth="0dp"
-                    android:onClick="onClickOutlet"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="@string/outlet"
-                    android:textColor="@android:color/white"
-                    android:textSize="10sp"
-                    tools:ignore="SmallSp" />
-            </FrameLayout>
-
-
-            <TextView
-                android:id="@+id/playerNameView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="-25dp"
-                android:layout_marginStart="-25dp"
-                android:layout_marginTop="2dp"
-                android:layout_toEndOf="@+id/playerPhotoView"
-                android:layout_toRightOf="@+id/playerPhotoView"
-                android:background="@drawable/bg_scene_name"
-                android:gravity="center"
-                android:text="@string/chang_an"
-                android:textColor="@android:color/white"
-                android:textSize="10sp"
-                tools:ignore="SmallSp" />
-
-            <ImageView
-                android:id="@+id/playerPhotoView"
-                android:layout_width="@dimen/px_108"
-                android:layout_height="@dimen/px_108"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="2dp"
-                android:background="@drawable/bg_player_photo"
-                android:contentDescription="@string/app_name" />
-
-            <TextView
-                android:id="@+id/playerLevelView"
-                android:layout_width="@dimen/px_24"
-                android:layout_height="@dimen/px_24"
-                android:layout_alignBottom="@id/playerPhotoView"
-                android:layout_alignLeft="@id/playerPhotoView"
-                android:layout_alignStart="@id/playerPhotoView"
-                android:layout_marginBottom="2dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginStart="4dp"
-                android:background="@drawable/bg_player_level"
-                android:gravity="center"
-                android:textColor="@android:color/white"
-                android:textSize="8sp"
-                tools:ignore="SmallSp" />
-
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:id="@+id/findEnemyLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/px_10"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/findEnemyView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableTop="@android:drawable/ic_menu_search"
-                    android:text="@string/find_enemy"
-                    android:textSize="@dimen/font_size_36px" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/px_10"
-                    android:text="@string/tip_wild_find_enemy" />
-            </LinearLayout>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal" />
-        </LinearLayout>
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/px_132" />
-    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cv_npc"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/line3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_find_enemy" />
 
     <TextView
-        android:id="@+id/logView"
+        android:id="@+id/tv_find_enemy"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableTop="@android:drawable/ic_menu_search"
+        android:gravity="center"
+        android:text="@string/find_enemy"
+        android:textSize="@dimen/font_size_36px"
+        app:layout_constraintBottom_toTopOf="@+id/cv_npc"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/line2" />
+
+    <TextView
+        android:id="@+id/tv_log"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/ic_launcher_background"
+        android:ems="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cv_npc" />
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="@dimen/px_132"
         android:layout_height="@dimen/px_132"
-        android:layout_gravity="bottom"
-        android:background="@drawable/bg_quest"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="10sp"
-        tools:ignore="SmallSp" />
+        android:background="@drawable/bg_avatar"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher" />
 
-    <FrameLayout
-        android:id="@+id/floatLayout"
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/px_12"
+        android:text="乘风破浪"
+        android:textSize="@dimen/font_size_36px"
+        app:layout_constraintBottom_toTopOf="@id/tv_level"
+        app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
+        app:layout_constraintRight_toRightOf="@id/line1"
+        app:layout_constraintTop_toTopOf="@+id/iv_avatar"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tv_level"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="等级：17"
+        android:textSize="@dimen/font_size_36px"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_avatar"
+        app:layout_constraintLeft_toLeftOf="@id/tv_name"
+        app:layout_constraintRight_toRightOf="@id/tv_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#65000000"
-        android:visibility="gone">
+        android:layout_height="1dp"
+        android:background="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toTopOf="@id/line2" />
 
-        <FrameLayout
-            android:id="@+id/contentPanel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
-    </FrameLayout>
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/px_8"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_avatar"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintBottom_toBottomOf="@id/line2"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <TextView
+        android:id="@+id/tv_scene"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="失落的遗迹"
+        android:textSize="@dimen/font_size_40px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/line1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickSearch"
+        android:text="探索"
+        app:layout_constraintBottom_toTopOf="@+id/line2"
+        app:layout_constraintStart_toStartOf="@+id/line1" />
+
+    <Button
+        android:id="@+id/btn_outlet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickOutlet"
+        android:text="出口"
+        app:layout_constraintBottom_toTopOf="@+id/line2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/pb_search"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:progress="50"
+        app:layout_constraintBottom_toTopOf="@+id/line2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/line1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_progress" />
+
+    <TextView
+        android:id="@+id/tv_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50%"
+        app:layout_constraintBottom_toTopOf="@+id/pb_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/line1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+</android.support.constraint.ConstraintLayout>

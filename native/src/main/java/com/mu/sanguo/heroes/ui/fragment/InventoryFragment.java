@@ -60,7 +60,7 @@ public class InventoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_inventory, container, false);
 
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = view.findViewById(R.id.cv_npc);
 
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(),
                 spanCount, GridLayoutManager.VERTICAL, false) {
