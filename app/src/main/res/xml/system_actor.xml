@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <system-actor-list>
-    <system-actor name="@string/weapon_shop_owner" id="2001">
+    <system-actor name="@string/weapon_shop_owner" id="2001" pic="@drawable/ic_launcher">
         <action-list>
             <action name = "@string/merchandise"/>
         </action-list>

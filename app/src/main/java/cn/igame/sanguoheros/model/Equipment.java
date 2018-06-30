@@ -6,9 +6,9 @@ package cn.igame.sanguoheros.model;
  */
 public class Equipment extends Goods{
 
-    public Equipment(int type, String name, int picPath, String description, int level, int rareStar,
+    public Equipment(int id, int type, String name, int picPath, String description, int level, int rareStar,
                      int attackPoint, int defensePoint, int healthPoint, int manaPoint, int speedPoint) {
-        super(name, description, picPath);
+        super(id, name, description, picPath);
         this.level = level;
         this.rareStar = rareStar;
         this.type = Type.valueOf(type);

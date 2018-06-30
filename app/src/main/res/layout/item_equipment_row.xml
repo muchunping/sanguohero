@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/view_background_gray_white"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/px_32"
+    android:paddingEnd="@dimen/px_32"
+    android:paddingStart="@dimen/px_32"
+    android:paddingTop="@dimen/px_32">
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/nameView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="誓约胜利之剑"
+        android:textColor="@color/equipment_quality_8"
+        android:textSize="@dimen/font_size_28px" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="至尊级"
+        android:textColor="@color/equipment_quality_6"
+        android:textSize="@dimen/font_size_24px" />
+
+    <TextView
+        android:id="@+id/descriptionView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameView"
+        android:layout_marginTop="@dimen/px_20"
+        android:text="誓约胜利之剑，又称“断钢剑”，是传奇英雄亚瑟王的佩剑，断钢剑在经理过度阿瓦隆锻造，削铁如泥，剑锷由黄金所铸，大法师梅林曾告诫亚瑟王：“断钢剑虽然强大，但它的剑鞘却更为珍贵”"
+        android:textColor="@color/text_color_gray_black"
+        android:textSize="@dimen/font_size_18px" />
+
+    <TextView
+        android:id="@+id/fieldView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/descriptionView"
+        android:layout_marginTop="@dimen/px_20"
+        android:textColor="@color/equipment_quality_2"
+        android:textSize="@dimen/font_size_24px"
+        android:text="攻击 +10\n忽视敌人物理抗性 + 25%" />
+
+    <TextView
+        android:id="@+id/shitNameView"
+        android:layout_below="@id/fieldView"
+        android:layout_marginTop="@dimen/px_20"
+        android:layout_width="match_parent"
+        android:textColor="#A00000"
+        android:textSize="@dimen/font_size_28px"
+        android:text="亚瑟王（2件）"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="攻击 +10 魔力+10\n所有光系魔法效果+25%"
+        android:layout_below="@id/shitNameView"
+        android:layout_marginTop="@dimen/px_20"
+        android:textColor="@color/equipment_quality_5"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

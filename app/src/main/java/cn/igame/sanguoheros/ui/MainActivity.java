@@ -111,6 +111,10 @@ public class MainActivity extends AppCompatActivity {
                 if (systemActor != null) {
                     holder.nameView.setText(systemActor.getName());
                     holder.actionView.setText(systemActor.getActions().get(0));
+                    int picRid = systemActor.getPic();
+                    if(picRid != -1) {
+                        holder.imageView.setImageResource(picRid);
+                    }
                     holder.itemView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -186,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
                     InventoryFragment inventoryFragment = new InventoryFragment();
                     ArrayList<Goods> goodsList = new ArrayList<>();
                     for (int i = 0; i < 42; i++) {
-                        Equipment equipment = new Equipment(1, getString(R.string.weapon_qlyyd), R.drawable.pic_2300070_l,
+                        Equipment equipment = new Equipment(0, 1, getString(R.string.weapon_qlyyd), R.drawable.pic_2300070_l,
                                 getString(R.string.weapon_qlyyd_description_examples), 70, 5, 80, 0, 0, 0, 0);
                         goodsList.add(equipment);
                     }

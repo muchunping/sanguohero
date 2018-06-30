@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <monster-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <monster name="" id="">
+    <monster name="@string/dao_cao_ren" id="3001">
         <loot-list>
             <item id=""/>
         </loot-list>

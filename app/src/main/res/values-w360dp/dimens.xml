@@ -3,6 +3,7 @@
     <dimen name="activity_vertical_margin">15dp</dimen>
 
     <!--常用尺寸-->
+    <dimen name="px_1">0.5dp</dimen>
     <dimen name="px_8">4.5dp</dimen>
     <dimen name="px_10">5.6dp</dimen>
     <dimen name="px_12">6.8dp</dimen>

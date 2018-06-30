@@ -23,6 +23,7 @@ public class SystemActor extends Actor{
 
     private List<String> actionList = new ArrayList<>();
     private int id;
+    private int pic;
 
     public SystemActor() {
         super("");
@@ -32,6 +33,7 @@ public class SystemActor extends Actor{
         final Resources resources = SgApplication.getAppContext().getResources();
         name = resources.getString(xrp.getAttributeResourceValue(null, "name", R.string.app_name));
         id = xrp.getAttributeIntValue(null, "id", -1);
+        pic = xrp.getAttributeResourceValue(null, "pic", -1);
         XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
             @Override
             public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
@@ -55,6 +57,10 @@ public class SystemActor extends Actor{
 
     public String getName() {
         return name;
+    }
+
+    public int getPic() {
+        return pic;
     }
 
     public List<String> getActions() {

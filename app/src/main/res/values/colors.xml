@@ -23,4 +23,7 @@
     <color name="equipment_quality_7">#FF7F00</color>
     <color name="equipment_quality_8">#FF4500</color>
     <color name="equipment_quality_9">#FF0000</color>
+
+    <color name="text_color_gray_black">#2D2D2D</color>
+    <color name="view_background_gray_white">#D2D2D2</color>
 </resources>

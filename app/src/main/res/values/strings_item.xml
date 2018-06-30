@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="dao_cao_ren_de_da_nao">稻草人的大脑</string>
+</resources>

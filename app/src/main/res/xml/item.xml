@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <item-list xmlns:android="http://schemas.android.com/apk/res/android">
- <item name="" id="">
+ <item name="@string/dao_cao_ren_de_da_nao" id="4001" type="1">
      <actions>
-
      </actions>
  </item>
 </item-list>

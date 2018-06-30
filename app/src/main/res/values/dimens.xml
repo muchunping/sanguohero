@@ -4,6 +4,7 @@
     <dimen name="font_size_36px">@dimen/px_36</dimen>
     <dimen name="font_size_32px">@dimen/px_32</dimen>
     <dimen name="font_size_30px">@dimen/px_30</dimen>
+    <dimen name="font_size_28px">@dimen/px_28</dimen>
     <dimen name="font_size_26px">@dimen/px_26</dimen>
     <dimen name="font_size_24px">@dimen/px_24</dimen>
     <dimen name="font_size_22px">@dimen/px_22</dimen>
