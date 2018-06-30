@@ -6,4 +6,4 @@
 /captures
 .idea
 .gradle
-SanguoHero.iml
+*.iml
