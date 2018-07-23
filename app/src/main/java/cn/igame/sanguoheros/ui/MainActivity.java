@@ -62,11 +62,11 @@ public class MainActivity extends AppCompatActivity {
         world = ((SgApplication) getApplication()).getWorldContext();
         Scene scene = world.getScene();
 
-        floatLayout = (FrameLayout) findViewById(R.id.floatLayout);
-        playerNameView = (TextView) findViewById(R.id.playerNameView);
-        playerLevelView = (TextView) findViewById(R.id.playerLevelView);
+        floatLayout = findViewById(R.id.floatLayout);
+        playerNameView = findViewById(R.id.playerNameView);
+        playerLevelView = findViewById(R.id.playerLevelView);
         fillPlayerInfoLayout();
-        sceneNameView = (TextView) findViewById(R.id.sceneNameView);
+        sceneNameView = findViewById(R.id.sceneNameView);
         sceneNameView.setText(scene.getName());
         floatLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        findEnemyView = (LinearLayout) findViewById(R.id.findEnemyLayout);
+        findEnemyView = findViewById(R.id.findEnemyLayout);
         findEnemyView.setVisibility(scene.getType() == Scene.TYPE_WILD ? View.VISIBLE : View.GONE);
         findEnemyView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 fragment.show(getFragmentManager(), "battle");
             }
         });
-        RecyclerView systemActorLayout = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView systemActorLayout = findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         systemActorLayout.setLayoutManager(layoutManager);
@@ -252,9 +252,9 @@ public class MainActivity extends AppCompatActivity {
 
         public ViewHolder(View view) {
             super(view);
-            imageView = (ImageView) view.findViewById(R.id.imageView);
-            nameView = (TextView) view.findViewById(R.id.nameView);
-            actionView = (TextView) view.findViewById(R.id.actionView);
+            imageView = view.findViewById(R.id.imageView);
+            nameView = view.findViewById(R.id.nameView);
+            actionView = view.findViewById(R.id.actionView);
         }
     }
 }

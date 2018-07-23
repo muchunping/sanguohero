@@ -1,195 +1,432 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/relativeLayout"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="#E0E0E0"-->
+    <!--app:layout_constraintBottom_toTopOf="parent"-->
+    <!--app:layout_constraintEnd_toStartOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent">-->
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#E0E0E0">
+    <!--<FrameLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentEnd="true"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--tools:ignore="RelativeOverlap">-->
 
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                tools:ignore="RelativeOverlap">
+    <!--<ImageView-->
+    <!--android:id="@+id/smallMapView"-->
+    <!--android:layout_width="@dimen/px_144"-->
+    <!--android:layout_height="@dimen/px_144"-->
+    <!--android:layout_margin="2dp"-->
+    <!--android:clickable="true"-->
+    <!--android:contentDescription="@string/app_name"-->
+    <!--android:onClick="showWorldMap"-->
+    <!--android:src="@drawable/icon_small_map" />-->
 
-                <ImageView
-                    android:id="@+id/smallMapView"
-                    android:layout_width="@dimen/px_144"
-                    android:layout_height="@dimen/px_144"
-                    android:layout_margin="2dp"
-                    android:clickable="true"
-                    android:contentDescription="@string/app_name"
-                    android:onClick="showWorldMap"
-                    android:src="@drawable/icon_small_map" />
+    <!--<TextView-->
+    <!--android:id="@+id/sceneNameView"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:background="@drawable/bg_text_none"-->
+    <!--android:gravity="center"-->
+    <!--android:paddingLeft="10dp"-->
+    <!--android:paddingRight="10dp"-->
+    <!--android:text="@string/chang_an"-->
+    <!--android:textColor="@android:color/white"-->
+    <!--android:textSize="10sp"-->
+    <!--tools:ignore="SmallSp" />-->
 
-                <TextView
-                    android:id="@+id/sceneNameView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/bg_text_none"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="@string/chang_an"
-                    android:textColor="@android:color/white"
-                    android:textSize="10sp"
-                    tools:ignore="SmallSp" />
+    <!--<Button-->
+    <!--style="?android:buttonBarButtonStyle"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="bottom"-->
+    <!--android:background="@drawable/bg_text_none"-->
+    <!--android:gravity="center"-->
+    <!--android:minHeight="0dp"-->
+    <!--android:minWidth="0dp"-->
+    <!--android:onClick="onClickSearch"-->
+    <!--android:paddingLeft="10dp"-->
+    <!--android:paddingRight="10dp"-->
+    <!--android:text="@string/search"-->
+    <!--android:textColor="@android:color/white"-->
+    <!--android:textSize="10sp"-->
+    <!--tools:ignore="SmallSp" />-->
 
-                <Button
-                    style="?android:buttonBarButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:background="@drawable/bg_text_none"
-                    android:gravity="center"
-                    android:minHeight="0dp"
-                    android:minWidth="0dp"
-                    android:onClick="onClickSearch"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="@string/search"
-                    android:textColor="@android:color/white"
-                    android:textSize="10sp"
-                    tools:ignore="SmallSp" />
-
-                <Button
-                    style="?android:buttonBarButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|end"
-                    android:background="@drawable/bg_text_none"
-                    android:gravity="center"
-                    android:minHeight="0dp"
-                    android:minWidth="0dp"
-                    android:onClick="onClickOutlet"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="@string/outlet"
-                    android:textColor="@android:color/white"
-                    android:textSize="10sp"
-                    tools:ignore="SmallSp" />
-            </FrameLayout>
+    <!--<Button-->
+    <!--style="?android:buttonBarButtonStyle"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="bottom|end"-->
+    <!--android:background="@drawable/bg_text_none"-->
+    <!--android:gravity="center"-->
+    <!--android:minHeight="0dp"-->
+    <!--android:minWidth="0dp"-->
+    <!--android:onClick="onClickOutlet"-->
+    <!--android:paddingLeft="10dp"-->
+    <!--android:paddingRight="10dp"-->
+    <!--android:text="@string/outlet"-->
+    <!--android:textColor="@android:color/white"-->
+    <!--android:textSize="10sp"-->
+    <!--tools:ignore="SmallSp" />-->
+    <!--</FrameLayout>-->
 
 
-            <TextView
-                android:id="@+id/playerNameView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="-25dp"
-                android:layout_marginStart="-25dp"
-                android:layout_marginTop="2dp"
-                android:layout_toEndOf="@+id/playerPhotoView"
-                android:layout_toRightOf="@+id/playerPhotoView"
-                android:background="@drawable/bg_scene_name"
-                android:gravity="center"
-                android:text="@string/chang_an"
-                android:textColor="@android:color/white"
-                android:textSize="10sp"
-                tools:ignore="SmallSp" />
+    <!--<TextView-->
+    <!--android:id="@+id/playerNameView"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="-25dp"-->
+    <!--android:layout_marginStart="-25dp"-->
+    <!--android:layout_marginTop="2dp"-->
+    <!--android:layout_toEndOf="@+id/playerPhotoView"-->
+    <!--android:layout_toRightOf="@+id/playerPhotoView"-->
+    <!--android:background="@drawable/bg_scene_name"-->
+    <!--android:gravity="center"-->
+    <!--android:text="@string/chang_an"-->
+    <!--android:textColor="@android:color/white"-->
+    <!--android:textSize="10sp"-->
+    <!--tools:ignore="SmallSp" />-->
 
-            <ImageView
-                android:id="@+id/playerPhotoView"
-                android:layout_width="@dimen/px_108"
-                android:layout_height="@dimen/px_108"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="2dp"
-                android:background="@drawable/bg_player_photo"
-                android:contentDescription="@string/app_name" />
+    <!--<ImageView-->
+    <!--android:id="@+id/playerPhotoView"-->
+    <!--android:layout_width="@dimen/px_108"-->
+    <!--android:layout_height="@dimen/px_108"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:layout_marginStart="10dp"-->
+    <!--android:layout_marginTop="2dp"-->
+    <!--android:background="@drawable/bg_player_photo"-->
+    <!--android:contentDescription="@string/app_name" />-->
 
-            <TextView
-                android:id="@+id/playerLevelView"
-                android:layout_width="@dimen/px_24"
-                android:layout_height="@dimen/px_24"
-                android:layout_alignBottom="@id/playerPhotoView"
-                android:layout_alignLeft="@id/playerPhotoView"
-                android:layout_alignStart="@id/playerPhotoView"
-                android:layout_marginBottom="2dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginStart="4dp"
-                android:background="@drawable/bg_player_level"
-                android:gravity="center"
-                android:textColor="@android:color/white"
-                android:textSize="8sp"
-                tools:ignore="SmallSp" />
+    <!--<TextView-->
+    <!--android:id="@+id/playerLevelView"-->
+    <!--android:layout_width="@dimen/px_24"-->
+    <!--android:layout_height="@dimen/px_24"-->
+    <!--android:layout_alignBottom="@id/playerPhotoView"-->
+    <!--android:layout_alignLeft="@id/playerPhotoView"-->
+    <!--android:layout_alignStart="@id/playerPhotoView"-->
+    <!--android:layout_marginBottom="2dp"-->
+    <!--android:layout_marginLeft="4dp"-->
+    <!--android:layout_marginStart="4dp"-->
+    <!--android:background="@drawable/bg_player_level"-->
+    <!--android:gravity="center"-->
+    <!--android:textColor="@android:color/white"-->
+    <!--android:textSize="8sp"-->
+    <!--tools:ignore="SmallSp" />-->
 
-        </RelativeLayout>
+    <!--</RelativeLayout>-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            android:layout_weight="1">
 
-            <LinearLayout
-                android:id="@+id/findEnemyLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/px_10"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical">
+    <!--<TextView-->
+    <!--android:id="@+id/findEnemyView"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:drawableTop="@android:drawable/ic_menu_search"-->
+    <!--android:text="@string/find_enemy"-->
+    <!--android:textSize="@dimen/font_size_36px"-->
+    <!--app:layout_constraintBottom_toTopOf="parent"-->
+    <!--app:layout_constraintEnd_toStartOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
 
-                <TextView
-                    android:id="@+id/findEnemyView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableTop="@android:drawable/ic_menu_search"
-                    android:text="@string/find_enemy"
-                    android:textSize="@dimen/font_size_36px" />
+    <!--<TextView-->
+    <!--android:id="@+id/textView2"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/tip_wild_find_enemy"-->
+    <!--app:layout_constraintBottom_toTopOf="parent"-->
+    <!--app:layout_constraintEnd_toStartOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/px_10"
-                    android:text="@string/tip_wild_find_enemy" />
-            </LinearLayout>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal" />
-        </LinearLayout>
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/recyclerView"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--app:layout_constraintBottom_toTopOf="parent"-->
+    <!--app:layout_constraintEnd_toStartOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/px_132" />
-    </LinearLayout>
+
+    <!--<Space-->
+    <!--android:id="@+id/space"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--app:layout_constraintBottom_toTopOf="parent"-->
+    <!--app:layout_constraintEnd_toStartOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+
+    <!--<TextView-->
+    <!--android:id="@+id/logView"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@drawable/bg_quest"-->
+    <!--android:textColor="@android:color/darker_gray"-->
+    <!--android:textSize="10sp"-->
+    <!--app:layout_constraintBottom_toTopOf="parent"-->
+    <!--app:layout_constraintEnd_toStartOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent"-->
+    <!--tools:ignore="SmallSp" />-->
+
+    <!--<FrameLayout-->
+    <!--android:id="@+id/floatLayout"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="#65000000"-->
+    <!--android:visibility="gone"-->
+    <!--app:layout_constraintBottom_toTopOf="parent"-->
+    <!--app:layout_constraintEnd_toStartOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--<FrameLayout-->
+    <!--android:id="@+id/contentPanel"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center" />-->
+    <!--</FrameLayout>-->
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.16" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.42" />
+
+    <View
+        android:id="@+id/v_player_info"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#559955"
+        app:layout_constraintBottom_toBottomOf="@id/guideline0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/guideline2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_player_avatar"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:layout_marginLeft="@dimen/px_8"
+        android:layout_marginStart="@dimen/px_8"
+        android:layout_marginTop="@dimen/px_8"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="@+id/v_player_info"
+        app:layout_constraintTop_toTopOf="@+id/v_player_info"
+        app:srcCompat="@drawable/monster01" />
+
 
     <TextView
-        android:id="@+id/logView"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/px_132"
-        android:layout_gravity="bottom"
-        android:background="@drawable/bg_quest"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="10sp"
-        tools:ignore="SmallSp" />
+        android:id="@+id/tv_player_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:text="90"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_player_avatar"
+        app:layout_constraintEnd_toEndOf="@+id/iv_player_avatar" />
 
-    <FrameLayout
-        android:id="@+id/floatLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#65000000"
-        android:visibility="gone">
+    <TextView
+        android:id="@+id/tv_player_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/px_8"
+        android:layout_marginRight="@dimen/px_8"
+        android:layout_marginTop="@dimen/px_8"
+        android:background="#557733"
+        android:text="玩家名字六字"
+        app:layout_constraintEnd_toEndOf="@id/guideline2"
+        app:layout_constraintStart_toEndOf="@+id/iv_player_avatar"
+        app:layout_constraintTop_toTopOf="@+id/v_player_info" />
 
-        <FrameLayout
-            android:id="@+id/contentPanel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
-    </FrameLayout>
+    <ProgressBar
+        android:id="@+id/pb_player_exp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#77aa55"
+        android:progress="75"
+        app:layout_constraintEnd_toEndOf="@+id/tv_player_name"
+        app:layout_constraintStart_toEndOf="@+id/iv_player_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/tv_player_name" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/iv_status_01"
+        android:layout_width="@dimen/px_36"
+        android:layout_height="@dimen/px_36"
+        android:layout_marginLeft="@dimen/px_8"
+        android:layout_marginStart="@dimen/px_8"
+        app:layout_constraintBottom_toBottomOf="@+id/v_player_info"
+        app:layout_constraintStart_toStartOf="@+id/v_player_info"
+        app:layout_constraintTop_toBottomOf="@+id/iv_player_avatar"
+        app:srcCompat="@android:drawable/ic_menu_info_details" />
+
+    <ImageView
+        android:id="@+id/iv_status_02"
+        android:layout_width="@dimen/px_36"
+        android:layout_height="@dimen/px_36"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_status_01"
+        app:layout_constraintStart_toEndOf="@+id/iv_status_01"
+        app:srcCompat="@android:drawable/ic_menu_compass" />
+
+    <ImageView
+        android:id="@+id/iv_status_03"
+        android:layout_width="@dimen/px_36"
+        android:layout_height="@dimen/px_36"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_status_02"
+        app:layout_constraintStart_toEndOf="@+id/iv_status_02"
+        app:srcCompat="@android:drawable/ic_menu_add" />
+
+    <ImageView
+        android:id="@+id/iv_status_04"
+        android:layout_width="@dimen/px_36"
+        android:layout_height="@dimen/px_36"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_status_03"
+        app:layout_constraintStart_toEndOf="@+id/iv_status_03"
+        app:srcCompat="@android:drawable/ic_menu_manage" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.72" />
+
+    <View
+        android:id="@+id/v_map_menu"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#559955"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_map_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="诺玛地穴一层"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/v_menu"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#669944"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline0"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toEndOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_inventory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#558844"
+        android:text="背包"
+        android:textSize="@dimen/font_size_22px"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_player_avatar"
+        app:layout_constraintEnd_toStartOf="@+id/tv_skill"
+        app:layout_constraintStart_toEndOf="@+id/iv_player_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/pb_player_exp" />
+
+    <TextView
+        android:id="@+id/tv_skill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#558844"
+        android:text="技能"
+        android:textSize="@dimen/font_size_22px"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_inventory"
+        app:layout_constraintEnd_toStartOf="@+id/tv_quest"
+        app:layout_constraintStart_toEndOf="@+id/tv_inventory"
+        app:layout_constraintTop_toTopOf="@+id/tv_inventory" />
+
+
+    <TextView
+        android:id="@+id/tv_quest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#558844"
+        android:text="任务"
+        android:textSize="@dimen/font_size_22px"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_inventory"
+        app:layout_constraintEnd_toEndOf="@id/guideline2"
+        app:layout_constraintStart_toEndOf="@+id/tv_skill"
+        app:layout_constraintTop_toTopOf="@+id/tv_inventory" />
+
+    <TextView
+        android:id="@+id/tv_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:text="探索"
+        app:layout_constraintBottom_toBottomOf="@+id/v_map_menu"
+        app:layout_constraintStart_toEndOf="@+id/v_menu" />
+
+    <TextView
+        android:id="@+id/tv_outlet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="出口"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_search"
+        app:layout_constraintEnd_toEndOf="@id/v_map_menu"
+        tools:layout_editor_absoluteX="376dp" />
+
+    <TextView
+        android:id="@+id/tv_find_enemy"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/px_108"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:drawableTop="@android:drawable/ic_menu_search"
+        android:gravity="center"
+        android:text="寻找敌人"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline0" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_find_enemy" />
+</android.support.constraint.ConstraintLayout>
