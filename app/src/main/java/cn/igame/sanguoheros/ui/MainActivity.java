@@ -45,7 +45,6 @@ import cn.igame.sanguoheros.widget.RadioGroupPlus;
  * Created by Administrator on 2015/11/9.
  */
 public class MainActivity extends AppCompatActivity {
-    private FrameLayout floatLayout;
     private Fragment lastFragment;
     private TextView logView;
     private TextView playerNameView, playerLevelView;
@@ -53,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter<ViewHolder> adapter;
     private WorldContext world;
 
-    private LinearLayout findEnemyView;
+    private View findEnemyView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,25 +61,13 @@ public class MainActivity extends AppCompatActivity {
         world = ((SgApplication) getApplication()).getWorldContext();
         Scene scene = world.getScene();
 
-        floatLayout = findViewById(R.id.floatLayout);
-        playerNameView = findViewById(R.id.playerNameView);
-        playerLevelView = findViewById(R.id.playerLevelView);
+        playerNameView = findViewById(R.id.tv_player_name);
+        playerLevelView = findViewById(R.id.tv_player_level);
         fillPlayerInfoLayout();
-        sceneNameView = findViewById(R.id.sceneNameView);
+        sceneNameView = findViewById(R.id.tv_map_name);
         sceneNameView.setText(scene.getName());
-        floatLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (lastFragment != null) {
-                    FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    ft.detach(lastFragment);
-                    ft.commit();
-                }
-                v.setVisibility(View.GONE);
-            }
-        });
 
-        findEnemyView = findViewById(R.id.findEnemyLayout);
+        findEnemyView = findViewById(R.id.tv_find_enemy);
         findEnemyView.setVisibility(scene.getType() == Scene.TYPE_WILD ? View.VISIBLE : View.GONE);
         findEnemyView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                     holder.nameView.setText(systemActor.getName());
                     holder.actionView.setText(systemActor.getActions().get(0));
                     int picRid = systemActor.getPic();
-                    if(picRid != -1) {
+                    if (picRid != -1) {
                         holder.imageView.setImageResource(picRid);
                     }
                     holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -144,13 +131,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (floatLayout.isShown()) {
-            floatLayout.setVisibility(View.GONE);
-            if (lastFragment != null) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.detach(lastFragment);
-                ft.commit();
-            }
+        if (lastFragment != null) {
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.detach(lastFragment);
+            ft.commit();
             return;
         }
         super.onBackPressed();
@@ -201,7 +185,6 @@ public class MainActivity extends AppCompatActivity {
         }
         if (fragment != null) {
             lastFragment = fragment;
-            floatLayout.setVisibility(View.VISIBLE);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.add(R.id.contentPanel, fragment);
             ft.commit();
