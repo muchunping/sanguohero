@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.HomeActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout_player_info"
+        android:layout_width="0dp"
+        android:layout_height="96dp"
+        android:background="@drawable/bg_ui_frame"
+        app:layout_constraintEnd_toStartOf="@+id/guideline0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/player_avatar"
+            android:layout_width="56dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/avatar_lvbu"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitEnd"
+            app:layout_constraintBottom_toBottomOf="@+id/pb_exp" />
+
+        <ProgressBar
+            android:id="@+id/pb_hp"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:max="1008"
+            android:orientation="horizontal"
+            android:progress="450"
+            android:progressDrawable="@drawable/progress_hp"
+            app:layout_constraintBottom_toTopOf="@+id/pb_mp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/player_avatar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_hp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:text="生命:450/1008"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/pb_hp"
+            app:layout_constraintEnd_toEndOf="@+id/pb_hp"
+            app:layout_constraintStart_toStartOf="@+id/pb_hp"
+            app:layout_constraintTop_toTopOf="@+id/pb_hp" />
+
+        <ProgressBar
+            android:id="@+id/pb_mp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="1dp"
+            android:indeterminate="false"
+            android:max="200"
+            android:progress="200"
+            android:progressDrawable="@drawable/progress_mp"
+            app:layout_constraintBottom_toTopOf="@+id/pb_exp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/player_avatar"
+            app:layout_constraintTop_toBottomOf="@+id/pb_hp" />
+
+        <TextView
+            android:id="@+id/tv_mp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:text="魔法:200/200"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/pb_mp"
+            app:layout_constraintEnd_toEndOf="@+id/pb_mp"
+            app:layout_constraintStart_toStartOf="@+id/pb_mp"
+            app:layout_constraintTop_toTopOf="@+id/pb_mp" />
+
+        <ProgressBar
+            android:id="@+id/pb_exp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="1dp"
+            android:max="9999999"
+            android:progress="1999999"
+            android:progressDrawable="@drawable/progress_exp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/player_avatar"
+            app:layout_constraintTop_toBottomOf="@+id/pb_mp" />
+
+        <TextView
+            android:id="@+id/tv_exp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:text="经验:1999999/9999999"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/pb_exp"
+            app:layout_constraintEnd_toEndOf="@+id/pb_exp"
+            app:layout_constraintStart_toStartOf="@+id/pb_exp"
+            app:layout_constraintTop_toTopOf="@+id/pb_exp" />
+
+        <Button
+            android:id="@+id/btn_menu_luggage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="1.5dp"
+            android:background="@drawable/bg_button"
+            android:padding="4dp"
+            android:text="1行"
+            android:onClick="openLuggage"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_menu_quest"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/player_avatar" />
+
+        <Button
+            android:id="@+id/btn_menu_quest"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/bg_button"
+            android:onClick="openQuest"
+            android:padding="4dp"
+            android:text="2行"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_menu_luggage"
+            app:layout_constraintEnd_toStartOf="@+id/btn_menu_skill"
+            app:layout_constraintStart_toEndOf="@+id/btn_menu_luggage"
+            app:layout_constraintTop_toTopOf="@+id/btn_menu_luggage" />
+
+        <Button
+            android:id="@+id/btn_menu_skill"
+            android:layout_width="0dp"
+            android:onClick="openSkill"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_button"
+            android:padding="4dp"
+            android:text="3行"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_menu_luggage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_menu_quest"
+            app:layout_constraintTop_toTopOf="@+id/btn_menu_luggage" />
+    </android.support.constraint.ConstraintLayout>
+
+    <View
+        android:id="@+id/layout_menu"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_ui_frame"
+        app:layout_constraintBottom_toTopOf="@+id/layout_status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/layout_player_info"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </View>
+
+    <Button
+        android:id="@+id/btn_menu1"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="1.5dp"
+        android:layout_marginTop="1.5dp"
+        android:background="@drawable/bg_button"
+        android:padding="4dp"
+        android:text="队伍"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_menu4"
+        app:layout_constraintEnd_toStartOf="@+id/btn_menu2"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/layout_menu"
+        app:layout_constraintTop_toTopOf="@+id/layout_menu"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/btn_menu2"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1.5dp"
+        android:background="@drawable/bg_button"
+        android:padding="4dp"
+        android:text="庄园"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_menu5"
+        app:layout_constraintEnd_toStartOf="@+id/btn_menu3"
+        app:layout_constraintStart_toEndOf="@+id/btn_menu1"
+        app:layout_constraintTop_toTopOf="@+id/layout_menu"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/btn_menu3"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="1.5dp"
+        android:layout_marginTop="1.5dp"
+        android:background="@drawable/bg_button"
+        android:padding="4dp"
+        android:text="军团"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_menu6"
+        app:layout_constraintEnd_toEndOf="@+id/layout_menu"
+        app:layout_constraintStart_toEndOf="@+id/btn_menu2"
+        app:layout_constraintTop_toTopOf="@+id/layout_menu"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/btn_menu4"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="1.5dp"
+        android:layout_marginStart="1.5dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/bg_button"
+        android:padding="4dp"
+        android:text="寄售行"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_menu"
+        app:layout_constraintEnd_toStartOf="@+id/btn_menu5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/layout_menu"
+        app:layout_constraintTop_toBottomOf="@+id/btn_menu1" />
+
+    <Button
+        android:id="@+id/btn_menu5"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="1.5dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/bg_button"
+        android:padding="4dp"
+        android:text="成就"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_menu"
+        app:layout_constraintEnd_toStartOf="@+id/btn_menu6"
+        app:layout_constraintStart_toEndOf="@+id/btn_menu4"
+        app:layout_constraintTop_toBottomOf="@+id/btn_menu2" />
+
+    <Button
+        android:id="@+id/btn_menu6"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="1.5dp"
+        android:layout_marginEnd="1.5dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/bg_button"
+        android:padding="4dp"
+        android:text="攻略"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_menu"
+        app:layout_constraintEnd_toEndOf="@+id/layout_menu"
+        app:layout_constraintStart_toEndOf="@+id/btn_menu5"
+        app:layout_constraintTop_toBottomOf="@+id/btn_menu3" />
+
+    <LinearLayout
+        android:id="@+id/layout_status"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="4dp"
+        android:background="@drawable/bg_ui_frame"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_player_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline0"
+        app:layout_constraintTop_toBottomOf="@+id/layout_menu">
+
+
+        <ImageView
+            android:layout_width="24dp"
+            android:background="@drawable/bg_ui_frame"
+            android:layout_height="24dp"
+            app:srcCompat="@android:drawable/ic_menu_upload" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_marginLeft="2dp"
+            android:background="@drawable/bg_ui_frame"
+            android:layout_height="24dp"
+            app:srcCompat="@android:drawable/ic_menu_mylocation" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:background="@drawable/bg_ui_frame"
+            android:layout_marginLeft="2dp"
+            android:layout_height="24dp"
+            app:srcCompat="@android:drawable/ic_menu_add" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:background="@drawable/bg_ui_frame"
+            android:layout_height="24dp"
+            android:layout_marginLeft="2dp"
+            app:srcCompat="@android:drawable/ic_menu_help" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/layout_search_progress"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:background="@drawable/bg_ui_frame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_player_info" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_main"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_ui_frame"
+        app:layout_constraintBottom_toTopOf="@+id/layout_logcat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_search_progress" />
+
+    <cn.igame.sanguoheros.ui.LogcatView
+        android:id="@+id/layout_logcat"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:background="@drawable/bg_ui_frame"
+        android:includeFontPadding="false"
+        android:paddingStart="8dp"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_main">
+
+    </cn.igame.sanguoheros.ui.LogcatView>
+
+</android.support.constraint.ConstraintLayout>
