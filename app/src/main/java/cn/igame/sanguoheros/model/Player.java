@@ -9,7 +9,7 @@ import org.json.JSONObject;
  * 玩家
  * Created by Administrator on 2015/11/9.
  */
-public class Player extends Actor{
+public class Player extends TurnActor{
     private final int DEFAULT_VIGOR = 50;
 
     private String name;
@@ -60,6 +60,11 @@ public class Player extends Actor{
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public void action() {
+
     }
 
     public int getLevel() {

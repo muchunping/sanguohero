@@ -17,7 +17,7 @@ import cn.igame.sanguoheros.util.XmlResourceParserUtils;
  * NPC
  * Created by Administrator on 2015/11/9.
  */
-public class SystemActor extends Actor{
+public class SystemActor extends Actor {
     public static final int SHOP_ID_WEAPON = 2001;
     public static final String XML_TAG = "system-actor";
 
@@ -37,7 +37,7 @@ public class SystemActor extends Actor{
         XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
             @Override
             public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
-                if(tagName.equals("action-list")) {
+                if (tagName.equals("action-list")) {
                     readActionList(resources, xrp);
                 }
             }
@@ -57,6 +57,11 @@ public class SystemActor extends Actor{
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public void action() {
+
     }
 
     public int getPic() {

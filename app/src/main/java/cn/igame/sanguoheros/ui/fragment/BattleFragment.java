@@ -31,7 +31,7 @@ public class BattleFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_battle, container, false);
-        battleView = (BattleView) view.findViewById(R.id.battleView);
+//        battleView = (BattleView) view.findViewById(R.id.battleView);
         view.findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -14,4 +14,6 @@ public abstract class Actor {
     public String getName() {
         return name;
     }
+
+    public abstract void action();
 }

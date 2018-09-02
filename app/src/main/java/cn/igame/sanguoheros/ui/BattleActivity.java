@@ -11,9 +11,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import cn.igame.sanguoheros.R;
-import cn.igame.sanguoheros.model.Actor;
+import cn.igame.sanguoheros.model.FightProperty;
 import cn.igame.sanguoheros.model.LayoutRule;
+import cn.igame.sanguoheros.model.Ogre;
+import cn.igame.sanguoheros.model.TurnActor;
 
 public class BattleActivity extends AppCompatActivity {
     private ImageView imageView1;
@@ -38,17 +43,17 @@ public class BattleActivity extends AppCompatActivity {
     private TextView textView2;
 
     private Handler handler = new Handler();
-    private Actor[] actors;
-    private Actor actActor;
+    private TurnActor[] actors;
+    private TurnActor actActor;
 
     private Runnable runnable = new Runnable() {
         @Override
         public void run() {
             int leave = 10000;
-            for (Actor actor : actors) {
+            for (TurnActor actor : actors) {
                 leave = Math.min(leave, actor.getLeaveTime());
             }
-            for (Actor actor : actors) {
+            for (TurnActor actor : actors) {
                 int time = actor.leave(leave);
                 if (time == 0) {
                     actActor = actor;
@@ -100,30 +105,40 @@ public class BattleActivity extends AppCompatActivity {
         textView1.setText(rule1.name);
         textView2.setText(rule2.name);
 
-        actors = new Actor[]{
-                new Actor("A", 500, 100, 10),
-                new Actor("B", 100, 100, 10),
-                new Actor("C", 240, 100, 10),
-                new Actor("D", 280, 100, 10),
-                new Actor("E", 330, 100, 10),
-                new Actor("F", 460, 100, 10),
-                new Actor("G", 360, 100, 10),
-                new Actor("H", 120, 100, 10),
-                new Actor("I", 150, 100, 10),
-                new Actor("J", 420, 100, 10)
-        };
+        try {
+            JSONObject jo = new JSONObject();
+            jo.put("attack_point", 100);
+            jo.put("defense_oint", 100);
+            jo.put("health_point", 100);
+            jo.put("mana_point", 100);
+            jo.put("speed_point", 100);
+            actors = new TurnActor[]{
+                    new Ogre("A", 10, Ogre.TYPE_NORMAL, FightProperty.readFightPropertyFromJson(jo.put("speed_point", 500))),
+                    new Ogre("B", 10, Ogre.TYPE_NORMAL, FightProperty.readFightPropertyFromJson(jo.put("speed_point", 100))),
+                    new Ogre("C", 10, Ogre.TYPE_NORMAL, FightProperty.readFightPropertyFromJson(jo.put("speed_point", 240))),
+                    new Ogre("D", 10, Ogre.TYPE_NORMAL, FightProperty.readFightPropertyFromJson(jo.put("speed_point", 280))),
+                    new Ogre("E", 10, Ogre.TYPE_NORMAL, FightProperty.readFightPropertyFromJson(jo.put("speed_point", 330))),
+                    new Ogre("F", 10, Ogre.TYPE_NORMAL, FightProperty.readFightPropertyFromJson(jo.put("speed_point", 460))),
+                    new Ogre("G", 10, Ogre.TYPE_NORMAL, FightProperty.readFightPropertyFromJson(jo.put("speed_point", 360))),
+                    new Ogre("H", 10, Ogre.TYPE_NORMAL, FightProperty.readFightPropertyFromJson(jo.put("speed_point", 120))),
+                    new Ogre("I", 10, Ogre.TYPE_NORMAL, FightProperty.readFightPropertyFromJson(jo.put("speed_point", 150))),
+                    new Ogre("J", 10, Ogre.TYPE_NORMAL, FightProperty.readFightPropertyFromJson(jo.put("speed_point", 420)))
+            };
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         int j = 0;
         for (int i : rule1.layout) {
             ImageView imageView = getImageViewFormAbove(i);
             imageView.setVisibility(View.VISIBLE);
-            actors[j].setImageView(imageView);
+//            actors[j].setImageView(imageView);
             j++;
         }
 
         for (int i : rule2.layout) {
             ImageView imageView = getImageViewFormBelow(i);
             imageView.setVisibility(View.VISIBLE);
-            actors[j].setImageView(imageView);
+//            actors[j].setImageView(imageView);
             j++;
         }
 

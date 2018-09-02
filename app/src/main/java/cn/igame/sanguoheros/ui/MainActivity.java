@@ -14,9 +14,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -72,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         findEnemyView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Ogre ogre = new Ogre("青蛇", 10, Ogre.TYPE_NORMAL);
+                Ogre ogre = new Ogre("青蛇", 10, Ogre.TYPE_NORMAL, null);
                 BattleFragment fragment = new BattleFragment();
                 fragment.setAttacker(world.getPlayer());
                 fragment.setDefender(ogre);
