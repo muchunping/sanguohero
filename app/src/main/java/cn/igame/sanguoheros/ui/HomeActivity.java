@@ -33,12 +33,12 @@ public class HomeActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_home);
         logView = findViewById(R.id.layout_logcat);
-        logView.setText("欢迎你来到了《三国英雄》的世界\n");
+        logView.setText("欢迎你来到了《三国英雄》的世界。\n");
 
         Scene scene = world.getScene();
         TextView sceneNameView = findViewById(R.id.tv_scene);
         sceneNameView.setText(scene.getName());
-        logView.append("你进入了「" + scene.getName() + "」\n");
+        logView.append("你进入了「" + scene.getName() + "」。\n");
 
         RecyclerView recyclerView = findViewById(R.id.rv_main);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
