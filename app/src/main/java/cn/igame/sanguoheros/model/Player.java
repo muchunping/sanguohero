@@ -9,7 +9,7 @@ import org.json.JSONObject;
  * 玩家
  * Created by Administrator on 2015/11/9.
  */
-public class Player extends TurnActor{
+public class Player extends TurnActor {
     private final int DEFAULT_VIGOR = 50;
 
     private String name;
@@ -26,6 +26,7 @@ public class Player extends TurnActor{
         this.sex = sex;
         fightProperty = FightProperty.createWithDefaultValue();
         this.vigor = DEFAULT_VIGOR;
+        setSpeed(fightProperty.speedPoint);
     }
 
     @Nullable
@@ -105,5 +106,17 @@ public class Player extends TurnActor{
         builder.append("fightProperty:{");
         fightProperty.save(builder);
         builder.append("}");
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", level=" + level +
+                ", sex=" + sex +
+                ", sceneId=" + sceneId +
+                ", vigor=" + vigor +
+                ", fightProperty=" + fightProperty +
+                '}';
     }
 }

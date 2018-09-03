@@ -314,13 +314,29 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/layout_search_progress"
+        android:id="@+id/tv_scene"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:background="@drawable/bg_ui_frame"
+        android:gravity="center"
+        android:text="秦始皇陵五层"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_player_info" />
+
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_width="64dp"
+        android:layout_height="30dp"
+        android:background="@drawable/bg_button"
+        android:layout_marginEnd="4dp"
+        android:padding="4dp"
+        android:onClick="onClickSearch"
+        android:text="探索"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_scene"
+        app:layout_constraintEnd_toEndOf="@+id/tv_scene"
+        app:layout_constraintTop_toTopOf="@+id/tv_scene" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_main"
@@ -330,7 +346,7 @@
         app:layout_constraintBottom_toTopOf="@+id/layout_logcat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_search_progress" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_scene" />
 
     <cn.igame.sanguoheros.ui.LogcatView
         android:id="@+id/layout_logcat"

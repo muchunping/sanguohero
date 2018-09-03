@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -17,6 +18,7 @@ import cn.igame.sanguoheros.R;
 import cn.igame.sanguoheros.model.Player;
 import cn.igame.sanguoheros.model.Scene;
 import cn.igame.sanguoheros.model.SystemActor;
+import cn.igame.sanguoheros.util.Logger;
 
 /**
  * 游戏中的全局上下文
@@ -37,6 +39,7 @@ public class WorldContext {
 
     //解析场景列表
     private void parseSceneXml(Resources resources) {
+        Logger.dL("解析场景 -> 开始");
         sceneList.clear();
         XmlResourceParser xrp = resources.getXml(R.xml.scene);
         try {
@@ -53,9 +56,11 @@ public class WorldContext {
         } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
+        Logger.dL("解析场景 -> 完成:" + sceneList);
     }
 
     private void parseSystemActorXml(Resources resources) {
+        Logger.dL("解析系统角色 -> 开始");
         systemActorList.clear();
         //解析NPC列表
         XmlResourceParser xrp = resources.getXml(R.xml.system_actor);
@@ -74,13 +79,16 @@ public class WorldContext {
         } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
+        Logger.dL("解析系统角色 -> 完成:" + systemActorList);
     }
 
     public void joinWorld(@NonNull Player player) {
+        Logger.dL("玩家<" + player.getName() + ">进入了游戏:" + player);
         this.player = player;
         for (Scene scene : sceneList) {
             if (scene.getId() == player.getSceneId()) {
                 this.scene = scene;
+                Logger.dL("玩家" + player.getName() + "位于" + scene.getName());
                 break;
             }
         }
@@ -117,6 +125,7 @@ public class WorldContext {
     }
 
     public void initPlayer(Player player) {
+        Logger.dL("初始化玩家<" + player.getName() + ">的信息");
         player.setLevel(0);
         player.setSceneId(1001);
         joinWorld(player);

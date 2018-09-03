@@ -158,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void changeScene(Scene newScene) {
+        Logger.dL("进入了新场景:" + newScene.getName());
         world.setScene(newScene);
         sceneNameView.setText(newScene.getName());
         findEnemyView.setVisibility(newScene.getType() == Scene.TYPE_WILD ? View.VISIBLE : View.GONE);

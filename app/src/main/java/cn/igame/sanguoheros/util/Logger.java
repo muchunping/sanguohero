@@ -7,7 +7,7 @@ import android.util.Log;
  * Created by chunping on 2014/10/21.
  */
 public final class Logger {
-    public static final String LOG_TAG = "SGHero";
+    public static final String LOG_TAG = "SgHero";
     private static boolean LOG_HIGN_OPEN = true;    //控制异常、错误等情况的日志
     private static boolean LOG_MEDIUM_OPEN = true;  //控制关键点的日志
     private static boolean LOG_LOW_OPEN = true;     //控制详细的日志

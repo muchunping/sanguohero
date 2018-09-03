@@ -19,6 +19,7 @@ import android.widget.RadioGroup;
 import cn.igame.sanguoheros.app.SgApplication;
 import cn.igame.sanguoheros.app.WorldContext;
 import cn.igame.sanguoheros.model.Player;
+import cn.igame.sanguoheros.ui.HomeActivity;
 import cn.igame.sanguoheros.ui.MainActivity;
 import cn.igame.sanguoheros.util.Logger;
 import cn.igame.sanguoheros.util.ToastUtil;
@@ -55,7 +56,7 @@ public class StartActivity extends AppCompatActivity {
                 handler.postDelayed(runnable, 500);
             }else {
                 world.joinWorld(player);
-                Intent intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, HomeActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -112,7 +113,7 @@ public class StartActivity extends AppCompatActivity {
         Player player = new Player(name, sex);
         ((SgApplication)getApplication()).getWorldContext().initPlayer(player);
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
         finish();
     }
