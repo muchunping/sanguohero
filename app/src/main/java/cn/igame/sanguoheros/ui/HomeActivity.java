@@ -1,30 +1,42 @@
 package cn.igame.sanguoheros.ui;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.transition.ChangeScroll;
+import android.transition.Fade;
+import android.transition.Slide;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.igame.sanguoheros.R;
 import cn.igame.sanguoheros.app.SgApplication;
 import cn.igame.sanguoheros.app.WorldContext;
+import cn.igame.sanguoheros.model.Equipment;
+import cn.igame.sanguoheros.model.Goods;
 import cn.igame.sanguoheros.model.Scene;
 import cn.igame.sanguoheros.model.SystemActor;
+import cn.igame.sanguoheros.ui.fragment.InventoryFragment;
 
 public class HomeActivity extends AppCompatActivity {
     private WorldContext world;
     private RecyclerView.Adapter<ViewHolder> adapter;
 
     private TextView logView;
+    private Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,8 +102,33 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-
     public void openLuggage(View view) {
+        if (fragment != null){
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.detach(fragment);
+            ft.commit();
+        }
+        if (fragment instanceof InventoryFragment){
+            fragment = null;
+            return;
+        }
+        InventoryFragment inventoryFragment = new InventoryFragment();
+        ArrayList<Goods> goodsList = new ArrayList<>();
+        for (int i = 0; i < 142; i++) {
+            Equipment equipment = new Equipment(0, 1, getString(R.string.weapon_qlyyd), R.drawable.pic_2300070_l,
+                    getString(R.string.weapon_qlyyd_description_examples), 70, 5, 80, 0, 0, 0, 0);
+            goodsList.add(equipment);
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            inventoryFragment.setEnterTransition(new Slide(Gravity.TOP));
+            inventoryFragment.setExitTransition(new Slide(Gravity.TOP));
+        }
+        inventoryFragment.setGoodsList(goodsList);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.add(R.id.fl_float, inventoryFragment);
+        ft.commit();
+
+        fragment = inventoryFragment;
     }
 
     public void openQuest(View view) {

@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import java.util.List;
 
 import cn.igame.sanguoheros.R;
 import cn.igame.sanguoheros.model.Goods;
+import cn.igame.sanguoheros.ui.HomeActivity;
 import cn.igame.sanguoheros.ui.MainActivity;
 
 /**
@@ -52,7 +54,7 @@ public class InventoryFragment extends Fragment {
 
         //定义最大行数,列数
         maxLineCount = 7;
-        spanCount = 5;
+        spanCount = 6;
     }
 
     @Nullable
@@ -60,98 +62,11 @@ public class InventoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_inventory, container, false);
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
 
-        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(),
-                spanCount, GridLayoutManager.VERTICAL, false) {
-
-            //让RecyclerView宽高适应内容
-            @Override
-            public void onMeasure(RecyclerView.Recycler recycler, RecyclerView.State state,
-                                  int widthSpec, int heightSpec) {
-                final int widthMode = View.MeasureSpec.getMode(widthSpec);
-                final int heightMode = View.MeasureSpec.getMode(heightSpec);
-                final int widthSize = View.MeasureSpec.getSize(widthSpec);
-                final int heightSize = View.MeasureSpec.getSize(heightSpec);
-
-                int width;
-                int height;
-
-                int childWith = 0;
-                int childHeight = 0;
-                if(recycler.getScrapList().size() > 0) {
-                    View itemView = recycler.getViewForPosition(0);
-                    if (itemView != null) {
-                        int spec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
-                        itemView.measure(spec, spec);
-                        childWith = itemView.getMeasuredWidth();
-                        childHeight = itemView.getMeasuredHeight();
-                    }
-                }
-
-                switch (widthMode) {
-                    case View.MeasureSpec.EXACTLY:
-                        width = widthSize;
-                        break;
-                    case View.MeasureSpec.AT_MOST:
-                    case View.MeasureSpec.UNSPECIFIED:
-                    default:
-                        width = childWith * getSpanCount() + gapSpace * (getSpanCount() + 1)
-                                + getPaddingLeft() + getPaddingRight();
-                        break;
-                }
-
-                switch (heightMode) {
-                    case View.MeasureSpec.EXACTLY:
-                        height = heightSize;
-                        break;
-                    case View.MeasureSpec.AT_MOST:
-                    case View.MeasureSpec.UNSPECIFIED:
-                    default:
-                        int line = getItemCount() / getSpanCount() + (getItemCount() % getSpanCount() == 0 ? 0 : 1);
-                        int maxLine = (heightSize - getPaddingTop() - getPaddingBottom() + gapSpace) / (childHeight + gapSpace);
-                        maxLine = maxLineCount == 0 ? maxLine : maxLineCount;
-                        line = line > maxLine ? maxLine : line;
-                        height = childHeight * line + gapSpace * (line + 1)
-                                + getPaddingBottom() + getPaddingTop();
-                        break;
-                }
-
-                setMeasuredDimension(width, height);
-            }
-        };
+        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), spanCount, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
-            @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                super.getItemOffsets(outRect, view, parent, state);
-
-                int position = parent.getChildAdapterPosition(view); // item position
-                GridLayoutManager layoutManager = (GridLayoutManager) parent.getLayoutManager();
-                int spanCount = layoutManager.getSpanCount();
-                int column = position % spanCount; // item column
-
-                //由于默认情况下，RecyclerView会把多余的宽度平均分配到每个item的后面
-                if (showEdgeSpace) {
-                    //所以在最左边加一个间距，间距的空间从每个item后面的间距中抽取
-                    outRect.left = gapSpace - column * gapSpace / spanCount;
-                    outRect.right = (column + 1) * gapSpace / spanCount;
-
-                    if (position < spanCount) { // top edge
-                        outRect.top = gapSpace;
-                    }
-                    outRect.bottom = gapSpace; // item bottom
-                } else {
-                    //所以把最右边的间距去掉，间距的空间分配到每个item后面
-                    outRect.left = column * gapSpace / spanCount;
-                    outRect.right = gapSpace - (column + 1) * gapSpace / spanCount;
-                    if (position >= spanCount) {
-                        outRect.top = gapSpace; // item top
-                    }
-                }
-            }
-        });
         recyclerView.setAdapter(new RecyclerView.Adapter<ViewHolder>() {
 
             @Override
@@ -178,8 +93,8 @@ public class InventoryFragment extends Fragment {
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(getActivity() != null){
-                            ((MainActivity)getActivity()).showGoodsDetail(goods);
+                        if (getActivity() != null) {
+                            ((MainActivity) getActivity()).showGoodsDetail(goods);
                         }
                     }
                 });
@@ -200,7 +115,7 @@ public class InventoryFragment extends Fragment {
 
     }
 
-    public void setGoodsList(List<Goods> goodsList){
+    public void setGoodsList(List<Goods> goodsList) {
         this.goodsList.clear();
         this.goodsList.addAll(goodsList);
     }
@@ -211,8 +126,8 @@ public class InventoryFragment extends Fragment {
 
         public ViewHolder(View view) {
             super(view);
-            imageView = (ImageView) view.findViewById(R.id.imageView);
-            amountView = (TextView) view.findViewById(R.id.textView);
+            imageView = view.findViewById(R.id.imageView);
+            amountView = view.findViewById(R.id.textView);
         }
     }
 }
