@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/ui_theme_stdframe_bitmap"
+        android:orientation="horizontal"
+        android:padding="@dimen/boxshape_margin" >
+
+        <TextView
+            style="@style/textWithIcon"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ui_icon_map"
+            android:text="@string/menu_button_worldmap"
+            android:textSize="@dimen/titletext" />
+        
+        <Button
+            android:id="@+id/displayworldmap_recenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_recenter" />
+
+        <Button
+            android:id="@+id/displayworldmap_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_close" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/ui_theme_stdframe_bitmap"
+        android:orientation="vertical"
+        >
+
+        <WebView
+            android:id="@+id/displayworldmap_webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/ui_theme_displayworldmap_bg_color"
+            />
+    </LinearLayout>
+
+</LinearLayout>

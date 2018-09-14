@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <include layout="@layout/title_bg_layout" />
+
+    <TextView
+        android:id="@+id/startscreen_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="@android:string/unknownName" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <!-- android:background="@layout/title_bg_layout" -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/startscreen_dev_version"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="15dp"
+                android:background="#FFFFFFFF"
+                android:gravity="center_horizontal"
+                android:textColor="#880000"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/startscreen_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+            <!-- <include layout="@layout/startscreen_mainmenu" />
+        </FrameLayout> -->
+        
+    </LinearLayout>
+
+</RelativeLayout>

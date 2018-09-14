@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:padding="@dimen/dialog_margin"
+	android:orientation="vertical"
+	>
+
+	<TextView
+		android:id="@+id/loadsave_title"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/loadsave_title_save"
+		style="@style/titleWithIcon"
+		android:gravity="center"
+		android:background="?attr/ui_theme_richframe_bitmap"
+		/>
+
+	<TextView
+		android:id="@+id/loadsave_description"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/loadsave_selectslot"
+		android:textColor="?attr/ui_theme_textbutton_textcolor_color"
+		android:background="?attr/ui_theme_stdframe_bitmap"
+		/>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		style="@style/AndorsTrail_Style_StdFrame"
+		>
+		<LinearLayout
+			android:id="@+id/loadsave_slot_list"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			>
+			<Button
+				android:id="@+id/loadsave_slot_n"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@android:string/unknownName"
+				android:layout_marginTop="2dp"
+				android:layout_marginBottom="2dp"
+				/>
+		</LinearLayout>
+
+	</ScrollView>
+
+	<LinearLayout
+			android:id="@+id/loadsave_save_to_new_slot_container"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			style="@style/AndorsTrail_Style_StdFrame"
+			>
+			<Button
+				android:id="@+id/loadsave_save_to_new_slot"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/loadsave_save_to_new_slot"
+				/>
+		</LinearLayout>
+	
+	
+</LinearLayout>
