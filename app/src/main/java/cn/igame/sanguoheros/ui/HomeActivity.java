@@ -9,8 +9,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.transition.ChangeScroll;
-import android.transition.Fade;
 import android.transition.Slide;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -32,6 +30,8 @@ import cn.igame.sanguoheros.model.SystemActor;
 import cn.igame.sanguoheros.ui.fragment.EquipmentFragment;
 import cn.igame.sanguoheros.ui.fragment.GoodsDetailFragment;
 import cn.igame.sanguoheros.ui.fragment.InventoryFragment;
+import cn.igame.sanguoheros.ui.fragment.QuestFragment;
+import cn.igame.sanguoheros.ui.fragment.SkillFragment;
 
 public class HomeActivity extends AppCompatActivity {
     private WorldContext world;
@@ -39,6 +39,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private TextView logView;
     private Fragment fragment;
+    private View floatView;
     private Fragment fragment1;
     private Fragment fragment2;
 
@@ -107,12 +108,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void openLuggage(View view) {
-        if (fragment != null){
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.detach(fragment);
-            ft.commit();
-        }
-        if (fragment instanceof InventoryFragment){
+        handleFloatWindow(view);
+
+        if (fragment instanceof InventoryFragment) {
             fragment = null;
             return;
         }
@@ -136,9 +134,13 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void openQuest(View view) {
+        handleFloatWindow(view);
+        fragment = new QuestFragment();
     }
 
     public void openSkill(View view) {
+        handleFloatWindow(view);
+        fragment = new SkillFragment();
     }
 
     public void onClickSearch(View view) {
@@ -186,6 +188,23 @@ public class HomeActivity extends AppCompatActivity {
         ft.commit();
 
         fragment1 = goodsDetailFragment;
+    }
+
+    private void handleFloatWindow(View currentView){
+        if (floatView != null) {
+            floatView.setSelected(false);
+        }
+        if (floatView == currentView) {
+            floatView = null;
+        } else {
+            floatView = currentView;
+            currentView.setSelected(true);
+        }
+        if (fragment != null) {
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.detach(fragment);
+            ft.commit();
+        }
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
