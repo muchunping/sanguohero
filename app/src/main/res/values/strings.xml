@@ -17,4 +17,15 @@
     <string name="find_enemy">寻找敌人</string>
     <string name="tip_wild_find_enemy">达成100场战斗胜利将遭遇boss</string>
     <string name="exit_battle">退出战斗</string>
+    <string name="hat">头盔</string>
+    <string name="necklace">项链</string>
+    <string name="clothes">衣服</string>
+    <string name="trousers">裤子</string>
+    <string name="shoes">鞋子</string>
+    <string name="bracelet_left">左手镯</string>
+    <string name="bracelet_right">右手镯</string>
+    <string name="ring_left">左戒指</string>
+    <string name="ring_right">右戒指</string>
+    <string name="baggage">背包</string>
+    <string name="picture">图片</string>
 </resources>

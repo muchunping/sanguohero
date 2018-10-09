@@ -30,7 +30,7 @@ import cn.igame.sanguoheros.model.Player;
 import cn.igame.sanguoheros.model.Scene;
 import cn.igame.sanguoheros.model.SystemActor;
 import cn.igame.sanguoheros.ui.fragment.BattleFragment;
-import cn.igame.sanguoheros.ui.fragment.EquipmentFragment;
+import cn.igame.sanguoheros.ui.fragment.PlayerInfoFragment;
 import cn.igame.sanguoheros.ui.fragment.InventoryFragment;
 import cn.igame.sanguoheros.ui.fragment.MonsterFragment;
 import cn.igame.sanguoheros.ui.fragment.WorldMapFragment;
@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void showGoodsDetail(Goods goods) {
         if (goods instanceof Equipment) {
-            EquipmentFragment fragment = new EquipmentFragment();
+            PlayerInfoFragment fragment = new PlayerInfoFragment();
             fragment.setEquipment((Equipment) goods);
             fragment.show(getFragmentManager(), "equipment");
         }

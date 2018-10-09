@@ -26,10 +26,10 @@
             android:id="@+id/player_avatar"
             android:layout_width="56dp"
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
             android:background="@drawable/avatar_lvbu"
             android:contentDescription="@string/app_name"
-            android:scaleType="fitEnd"
+            android:onClick="openEquipment"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/pb_exp" />
 
         <ProgressBar
@@ -353,6 +353,22 @@
 
     <FrameLayout
         android:id="@+id/fl_float"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_scene" />
+    <FrameLayout
+        android:id="@+id/fl_float1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_scene" />
+    <FrameLayout
+        android:id="@+id/fl_float2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/rv_main"

@@ -29,6 +29,8 @@ import cn.igame.sanguoheros.model.Equipment;
 import cn.igame.sanguoheros.model.Goods;
 import cn.igame.sanguoheros.model.Scene;
 import cn.igame.sanguoheros.model.SystemActor;
+import cn.igame.sanguoheros.ui.fragment.EquipmentFragment;
+import cn.igame.sanguoheros.ui.fragment.GoodsDetailFragment;
 import cn.igame.sanguoheros.ui.fragment.InventoryFragment;
 
 public class HomeActivity extends AppCompatActivity {
@@ -37,6 +39,8 @@ public class HomeActivity extends AppCompatActivity {
 
     private TextView logView;
     private Fragment fragment;
+    private Fragment fragment1;
+    private Fragment fragment2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,6 +143,49 @@ public class HomeActivity extends AppCompatActivity {
 
     public void onClickSearch(View view) {
 
+    }
+
+    public void openEquipment(View view) {
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        if (fragment != null){
+            ft.detach(fragment);
+            ft.commit();
+        }
+        if (fragment instanceof EquipmentFragment){
+            fragment = null;
+            return;
+        }
+        EquipmentFragment equipmentFragment = new EquipmentFragment();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            equipmentFragment.setEnterTransition(new Slide(Gravity.TOP));
+            equipmentFragment.setExitTransition(new Slide(Gravity.TOP));
+        }
+        ft.add(R.id.fl_float, equipmentFragment);
+        ft.commit();
+
+        fragment = equipmentFragment;
+    }
+
+    public void showGoodsDetail(Goods goods){
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        if (fragment1 != null){
+            ft.detach(fragment1);
+            ft.commit();
+        }
+        if (fragment1 instanceof GoodsDetailFragment){
+            fragment1 = null;
+            return;
+        }
+        GoodsDetailFragment goodsDetailFragment = new GoodsDetailFragment();
+        goodsDetailFragment.setGoods(goods);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            goodsDetailFragment.setEnterTransition(new Slide(Gravity.TOP));
+            goodsDetailFragment.setExitTransition(new Slide(Gravity.TOP));
+        }
+        ft.add(R.id.fl_float1, goodsDetailFragment);
+        ft.commit();
+
+        fragment1 = goodsDetailFragment;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/colorWindowBackground"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/hatView"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg_button"
+        android:contentDescription="@string/hat" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.64" />
+
+    <ImageView
+        android:id="@+id/necklaceView"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/hatView"
+        app:layout_constraintTop_toBottomOf="@+id/hatView"
+        app:srcCompat="@drawable/bg_button"
+        android:contentDescription="@string/necklace" />
+
+    <ImageView
+        android:id="@+id/clothesView"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/hatView"
+        app:layout_constraintTop_toBottomOf="@+id/necklaceView"
+        app:srcCompat="@drawable/bg_button"
+        android:contentDescription="@string/clothes" />
+
+    <ImageView
+        android:id="@+id/trousersView"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/hatView"
+        app:layout_constraintTop_toBottomOf="@+id/clothesView"
+        app:srcCompat="@drawable/bg_button"
+        android:contentDescription="@string/trousers" />
+
+    <ImageView
+        android:id="@+id/shoesView"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/hatView"
+        app:layout_constraintTop_toBottomOf="@+id/trousersView"
+        app:srcCompat="@drawable/bg_button"
+        android:contentDescription="@string/shoes" />
+
+    <ImageView
+        android:id="@+id/leftBraceletView"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/necklaceView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/necklaceView"
+        app:srcCompat="@drawable/bg_button"
+        android:contentDescription="@string/bracelet_left" />
+
+    <ImageView
+        android:id="@+id/rightBraceletView"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toEndOf="@+id/necklaceView"
+        app:layout_constraintTop_toTopOf="@+id/necklaceView"
+        app:srcCompat="@drawable/bg_button"
+        android:contentDescription="@string/bracelet_right" />
+
+    <ImageView
+        android:id="@+id/leftRingView"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/leftBraceletView"
+        app:layout_constraintStart_toStartOf="@+id/leftBraceletView"
+        app:layout_constraintTop_toBottomOf="@+id/leftBraceletView"
+        app:srcCompat="@drawable/bg_button"
+        android:contentDescription="@string/ring_left" />
+
+    <ImageView
+        android:id="@+id/rightRingView"
+        android:layout_width="@dimen/px_108"
+        android:layout_height="@dimen/px_108"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/rightBraceletView"
+        app:layout_constraintStart_toStartOf="@+id/rightBraceletView"
+        app:layout_constraintTop_toBottomOf="@+id/rightBraceletView"
+        app:srcCompat="@drawable/bg_button"
+        android:contentDescription="@string/ring_right" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_ui_frame"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

@@ -15,7 +15,7 @@
 
     <color name="equipment_quality_0">#7F7F80</color>
     <color name="equipment_quality_1">#FFFFFF</color>
-    <color name="equipment_quality_2">#007FFF</color>
+    <color name="equipment_quality_2">#007fff</color>
     <color name="equipment_quality_3">#0000FF</color>
     <color name="equipment_quality_4">#FFFF00</color>
     <color name="equipment_quality_5">#45FF00</color>

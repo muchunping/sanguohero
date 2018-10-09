@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_light">
+    android:background="@color/colorWindowBackground">
 
     <TextView
         android:id="@+id/tv_title"
@@ -11,7 +11,7 @@
         android:layout_height="45dp"
         android:background="@drawable/bg_ui_frame"
         android:gravity="center"
-        android:text="背包"
+        android:text="@string/baggage"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

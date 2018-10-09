@@ -94,7 +94,7 @@ public class InventoryFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         if (getActivity() != null) {
-                            ((MainActivity) getActivity()).showGoodsDetail(goods);
+                            ((HomeActivity) getActivity()).showGoodsDetail(goods);
                         }
                     }
                 });

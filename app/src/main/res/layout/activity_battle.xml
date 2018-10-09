@@ -16,99 +16,99 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/necklaceView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintBottom_toTopOf="@+id/shoesView"
+        app:layout_constraintEnd_toStartOf="@+id/clothesView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/clothesView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintStart_toEndOf="@+id/imageView1"
+        app:layout_constraintBottom_toTopOf="@+id/leftBraceletView"
+        app:layout_constraintEnd_toStartOf="@+id/trousersView"
+        app:layout_constraintStart_toEndOf="@+id/necklaceView"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/trousersView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/imageView6"
+        app:layout_constraintBottom_toTopOf="@+id/rightBraceletView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/clothesView"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/shoesView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/imageView7"
-        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:layout_constraintBottom_toTopOf="@+id/leftRingView"
+        app:layout_constraintEnd_toStartOf="@+id/leftBraceletView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView1"
+        app:layout_constraintTop_toBottomOf="@+id/necklaceView"
         app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/leftBraceletView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/imageView8"
-        app:layout_constraintEnd_toStartOf="@+id/imageView6"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintBottom_toTopOf="@+id/rightRingView"
+        app:layout_constraintEnd_toStartOf="@+id/rightBraceletView"
+        app:layout_constraintStart_toEndOf="@+id/shoesView"
+        app:layout_constraintTop_toBottomOf="@+id/clothesView"
         app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/rightBraceletView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/leftBraceletView"
+        app:layout_constraintTop_toBottomOf="@+id/trousersView"
         app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/leftRingView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toStartOf="@+id/imageView8"
+        app:layout_constraintEnd_toStartOf="@+id/rightRingView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/shoesView"
         app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/rightRingView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toStartOf="@+id/imageView9"
-        app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintStart_toEndOf="@+id/leftRingView"
+        app:layout_constraintTop_toBottomOf="@+id/leftBraceletView"
         app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
     <ImageView
@@ -119,8 +119,8 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/rightRingView"
+        app:layout_constraintTop_toBottomOf="@+id/rightBraceletView"
         app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
     <ImageView

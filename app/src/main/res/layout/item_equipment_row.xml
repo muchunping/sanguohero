@@ -27,7 +27,7 @@
         android:textSize="@dimen/font_size_24px" />
 
     <TextView
-        android:id="@+id/descriptionView"
+        android:id="@+id/suitView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/nameView"
@@ -40,7 +40,7 @@
         android:id="@+id/fieldView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/descriptionView"
+        android:layout_below="@id/suitView"
         android:layout_marginTop="@dimen/px_20"
         android:textColor="@color/equipment_quality_2"
         android:textSize="@dimen/font_size_24px"
