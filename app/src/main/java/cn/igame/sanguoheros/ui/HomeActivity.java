@@ -1,5 +1,6 @@
 package cn.igame.sanguoheros.ui;
 
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.graphics.Rect;
@@ -148,11 +149,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void openEquipment(View view) {
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        if (fragment != null){
-            ft.detach(fragment);
-            ft.commit();
-        }
+        handleFloatWindow(view);
+
         if (fragment instanceof EquipmentFragment){
             fragment = null;
             return;
@@ -162,6 +160,7 @@ public class HomeActivity extends AppCompatActivity {
             equipmentFragment.setEnterTransition(new Slide(Gravity.TOP));
             equipmentFragment.setExitTransition(new Slide(Gravity.TOP));
         }
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.add(R.id.fl_float, equipmentFragment);
         ft.commit();
 
@@ -170,24 +169,20 @@ public class HomeActivity extends AppCompatActivity {
 
     public void showGoodsDetail(Goods goods){
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        if (fragment1 != null){
-            ft.detach(fragment1);
+        GoodsDetailFragment detailFragment = (GoodsDetailFragment) getFragmentManager().findFragmentByTag("fragment_detail");
+        if ( detailFragment== null){
+            detailFragment = new GoodsDetailFragment();
+            ft.add(detailFragment, "fragment_detail");
             ft.commit();
         }
-        if (fragment1 instanceof GoodsDetailFragment){
-            fragment1 = null;
-            return;
-        }
-        GoodsDetailFragment goodsDetailFragment = new GoodsDetailFragment();
-        goodsDetailFragment.setGoods(goods);
+        detailFragment.setGoods(goods);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            goodsDetailFragment.setEnterTransition(new Slide(Gravity.TOP));
-            goodsDetailFragment.setExitTransition(new Slide(Gravity.TOP));
+            detailFragment.setEnterTransition(new Slide(Gravity.TOP));
+            detailFragment.setExitTransition(new Slide(Gravity.TOP));
         }
-        ft.add(R.id.fl_float1, goodsDetailFragment);
-        ft.commit();
-
-        fragment1 = goodsDetailFragment;
+        DialogFragment fragment = new DialogFragment();
+        ft = getFragmentManager().beginTransaction();
+        fragment.show(ft, "fragment_detail");
     }
 
     private void handleFloatWindow(View currentView){
